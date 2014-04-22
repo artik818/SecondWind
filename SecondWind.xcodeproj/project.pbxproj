@@ -1,0 +1,476 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AC5AA2A91906AE670084BAA5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC5AA2A81906AE670084BAA5 /* Foundation.framework */; };
+		AC5AA2AB1906AE670084BAA5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC5AA2AA1906AE670084BAA5 /* CoreGraphics.framework */; };
+		AC5AA2AD1906AE670084BAA5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC5AA2AC1906AE670084BAA5 /* UIKit.framework */; };
+		AC5AA2B31906AE670084BAA5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AC5AA2B11906AE670084BAA5 /* InfoPlist.strings */; };
+		AC5AA2B51906AE670084BAA5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AC5AA2B41906AE670084BAA5 /* main.m */; };
+		AC5AA2B91906AE670084BAA5 /* SWAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AC5AA2B81906AE670084BAA5 /* SWAppDelegate.m */; };
+		AC5AA2BC1906AE670084BAA5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC5AA2BA1906AE670084BAA5 /* Main.storyboard */; };
+		AC5AA2BF1906AE670084BAA5 /* SWViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC5AA2BE1906AE670084BAA5 /* SWViewController.m */; };
+		AC5AA2C11906AE670084BAA5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC5AA2C01906AE670084BAA5 /* Images.xcassets */; };
+		AC5AA2C81906AE680084BAA5 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC5AA2C71906AE680084BAA5 /* XCTest.framework */; };
+		AC5AA2C91906AE680084BAA5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC5AA2A81906AE670084BAA5 /* Foundation.framework */; };
+		AC5AA2CA1906AE680084BAA5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC5AA2AC1906AE670084BAA5 /* UIKit.framework */; };
+		AC5AA2D21906AE680084BAA5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AC5AA2D01906AE680084BAA5 /* InfoPlist.strings */; };
+		AC5AA2D41906AE680084BAA5 /* SecondWindTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AC5AA2D31906AE680084BAA5 /* SecondWindTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		AC5AA2CB1906AE680084BAA5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AC5AA29D1906AE670084BAA5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AC5AA2A41906AE670084BAA5;
+			remoteInfo = SecondWind;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		AC5AA2A51906AE670084BAA5 /* SecondWind.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SecondWind.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC5AA2A81906AE670084BAA5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		AC5AA2AA1906AE670084BAA5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		AC5AA2AC1906AE670084BAA5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		AC5AA2B01906AE670084BAA5 /* SecondWind-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SecondWind-Info.plist"; sourceTree = "<group>"; };
+		AC5AA2B21906AE670084BAA5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		AC5AA2B41906AE670084BAA5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		AC5AA2B61906AE670084BAA5 /* SecondWind-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SecondWind-Prefix.pch"; sourceTree = "<group>"; };
+		AC5AA2B71906AE670084BAA5 /* SWAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SWAppDelegate.h; sourceTree = "<group>"; };
+		AC5AA2B81906AE670084BAA5 /* SWAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SWAppDelegate.m; sourceTree = "<group>"; };
+		AC5AA2BB1906AE670084BAA5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		AC5AA2BD1906AE670084BAA5 /* SWViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SWViewController.h; sourceTree = "<group>"; };
+		AC5AA2BE1906AE670084BAA5 /* SWViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SWViewController.m; sourceTree = "<group>"; };
+		AC5AA2C01906AE670084BAA5 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		AC5AA2C61906AE680084BAA5 /* SecondWindTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SecondWindTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC5AA2C71906AE680084BAA5 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		AC5AA2CF1906AE680084BAA5 /* SecondWindTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SecondWindTests-Info.plist"; sourceTree = "<group>"; };
+		AC5AA2D11906AE680084BAA5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		AC5AA2D31906AE680084BAA5 /* SecondWindTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondWindTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AC5AA2A21906AE670084BAA5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AC5AA2AB1906AE670084BAA5 /* CoreGraphics.framework in Frameworks */,
+				AC5AA2AD1906AE670084BAA5 /* UIKit.framework in Frameworks */,
+				AC5AA2A91906AE670084BAA5 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AC5AA2C31906AE680084BAA5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AC5AA2C81906AE680084BAA5 /* XCTest.framework in Frameworks */,
+				AC5AA2CA1906AE680084BAA5 /* UIKit.framework in Frameworks */,
+				AC5AA2C91906AE680084BAA5 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AC5AA29C1906AE670084BAA5 = {
+			isa = PBXGroup;
+			children = (
+				AC5AA2AE1906AE670084BAA5 /* SecondWind */,
+				AC5AA2CD1906AE680084BAA5 /* SecondWindTests */,
+				AC5AA2A71906AE670084BAA5 /* Frameworks */,
+				AC5AA2A61906AE670084BAA5 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AC5AA2A61906AE670084BAA5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AC5AA2A51906AE670084BAA5 /* SecondWind.app */,
+				AC5AA2C61906AE680084BAA5 /* SecondWindTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AC5AA2A71906AE670084BAA5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AC5AA2A81906AE670084BAA5 /* Foundation.framework */,
+				AC5AA2AA1906AE670084BAA5 /* CoreGraphics.framework */,
+				AC5AA2AC1906AE670084BAA5 /* UIKit.framework */,
+				AC5AA2C71906AE680084BAA5 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AC5AA2AE1906AE670084BAA5 /* SecondWind */ = {
+			isa = PBXGroup;
+			children = (
+				AC5AA2B71906AE670084BAA5 /* SWAppDelegate.h */,
+				AC5AA2B81906AE670084BAA5 /* SWAppDelegate.m */,
+				AC5AA2BA1906AE670084BAA5 /* Main.storyboard */,
+				AC5AA2BD1906AE670084BAA5 /* SWViewController.h */,
+				AC5AA2BE1906AE670084BAA5 /* SWViewController.m */,
+				AC5AA2C01906AE670084BAA5 /* Images.xcassets */,
+				AC5AA2AF1906AE670084BAA5 /* Supporting Files */,
+			);
+			path = SecondWind;
+			sourceTree = "<group>";
+		};
+		AC5AA2AF1906AE670084BAA5 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				AC5AA2B01906AE670084BAA5 /* SecondWind-Info.plist */,
+				AC5AA2B11906AE670084BAA5 /* InfoPlist.strings */,
+				AC5AA2B41906AE670084BAA5 /* main.m */,
+				AC5AA2B61906AE670084BAA5 /* SecondWind-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		AC5AA2CD1906AE680084BAA5 /* SecondWindTests */ = {
+			isa = PBXGroup;
+			children = (
+				AC5AA2D31906AE680084BAA5 /* SecondWindTests.m */,
+				AC5AA2CE1906AE680084BAA5 /* Supporting Files */,
+			);
+			path = SecondWindTests;
+			sourceTree = "<group>";
+		};
+		AC5AA2CE1906AE680084BAA5 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				AC5AA2CF1906AE680084BAA5 /* SecondWindTests-Info.plist */,
+				AC5AA2D01906AE680084BAA5 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AC5AA2A41906AE670084BAA5 /* SecondWind */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AC5AA2D71906AE680084BAA5 /* Build configuration list for PBXNativeTarget "SecondWind" */;
+			buildPhases = (
+				AC5AA2A11906AE670084BAA5 /* Sources */,
+				AC5AA2A21906AE670084BAA5 /* Frameworks */,
+				AC5AA2A31906AE670084BAA5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SecondWind;
+			productName = SecondWind;
+			productReference = AC5AA2A51906AE670084BAA5 /* SecondWind.app */;
+			productType = "com.apple.product-type.application";
+		};
+		AC5AA2C51906AE680084BAA5 /* SecondWindTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AC5AA2DA1906AE680084BAA5 /* Build configuration list for PBXNativeTarget "SecondWindTests" */;
+			buildPhases = (
+				AC5AA2C21906AE680084BAA5 /* Sources */,
+				AC5AA2C31906AE680084BAA5 /* Frameworks */,
+				AC5AA2C41906AE680084BAA5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AC5AA2CC1906AE680084BAA5 /* PBXTargetDependency */,
+			);
+			name = SecondWindTests;
+			productName = SecondWindTests;
+			productReference = AC5AA2C61906AE680084BAA5 /* SecondWindTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AC5AA29D1906AE670084BAA5 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = SW;
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = Artem;
+				TargetAttributes = {
+					AC5AA2C51906AE680084BAA5 = {
+						TestTargetID = AC5AA2A41906AE670084BAA5;
+					};
+				};
+			};
+			buildConfigurationList = AC5AA2A01906AE670084BAA5 /* Build configuration list for PBXProject "SecondWind" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = AC5AA29C1906AE670084BAA5;
+			productRefGroup = AC5AA2A61906AE670084BAA5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AC5AA2A41906AE670084BAA5 /* SecondWind */,
+				AC5AA2C51906AE680084BAA5 /* SecondWindTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AC5AA2A31906AE670084BAA5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AC5AA2C11906AE670084BAA5 /* Images.xcassets in Resources */,
+				AC5AA2B31906AE670084BAA5 /* InfoPlist.strings in Resources */,
+				AC5AA2BC1906AE670084BAA5 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AC5AA2C41906AE680084BAA5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AC5AA2D21906AE680084BAA5 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AC5AA2A11906AE670084BAA5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AC5AA2BF1906AE670084BAA5 /* SWViewController.m in Sources */,
+				AC5AA2B91906AE670084BAA5 /* SWAppDelegate.m in Sources */,
+				AC5AA2B51906AE670084BAA5 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AC5AA2C21906AE680084BAA5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AC5AA2D41906AE680084BAA5 /* SecondWindTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AC5AA2CC1906AE680084BAA5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AC5AA2A41906AE670084BAA5 /* SecondWind */;
+			targetProxy = AC5AA2CB1906AE680084BAA5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		AC5AA2B11906AE670084BAA5 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AC5AA2B21906AE670084BAA5 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		AC5AA2BA1906AE670084BAA5 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AC5AA2BB1906AE670084BAA5 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		AC5AA2D01906AE680084BAA5 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AC5AA2D11906AE680084BAA5 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		AC5AA2D51906AE680084BAA5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		AC5AA2D61906AE680084BAA5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AC5AA2D81906AE680084BAA5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SecondWind/SecondWind-Prefix.pch";
+				INFOPLIST_FILE = "SecondWind/SecondWind-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		AC5AA2D91906AE680084BAA5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SecondWind/SecondWind-Prefix.pch";
+				INFOPLIST_FILE = "SecondWind/SecondWind-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		AC5AA2DB1906AE680084BAA5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SecondWind.app/SecondWind";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SecondWind/SecondWind-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "SecondWindTests/SecondWindTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		AC5AA2DC1906AE680084BAA5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SecondWind.app/SecondWind";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SecondWind/SecondWind-Prefix.pch";
+				INFOPLIST_FILE = "SecondWindTests/SecondWindTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AC5AA2A01906AE670084BAA5 /* Build configuration list for PBXProject "SecondWind" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AC5AA2D51906AE680084BAA5 /* Debug */,
+				AC5AA2D61906AE680084BAA5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AC5AA2D71906AE680084BAA5 /* Build configuration list for PBXNativeTarget "SecondWind" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AC5AA2D81906AE680084BAA5 /* Debug */,
+				AC5AA2D91906AE680084BAA5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		AC5AA2DA1906AE680084BAA5 /* Build configuration list for PBXNativeTarget "SecondWindTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AC5AA2DB1906AE680084BAA5 /* Debug */,
+				AC5AA2DC1906AE680084BAA5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AC5AA29D1906AE670084BAA5 /* Project object */;
+}
