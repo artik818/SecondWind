@@ -1,0 +1,39 @@
+
+/* Class = "IBUITabBarItem"; title = "Albums"; ObjectID = "16w-Yv-zn6"; */
+"16w-Yv-zn6.title" = "Albums";
+
+/* Class = "IBUILabel"; text = "Label"; ObjectID = "5VJ-P8-KKh"; */
+"5VJ-P8-KKh.text" = "Label";
+
+/* Class = "IBUITabBarItem"; title = "Albums"; ObjectID = "6we-CM-2NC"; */
+"6we-CM-2NC.title" = "Albums";
+
+/* Class = "IBUILabel"; text = "Label"; ObjectID = "NzF-ts-JJK"; */
+"NzF-ts-JJK.text" = "Label";
+
+/* Class = "IBUITabBarItem"; title = "Tracks"; ObjectID = "Pcm-rE-sYQ"; */
+"Pcm-rE-sYQ.title" = "Tracks";
+
+/* Class = "IBUITabBarItem"; title = "Artists"; ObjectID = "S8U-II-Noy"; */
+"S8U-II-Noy.title" = "Artists";
+
+/* Class = "IBUITabBarItem"; title = "Playlists"; ObjectID = "Upo-TY-fwP"; */
+"Upo-TY-fwP.title" = "Playlists";
+
+/* Class = "IBUITabBarItem"; title = "Hints"; ObjectID = "e2m-Ki-dCz"; */
+"e2m-Ki-dCz.title" = "Hints";
+
+/* Class = "IBUITabBarItem"; title = "Artists"; ObjectID = "eyX-nK-ggI"; */
+"eyX-nK-ggI.title" = "Artists";
+
+/* Class = "IBUITabBarItem"; title = "Tracks"; ObjectID = "fpC-gq-4he"; */
+"fpC-gq-4he.title" = "Tracks";
+
+/* Class = "IBUITabBarItem"; title = "Playlists"; ObjectID = "rvF-R1-yII"; */
+"rvF-R1-yII.title" = "Playlists";
+
+/* Class = "IBUILabel"; text = "Label"; ObjectID = "uC1-vq-D7h"; */
+"uC1-vq-D7h.text" = "Label";
+
+/* Class = "IBUITabBarItem"; title = "Hints"; ObjectID = "yfR-pZ-5Ur"; */
+"yfR-pZ-5Ur.title" = "Hints";

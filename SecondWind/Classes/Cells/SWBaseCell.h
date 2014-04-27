@@ -1,13 +1,13 @@
 //
-//  SWViewController.h
+//  SWBaseCell.h
 //  SecondWind
 //
-//  Created by Artem on 4/22/14.
+//  Created by Momus on 27.04.14.
 //  Copyright (c) 2014 Artem. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface SWViewController : UIViewController
+@interface SWBaseCell : UICollectionViewCell
 
 @end

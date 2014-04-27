@@ -7,6 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		84B0AA5E190D32BA00ADCEE2 /* SWMainTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B0AA5D190D32BA00ADCEE2 /* SWMainTabBarViewController.m */; };
+		84B0AA62190D350B00ADCEE2 /* SWDisclaimerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B0AA61190D350B00ADCEE2 /* SWDisclaimerViewController.m */; };
+		84B0AA66190D3EB600ADCEE2 /* SWTracksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B0AA65190D3EB600ADCEE2 /* SWTracksViewController.m */; };
+		84B0AA69190D3EC700ADCEE2 /* SWPlaylistsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B0AA68190D3EC700ADCEE2 /* SWPlaylistsViewController.m */; };
+		84B0AA6C190D3ED100ADCEE2 /* SWHintsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B0AA6B190D3ED100ADCEE2 /* SWHintsViewController.m */; };
+		84B0AA6F190D3EDE00ADCEE2 /* SWAlbumsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B0AA6E190D3EDE00ADCEE2 /* SWAlbumsViewController.m */; };
+		84B0AA72190D3EEA00ADCEE2 /* SWArtistsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B0AA71190D3EEA00ADCEE2 /* SWArtistsViewController.m */; };
+		84B0AA78190D3F4100ADCEE2 /* SWGlobalDataSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B0AA77190D3F4100ADCEE2 /* SWGlobalDataSingleton.m */; };
+		84B0AA7B190D3F5300ADCEE2 /* SWMediaLibraryProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B0AA7A190D3F5300ADCEE2 /* SWMediaLibraryProvider.m */; };
+		84B0AA82190D43BB00ADCEE2 /* SWTopTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B0AA81190D43BB00ADCEE2 /* SWTopTabBar.m */; };
+		84B0AA86190D48C200ADCEE2 /* SWTrackCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B0AA85190D48C200ADCEE2 /* SWTrackCell.m */; };
+		84B0AA8B190D4CFA00ADCEE2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 84B0AA8D190D4CFA00ADCEE2 /* Localizable.strings */; };
+		84B0AA95190D511A00ADCEE2 /* SWBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B0AA94190D511A00ADCEE2 /* SWBaseCell.m */; };
+		84B0AA98190D51DC00ADCEE2 /* SWHintCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B0AA97190D51DC00ADCEE2 /* SWHintCell.m */; };
 		AC5AA2A91906AE670084BAA5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC5AA2A81906AE670084BAA5 /* Foundation.framework */; };
 		AC5AA2AB1906AE670084BAA5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC5AA2AA1906AE670084BAA5 /* CoreGraphics.framework */; };
 		AC5AA2AD1906AE670084BAA5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC5AA2AC1906AE670084BAA5 /* UIKit.framework */; };
@@ -14,26 +28,42 @@
 		AC5AA2B51906AE670084BAA5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AC5AA2B41906AE670084BAA5 /* main.m */; };
 		AC5AA2B91906AE670084BAA5 /* SWAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AC5AA2B81906AE670084BAA5 /* SWAppDelegate.m */; };
 		AC5AA2BC1906AE670084BAA5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC5AA2BA1906AE670084BAA5 /* Main.storyboard */; };
-		AC5AA2BF1906AE670084BAA5 /* SWViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC5AA2BE1906AE670084BAA5 /* SWViewController.m */; };
 		AC5AA2C11906AE670084BAA5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC5AA2C01906AE670084BAA5 /* Images.xcassets */; };
-		AC5AA2C81906AE680084BAA5 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC5AA2C71906AE680084BAA5 /* XCTest.framework */; };
-		AC5AA2C91906AE680084BAA5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC5AA2A81906AE670084BAA5 /* Foundation.framework */; };
-		AC5AA2CA1906AE680084BAA5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC5AA2AC1906AE670084BAA5 /* UIKit.framework */; };
-		AC5AA2D21906AE680084BAA5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AC5AA2D01906AE680084BAA5 /* InfoPlist.strings */; };
-		AC5AA2D41906AE680084BAA5 /* SecondWindTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AC5AA2D31906AE680084BAA5 /* SecondWindTests.m */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		AC5AA2CB1906AE680084BAA5 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = AC5AA29D1906AE670084BAA5 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = AC5AA2A41906AE670084BAA5;
-			remoteInfo = SecondWind;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
+		84B0AA5C190D32BA00ADCEE2 /* SWMainTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWMainTabBarViewController.h; sourceTree = "<group>"; };
+		84B0AA5D190D32BA00ADCEE2 /* SWMainTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWMainTabBarViewController.m; sourceTree = "<group>"; };
+		84B0AA60190D350B00ADCEE2 /* SWDisclaimerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWDisclaimerViewController.h; sourceTree = "<group>"; };
+		84B0AA61190D350B00ADCEE2 /* SWDisclaimerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWDisclaimerViewController.m; sourceTree = "<group>"; };
+		84B0AA64190D3EB600ADCEE2 /* SWTracksViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWTracksViewController.h; sourceTree = "<group>"; };
+		84B0AA65190D3EB600ADCEE2 /* SWTracksViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWTracksViewController.m; sourceTree = "<group>"; };
+		84B0AA67190D3EC700ADCEE2 /* SWPlaylistsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWPlaylistsViewController.h; sourceTree = "<group>"; };
+		84B0AA68190D3EC700ADCEE2 /* SWPlaylistsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWPlaylistsViewController.m; sourceTree = "<group>"; };
+		84B0AA6A190D3ED100ADCEE2 /* SWHintsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWHintsViewController.h; sourceTree = "<group>"; };
+		84B0AA6B190D3ED100ADCEE2 /* SWHintsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWHintsViewController.m; sourceTree = "<group>"; };
+		84B0AA6D190D3EDE00ADCEE2 /* SWAlbumsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWAlbumsViewController.h; sourceTree = "<group>"; };
+		84B0AA6E190D3EDE00ADCEE2 /* SWAlbumsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWAlbumsViewController.m; sourceTree = "<group>"; };
+		84B0AA70190D3EEA00ADCEE2 /* SWArtistsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWArtistsViewController.h; sourceTree = "<group>"; };
+		84B0AA71190D3EEA00ADCEE2 /* SWArtistsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWArtistsViewController.m; sourceTree = "<group>"; };
+		84B0AA76190D3F4100ADCEE2 /* SWGlobalDataSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWGlobalDataSingleton.h; sourceTree = "<group>"; };
+		84B0AA77190D3F4100ADCEE2 /* SWGlobalDataSingleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWGlobalDataSingleton.m; sourceTree = "<group>"; };
+		84B0AA79190D3F5300ADCEE2 /* SWMediaLibraryProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWMediaLibraryProvider.h; sourceTree = "<group>"; };
+		84B0AA7A190D3F5300ADCEE2 /* SWMediaLibraryProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWMediaLibraryProvider.m; sourceTree = "<group>"; };
+		84B0AA80190D43BB00ADCEE2 /* SWTopTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWTopTabBar.h; sourceTree = "<group>"; };
+		84B0AA81190D43BB00ADCEE2 /* SWTopTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWTopTabBar.m; sourceTree = "<group>"; };
+		84B0AA84190D48C200ADCEE2 /* SWTrackCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWTrackCell.h; sourceTree = "<group>"; };
+		84B0AA85190D48C200ADCEE2 /* SWTrackCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWTrackCell.m; sourceTree = "<group>"; };
+		84B0AA88190D4BE000ADCEE2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		84B0AA8C190D4CFA00ADCEE2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		84B0AA8E190D4D0700ADCEE2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		84B0AA8F190D4D4400ADCEE2 /* ru-RU */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "ru-RU"; path = "ru-RU.lproj/Main.strings"; sourceTree = "<group>"; };
+		84B0AA90190D4D4400ADCEE2 /* ru-RU */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "ru-RU"; path = "ru-RU.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		84B0AA91190D4D4400ADCEE2 /* ru-RU */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "ru-RU"; path = "ru-RU.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		84B0AA93190D511A00ADCEE2 /* SWBaseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWBaseCell.h; sourceTree = "<group>"; };
+		84B0AA94190D511A00ADCEE2 /* SWBaseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWBaseCell.m; sourceTree = "<group>"; };
+		84B0AA96190D51DC00ADCEE2 /* SWHintCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWHintCell.h; sourceTree = "<group>"; };
+		84B0AA97190D51DC00ADCEE2 /* SWHintCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWHintCell.m; sourceTree = "<group>"; };
 		AC5AA2A51906AE670084BAA5 /* SecondWind.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SecondWind.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC5AA2A81906AE670084BAA5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		AC5AA2AA1906AE670084BAA5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -45,14 +75,7 @@
 		AC5AA2B71906AE670084BAA5 /* SWAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SWAppDelegate.h; sourceTree = "<group>"; };
 		AC5AA2B81906AE670084BAA5 /* SWAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SWAppDelegate.m; sourceTree = "<group>"; };
 		AC5AA2BB1906AE670084BAA5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		AC5AA2BD1906AE670084BAA5 /* SWViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SWViewController.h; sourceTree = "<group>"; };
-		AC5AA2BE1906AE670084BAA5 /* SWViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SWViewController.m; sourceTree = "<group>"; };
 		AC5AA2C01906AE670084BAA5 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		AC5AA2C61906AE680084BAA5 /* SecondWindTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SecondWindTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		AC5AA2C71906AE680084BAA5 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		AC5AA2CF1906AE680084BAA5 /* SecondWindTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SecondWindTests-Info.plist"; sourceTree = "<group>"; };
-		AC5AA2D11906AE680084BAA5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		AC5AA2D31906AE680084BAA5 /* SecondWindTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondWindTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,24 +89,111 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		AC5AA2C31906AE680084BAA5 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				AC5AA2C81906AE680084BAA5 /* XCTest.framework in Frameworks */,
-				AC5AA2CA1906AE680084BAA5 /* UIKit.framework in Frameworks */,
-				AC5AA2C91906AE680084BAA5 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		84B0AA5A190D328400ADCEE2 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				84B0AA83190D48A300ADCEE2 /* Cells */,
+				84B0AA7F190D43A400ADCEE2 /* Controls */,
+				84B0AA73190D3EFF00ADCEE2 /* Helpers */,
+				84B0AA63190D3EA200ADCEE2 /* CollectionControllers */,
+				84B0AA5F190D34F200ADCEE2 /* Disclaimer */,
+				84B0AA5B190D328400ADCEE2 /* TabBarController */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		84B0AA5B190D328400ADCEE2 /* TabBarController */ = {
+			isa = PBXGroup;
+			children = (
+				84B0AA5C190D32BA00ADCEE2 /* SWMainTabBarViewController.h */,
+				84B0AA5D190D32BA00ADCEE2 /* SWMainTabBarViewController.m */,
+			);
+			name = TabBarController;
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		84B0AA5F190D34F200ADCEE2 /* Disclaimer */ = {
+			isa = PBXGroup;
+			children = (
+				84B0AA60190D350B00ADCEE2 /* SWDisclaimerViewController.h */,
+				84B0AA61190D350B00ADCEE2 /* SWDisclaimerViewController.m */,
+			);
+			path = Disclaimer;
+			sourceTree = "<group>";
+		};
+		84B0AA63190D3EA200ADCEE2 /* CollectionControllers */ = {
+			isa = PBXGroup;
+			children = (
+				84B0AA64190D3EB600ADCEE2 /* SWTracksViewController.h */,
+				84B0AA65190D3EB600ADCEE2 /* SWTracksViewController.m */,
+				84B0AA67190D3EC700ADCEE2 /* SWPlaylistsViewController.h */,
+				84B0AA68190D3EC700ADCEE2 /* SWPlaylistsViewController.m */,
+				84B0AA6A190D3ED100ADCEE2 /* SWHintsViewController.h */,
+				84B0AA6B190D3ED100ADCEE2 /* SWHintsViewController.m */,
+				84B0AA6D190D3EDE00ADCEE2 /* SWAlbumsViewController.h */,
+				84B0AA6E190D3EDE00ADCEE2 /* SWAlbumsViewController.m */,
+				84B0AA70190D3EEA00ADCEE2 /* SWArtistsViewController.h */,
+				84B0AA71190D3EEA00ADCEE2 /* SWArtistsViewController.m */,
+			);
+			path = CollectionControllers;
+			sourceTree = "<group>";
+		};
+		84B0AA73190D3EFF00ADCEE2 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				84B0AA75190D3F2B00ADCEE2 /* Singletons */,
+				84B0AA74190D3F1600ADCEE2 /* Providers */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		84B0AA74190D3F1600ADCEE2 /* Providers */ = {
+			isa = PBXGroup;
+			children = (
+				84B0AA79190D3F5300ADCEE2 /* SWMediaLibraryProvider.h */,
+				84B0AA7A190D3F5300ADCEE2 /* SWMediaLibraryProvider.m */,
+			);
+			path = Providers;
+			sourceTree = "<group>";
+		};
+		84B0AA75190D3F2B00ADCEE2 /* Singletons */ = {
+			isa = PBXGroup;
+			children = (
+				84B0AA76190D3F4100ADCEE2 /* SWGlobalDataSingleton.h */,
+				84B0AA77190D3F4100ADCEE2 /* SWGlobalDataSingleton.m */,
+			);
+			path = Singletons;
+			sourceTree = "<group>";
+		};
+		84B0AA7F190D43A400ADCEE2 /* Controls */ = {
+			isa = PBXGroup;
+			children = (
+				84B0AA80190D43BB00ADCEE2 /* SWTopTabBar.h */,
+				84B0AA81190D43BB00ADCEE2 /* SWTopTabBar.m */,
+			);
+			path = Controls;
+			sourceTree = "<group>";
+		};
+		84B0AA83190D48A300ADCEE2 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				84B0AA84190D48C200ADCEE2 /* SWTrackCell.h */,
+				84B0AA85190D48C200ADCEE2 /* SWTrackCell.m */,
+				84B0AA93190D511A00ADCEE2 /* SWBaseCell.h */,
+				84B0AA94190D511A00ADCEE2 /* SWBaseCell.m */,
+				84B0AA96190D51DC00ADCEE2 /* SWHintCell.h */,
+				84B0AA97190D51DC00ADCEE2 /* SWHintCell.m */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		AC5AA29C1906AE670084BAA5 = {
 			isa = PBXGroup;
 			children = (
 				AC5AA2AE1906AE670084BAA5 /* SecondWind */,
-				AC5AA2CD1906AE680084BAA5 /* SecondWindTests */,
 				AC5AA2A71906AE670084BAA5 /* Frameworks */,
 				AC5AA2A61906AE670084BAA5 /* Products */,
 			);
@@ -93,7 +203,6 @@
 			isa = PBXGroup;
 			children = (
 				AC5AA2A51906AE670084BAA5 /* SecondWind.app */,
-				AC5AA2C61906AE680084BAA5 /* SecondWindTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -104,7 +213,6 @@
 				AC5AA2A81906AE670084BAA5 /* Foundation.framework */,
 				AC5AA2AA1906AE670084BAA5 /* CoreGraphics.framework */,
 				AC5AA2AC1906AE670084BAA5 /* UIKit.framework */,
-				AC5AA2C71906AE680084BAA5 /* XCTest.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -112,11 +220,10 @@
 		AC5AA2AE1906AE670084BAA5 /* SecondWind */ = {
 			isa = PBXGroup;
 			children = (
+				84B0AA5A190D328400ADCEE2 /* Classes */,
 				AC5AA2B71906AE670084BAA5 /* SWAppDelegate.h */,
 				AC5AA2B81906AE670084BAA5 /* SWAppDelegate.m */,
 				AC5AA2BA1906AE670084BAA5 /* Main.storyboard */,
-				AC5AA2BD1906AE670084BAA5 /* SWViewController.h */,
-				AC5AA2BE1906AE670084BAA5 /* SWViewController.m */,
 				AC5AA2C01906AE670084BAA5 /* Images.xcassets */,
 				AC5AA2AF1906AE670084BAA5 /* Supporting Files */,
 			);
@@ -126,28 +233,11 @@
 		AC5AA2AF1906AE670084BAA5 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				84B0AA8D190D4CFA00ADCEE2 /* Localizable.strings */,
 				AC5AA2B01906AE670084BAA5 /* SecondWind-Info.plist */,
 				AC5AA2B11906AE670084BAA5 /* InfoPlist.strings */,
 				AC5AA2B41906AE670084BAA5 /* main.m */,
 				AC5AA2B61906AE670084BAA5 /* SecondWind-Prefix.pch */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		AC5AA2CD1906AE680084BAA5 /* SecondWindTests */ = {
-			isa = PBXGroup;
-			children = (
-				AC5AA2D31906AE680084BAA5 /* SecondWindTests.m */,
-				AC5AA2CE1906AE680084BAA5 /* Supporting Files */,
-			);
-			path = SecondWindTests;
-			sourceTree = "<group>";
-		};
-		AC5AA2CE1906AE680084BAA5 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				AC5AA2CF1906AE680084BAA5 /* SecondWindTests-Info.plist */,
-				AC5AA2D01906AE680084BAA5 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -172,24 +262,6 @@
 			productReference = AC5AA2A51906AE670084BAA5 /* SecondWind.app */;
 			productType = "com.apple.product-type.application";
 		};
-		AC5AA2C51906AE680084BAA5 /* SecondWindTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = AC5AA2DA1906AE680084BAA5 /* Build configuration list for PBXNativeTarget "SecondWindTests" */;
-			buildPhases = (
-				AC5AA2C21906AE680084BAA5 /* Sources */,
-				AC5AA2C31906AE680084BAA5 /* Frameworks */,
-				AC5AA2C41906AE680084BAA5 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				AC5AA2CC1906AE680084BAA5 /* PBXTargetDependency */,
-			);
-			name = SecondWindTests;
-			productName = SecondWindTests;
-			productReference = AC5AA2C61906AE680084BAA5 /* SecondWindTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -207,9 +279,6 @@
 							};
 						};
 					};
-					AC5AA2C51906AE680084BAA5 = {
-						TestTargetID = AC5AA2A41906AE670084BAA5;
-					};
 				};
 			};
 			buildConfigurationList = AC5AA2A01906AE670084BAA5 /* Build configuration list for PBXProject "SecondWind" */;
@@ -219,6 +288,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"ru-RU",
 			);
 			mainGroup = AC5AA29C1906AE670084BAA5;
 			productRefGroup = AC5AA2A61906AE670084BAA5 /* Products */;
@@ -226,7 +296,6 @@
 			projectRoot = "";
 			targets = (
 				AC5AA2A41906AE670084BAA5 /* SecondWind */,
-				AC5AA2C51906AE680084BAA5 /* SecondWindTests */,
 			);
 		};
 /* End PBXProject section */
@@ -237,16 +306,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC5AA2C11906AE670084BAA5 /* Images.xcassets in Resources */,
+				84B0AA8B190D4CFA00ADCEE2 /* Localizable.strings in Resources */,
 				AC5AA2B31906AE670084BAA5 /* InfoPlist.strings in Resources */,
 				AC5AA2BC1906AE670084BAA5 /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		AC5AA2C41906AE680084BAA5 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				AC5AA2D21906AE680084BAA5 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,35 +319,42 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AC5AA2BF1906AE670084BAA5 /* SWViewController.m in Sources */,
+				84B0AA6F190D3EDE00ADCEE2 /* SWAlbumsViewController.m in Sources */,
+				84B0AA98190D51DC00ADCEE2 /* SWHintCell.m in Sources */,
+				84B0AA82190D43BB00ADCEE2 /* SWTopTabBar.m in Sources */,
+				84B0AA72190D3EEA00ADCEE2 /* SWArtistsViewController.m in Sources */,
+				84B0AA78190D3F4100ADCEE2 /* SWGlobalDataSingleton.m in Sources */,
+				84B0AA95190D511A00ADCEE2 /* SWBaseCell.m in Sources */,
+				84B0AA7B190D3F5300ADCEE2 /* SWMediaLibraryProvider.m in Sources */,
+				84B0AA86190D48C200ADCEE2 /* SWTrackCell.m in Sources */,
+				84B0AA69190D3EC700ADCEE2 /* SWPlaylistsViewController.m in Sources */,
+				84B0AA5E190D32BA00ADCEE2 /* SWMainTabBarViewController.m in Sources */,
+				84B0AA6C190D3ED100ADCEE2 /* SWHintsViewController.m in Sources */,
+				84B0AA66190D3EB600ADCEE2 /* SWTracksViewController.m in Sources */,
+				84B0AA62190D350B00ADCEE2 /* SWDisclaimerViewController.m in Sources */,
 				AC5AA2B91906AE670084BAA5 /* SWAppDelegate.m in Sources */,
 				AC5AA2B51906AE670084BAA5 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		AC5AA2C21906AE680084BAA5 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				AC5AA2D41906AE680084BAA5 /* SecondWindTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXTargetDependency section */
-		AC5AA2CC1906AE680084BAA5 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = AC5AA2A41906AE670084BAA5 /* SecondWind */;
-			targetProxy = AC5AA2CB1906AE680084BAA5 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
 /* Begin PBXVariantGroup section */
+		84B0AA8D190D4CFA00ADCEE2 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				84B0AA8C190D4CFA00ADCEE2 /* Base */,
+				84B0AA8E190D4D0700ADCEE2 /* en */,
+				84B0AA90190D4D4400ADCEE2 /* ru-RU */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		AC5AA2B11906AE670084BAA5 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
 				AC5AA2B21906AE670084BAA5 /* en */,
+				84B0AA91190D4D4400ADCEE2 /* ru-RU */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -294,16 +363,10 @@
 			isa = PBXVariantGroup;
 			children = (
 				AC5AA2BB1906AE670084BAA5 /* Base */,
+				84B0AA88190D4BE000ADCEE2 /* en */,
+				84B0AA8F190D4D4400ADCEE2 /* ru-RU */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		AC5AA2D01906AE680084BAA5 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				AC5AA2D11906AE680084BAA5 /* en */,
-			);
-			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -409,48 +472,6 @@
 			};
 			name = Release;
 		};
-		AC5AA2DB1906AE680084BAA5 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SecondWind.app/SecondWind";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "SecondWind/SecondWind-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "SecondWindTests/SecondWindTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Debug;
-		};
-		AC5AA2DC1906AE680084BAA5 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SecondWind.app/SecondWind";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "SecondWind/SecondWind-Prefix.pch";
-				INFOPLIST_FILE = "SecondWindTests/SecondWindTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -468,15 +489,6 @@
 			buildConfigurations = (
 				AC5AA2D81906AE680084BAA5 /* Debug */,
 				AC5AA2D91906AE680084BAA5 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		AC5AA2DA1906AE680084BAA5 /* Build configuration list for PBXNativeTarget "SecondWindTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				AC5AA2DB1906AE680084BAA5 /* Debug */,
-				AC5AA2DC1906AE680084BAA5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
