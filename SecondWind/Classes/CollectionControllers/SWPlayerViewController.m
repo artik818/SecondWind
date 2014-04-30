@@ -27,6 +27,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Designated
+        [self viewDidLoad];
     }
     return self;
 }
@@ -52,7 +53,17 @@
     menuItem.type = PlayerMenuItemTypeFixed;
     [menuArray addObject:menuItem];
     
+    menuItem = [SWPlayerMenuItem new];
+    menuItem.type = PlayerMenuItemTypeFixed;
+    [menuArray addObject:menuItem];
+    
+    menuItem = [SWPlayerMenuItem new];
+    menuItem.type = PlayerMenuItemTypeFixed;
+    [menuArray addObject:menuItem];
+    
     [self.playerMenuObject setupWithItems:menuArray];
+    
+    [self.playerMenuObject moveDownItemFor:5];
 }
 
 

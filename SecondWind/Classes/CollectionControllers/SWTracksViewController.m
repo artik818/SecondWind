@@ -9,6 +9,7 @@
 #import "SWTracksViewController.h"
 #import "SWTrackCell.h"
 #import "SWHintCell.h"
+#import "SWPlayerViewController.h"
 
 #import "SWMediaLibraryProvider.h"
 
@@ -38,6 +39,8 @@
     
     [self.tracksCollectionView registerClass:[SWTrackCell class] forCellWithReuseIdentifier:@"TrackCellReuseIdentifier"];
     [self.tracksCollectionView registerClass:[SWHintCell class] forCellWithReuseIdentifier:@"HintCellReuseIdentifier"];
+    
+//    [SWPlayerViewController new];
 }
 
 - (void)didReceiveMemoryWarning

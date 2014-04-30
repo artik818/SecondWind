@@ -13,7 +13,7 @@
 
 @interface SWPlayerMenuObject : SWRoundRobMenu
 
-- (SWPlayerMenuItem *)moveDownItem;
-- (SWPlayerMenuItem *)moveUpItem;
+- (SWPlayerMenuItem *)moveDownItemFor:(NSInteger)steps;
+- (SWPlayerMenuItem *)moveUpItemFor:(NSInteger)steps;
 
 @end
