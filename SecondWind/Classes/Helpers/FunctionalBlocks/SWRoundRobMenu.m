@@ -42,6 +42,11 @@
     self.currentIndex = [self moveUpIndexFor:steps];
 }
 
+- (NSInteger)itemsCount
+{
+    return self.arrayOfMenuItems.count;
+}
+
 - (id)moveDownItemFor:(NSInteger)steps
 {
     NSInteger nextIndex = [self moveDownIndexFor:steps];

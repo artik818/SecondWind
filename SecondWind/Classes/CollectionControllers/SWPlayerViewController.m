@@ -10,12 +10,16 @@
 #import "SWRoundRobMenu.h"
 #import "SWPlayerMenuItem.h"
 #import "SWPlayerView.h"
+#import "SWPlayerMenuItemView.h"
+
 
 
 @interface SWPlayerViewController ()
 
 @property (weak, nonatomic) IBOutlet SWPlayerView *playerView;
+
 @property (nonatomic, strong) SWRoundRobMenu *playerMenuObject;
+@property (nonatomic, strong) SWRoundRobMenu *playerMenuViewObject;
 
 @end
 
@@ -38,6 +42,7 @@
     [super viewDidLoad];
     
     [self setupSubViews];
+    [self setupGestures];
 }
 
 - (void)setupMechanisms
@@ -67,7 +72,84 @@
 
 - (void)setupSubViews
 {
+    self.playerMenuViewObject = [SWRoundRobMenu new];
+    NSMutableArray *menuViewsArray = [[NSMutableArray alloc] initWithCapacity:3];
     
+    SWPlayerMenuItem *menuItem;
+    SWPlayerMenuItemView *menuItemView;
+    CGRect fr;
+    
+    menuItem = [self.playerMenuObject moveUpItemFor:0];
+    fr = CGRectMake(10, 200, 100, 100);
+    menuItemView = [[SWPlayerMenuItemView alloc] initWithFrame:fr menuItem:menuItem];
+    menuItemView.backgroundColor = [UIColor greenColor];
+    [self.playerView addSubview:menuItemView];
+    [menuViewsArray addObject:menuItemView];
+    
+    menuItem = [self.playerMenuObject moveUpItemFor:1];
+    fr = CGRectMake(10, 400, 100, 100);
+    menuItemView = [[SWPlayerMenuItemView alloc] initWithFrame:fr menuItem:menuItem];
+    menuItemView.backgroundColor = [UIColor greenColor];
+    [self.playerView addSubview:menuItemView];
+    [menuViewsArray addObject:menuItemView];
+    
+    menuItem = [self.playerMenuObject moveUpItemFor:2];
+    fr = CGRectMake(10, 0, 100, 100);
+    menuItemView = [[SWPlayerMenuItemView alloc] initWithFrame:fr menuItem:menuItem];
+    menuItemView.backgroundColor = [UIColor greenColor];
+    [self.playerView addSubview:menuItemView];
+    [menuViewsArray addObject:menuItemView];
+    
+    [self.playerMenuViewObject setupWithItems:menuViewsArray];
+}
+
+- (void)setupGestures
+{
+    UIPanGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panGestureDetected:)];
+    [self.playerView addGestureRecognizer:panGestureRecognizer];
+    
+    UISwipeGestureRecognizer *swipeGestureRecognizer;
+    swipeGestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeGestureDetected:)];
+    swipeGestureRecognizer.direction = UISwipeGestureRecognizerDirectionUp;
+    [self.playerView addGestureRecognizer:swipeGestureRecognizer];
+
+    swipeGestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeGestureDetected:)];
+    swipeGestureRecognizer.direction = UISwipeGestureRecognizerDirectionDown;
+    [self.playerView addGestureRecognizer:swipeGestureRecognizer];
+}
+
+
+#pragma mark - Utils
+- (void)panGestureDetected:(UIPanGestureRecognizer *)recognizer
+{
+    UIGestureRecognizerState state = [recognizer state];
+    
+    if (state == UIGestureRecognizerStateBegan || state == UIGestureRecognizerStateChanged)
+    {
+        CGPoint translation = [recognizer translationInView:recognizer.view];
+        [self moveViewsForYDelta:translation.y];
+        NSLog(@"%@", NSStringFromCGPoint(translation));
+        [recognizer setTranslation:CGPointZero inView:recognizer.view];
+    }
+}
+
+- (void)swipeGestureDetected:(UISwipeGestureRecognizer *)recognizer
+{
+    UISwipeGestureRecognizerDirection direction = recognizer.direction;
+    if (UISwipeGestureRecognizerDirectionUp == direction) {
+        [self moveViewsForYDelta:-250];
+    }
+    if (UISwipeGestureRecognizerDirectionDown == direction) {
+        [self moveViewsForYDelta:250];
+    }
+}
+
+- (void)moveViewsForYDelta:(CGFloat)yDelta
+{
+    for (NSInteger i=0; i<[self.playerMenuViewObject itemsCount]; i++) {
+        SWPlayerMenuItemView *menuItemView = [self.playerMenuViewObject moveUpItemFor:i];
+        menuItemView.frame = CGRectOffset(menuItemView.frame, 0, yDelta);
+    }
 }
 
 @end

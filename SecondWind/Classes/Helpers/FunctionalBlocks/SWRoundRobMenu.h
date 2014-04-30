@@ -13,7 +13,7 @@
 - (void)setupWithItems:(NSArray *)menuItems;
 - (void)moveDownFor:(NSInteger)steps;
 - (void)moveUpFor:(NSInteger)steps;
-
+- (NSInteger)itemsCount;
 
 - (id)currentItem;
 - (id)moveDownItemFor:(NSInteger)steps;

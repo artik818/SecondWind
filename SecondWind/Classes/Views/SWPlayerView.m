@@ -12,8 +12,6 @@
 
 @interface SWPlayerView()
 
-@property (nonatomic, strong) NSMutableArray *viewsArray;
-
 @end
 
 
@@ -31,9 +29,6 @@
 
 - (void)setupSubviewsWithFrame:(CGRect)frame
 {
-    self.viewsArray = [NSMutableArray new];
-    
-    
 }
 
 @end
