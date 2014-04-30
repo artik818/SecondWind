@@ -75,11 +75,10 @@
 
 - (NSInteger)normilizeIndex:(NSInteger)unnormedIndex
 {
-    NSInteger newIndex = unnormedIndex % self.arrayOfMenuItems.count;
-    
     if (unnormedIndex < 0) {
-        newIndex = self.arrayOfMenuItems.count - newIndex;
+        unnormedIndex -= 1;
     }
+    NSInteger newIndex = unnormedIndex % self.arrayOfMenuItems.count;
     return newIndex;
 }
 

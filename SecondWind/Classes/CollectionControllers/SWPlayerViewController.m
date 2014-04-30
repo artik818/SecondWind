@@ -63,7 +63,7 @@
     
     [self.playerMenuObject setupWithItems:menuArray];
     
-    [self.playerMenuObject moveDownItemFor:5];
+    [self.playerMenuObject moveUpItemFor:11];
 }
 
 
