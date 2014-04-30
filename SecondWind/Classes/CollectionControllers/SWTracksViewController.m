@@ -11,6 +11,8 @@
 #import "SWHintCell.h"
 #import "SWPlayerViewController.h"
 
+#import "SWMediaLibraryProvider.h"
+
 @interface SWTracksViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 
 @property (nonatomic, strong) NSArray *tracksArray;
@@ -32,6 +34,8 @@
     [super viewDidLoad];
 
     self.tracksArray = [NSArray new];
+    
+    [SWMediaLibraryProvider sharedMediaManager];
     
     [self.tracksCollectionView registerClass:[SWTrackCell class] forCellWithReuseIdentifier:@"TrackCellReuseIdentifier"];
     [self.tracksCollectionView registerClass:[SWHintCell class] forCellWithReuseIdentifier:@"HintCellReuseIdentifier"];

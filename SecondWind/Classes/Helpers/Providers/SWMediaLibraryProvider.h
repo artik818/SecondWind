@@ -10,6 +10,6 @@
 
 @interface SWMediaLibraryProvider : NSObject
 
-+ (SWMediaLibraryProvider *)globalDataManager;
++ (SWMediaLibraryProvider *)sharedMediaManager;
 
 @end
