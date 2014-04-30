@@ -39,7 +39,6 @@
 		AC5AA2BC1906AE670084BAA5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC5AA2BA1906AE670084BAA5 /* Main.storyboard */; };
 		AC5AA2C11906AE670084BAA5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC5AA2C01906AE670084BAA5 /* Images.xcassets */; };
 		AC9FD13D191046460091B9CC /* SWPlayerMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = AC9FD13C191046460091B9CC /* SWPlayerMenuItem.m */; };
-		AC9FD142191048F40091B9CC /* SWPlayerMenuObject.m in Sources */ = {isa = PBXBuildFile; fileRef = AC9FD141191048F40091B9CC /* SWPlayerMenuObject.m */; };
 		AC9FD1451910570E0091B9CC /* SWRoundRobMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = AC9FD1441910570D0091B9CC /* SWRoundRobMenu.m */; };
 		AC9FD148191063980091B9CC /* SWPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC9FD147191063980091B9CC /* SWPlayerViewController.m */; };
 /* End PBXBuildFile section */
@@ -102,8 +101,6 @@
 		AC5AA2C01906AE670084BAA5 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		AC9FD13B191046460091B9CC /* SWPlayerMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWPlayerMenuItem.h; sourceTree = "<group>"; };
 		AC9FD13C191046460091B9CC /* SWPlayerMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWPlayerMenuItem.m; sourceTree = "<group>"; };
-		AC9FD140191048F40091B9CC /* SWPlayerMenuObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWPlayerMenuObject.h; sourceTree = "<group>"; };
-		AC9FD141191048F40091B9CC /* SWPlayerMenuObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWPlayerMenuObject.m; sourceTree = "<group>"; };
 		AC9FD1431910570D0091B9CC /* SWRoundRobMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRoundRobMenu.h; sourceTree = "<group>"; };
 		AC9FD1441910570D0091B9CC /* SWRoundRobMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRoundRobMenu.m; sourceTree = "<group>"; };
 		AC9FD146191063980091B9CC /* SWPlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWPlayerViewController.h; sourceTree = "<group>"; };
@@ -323,8 +320,6 @@
 		AC9FD13F191048960091B9CC /* FunctionalBlocks */ = {
 			isa = PBXGroup;
 			children = (
-				AC9FD140191048F40091B9CC /* SWPlayerMenuObject.h */,
-				AC9FD141191048F40091B9CC /* SWPlayerMenuObject.m */,
 				AC9FD1431910570D0091B9CC /* SWRoundRobMenu.h */,
 				AC9FD1441910570D0091B9CC /* SWRoundRobMenu.m */,
 			);
@@ -410,7 +405,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				84B0AA6F190D3EDE00ADCEE2 /* SWAlbumsViewController.m in Sources */,
-				AC9FD142191048F40091B9CC /* SWPlayerMenuObject.m in Sources */,
 				84B0AA98190D51DC00ADCEE2 /* SWHintCell.m in Sources */,
 				84B0AA82190D43BB00ADCEE2 /* SWTopTabBar.m in Sources */,
 				84B0AA72190D3EEA00ADCEE2 /* SWArtistsViewController.m in Sources */,

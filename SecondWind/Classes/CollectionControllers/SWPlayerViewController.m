@@ -7,14 +7,14 @@
 //
 
 #import "SWPlayerViewController.h"
-#import "SWPlayerMenuObject.h"
+#import "SWRoundRobMenu.h"
 #import "SWPlayerMenuItem.h"
 
 
 
 @interface SWPlayerViewController ()
 
-@property (nonatomic, strong) SWPlayerMenuObject *playerMenuObject;
+@property (nonatomic, strong) SWRoundRobMenu *playerMenuObject;
 
 @end
 
@@ -36,7 +36,7 @@
 {
     [super viewDidLoad];
     
-    self.playerMenuObject = [SWPlayerMenuObject new];
+    self.playerMenuObject = [SWRoundRobMenu new];
     NSMutableArray *menuArray = [[NSMutableArray alloc] initWithCapacity:3];
     
     SWPlayerMenuItem *menuItem;
@@ -63,7 +63,9 @@
     
     [self.playerMenuObject setupWithItems:menuArray];
     
-    [self.playerMenuObject moveUpItemFor:11];
+    [self.playerMenuObject moveUpItemFor:12];
+    
+    menuItem = [self.playerMenuObject currentItem];
 }
 
 
