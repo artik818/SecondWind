@@ -27,7 +27,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Designated
-        [self viewDidLoad];
+//        [self viewDidLoad];
     }
     return self;
 }
