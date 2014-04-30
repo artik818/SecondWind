@@ -21,6 +21,15 @@
 		84B0AA8B190D4CFA00ADCEE2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 84B0AA8D190D4CFA00ADCEE2 /* Localizable.strings */; };
 		84B0AA95190D511A00ADCEE2 /* SWBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B0AA94190D511A00ADCEE2 /* SWBaseCell.m */; };
 		84B0AA98190D51DC00ADCEE2 /* SWHintCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B0AA97190D51DC00ADCEE2 /* SWHintCell.m */; };
+		9A733027190F7BB300F7FA82 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A733026190F7BB300F7FA82 /* AVFoundation.framework */; };
+		9A73302B190F7BD500F7FA82 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A733028190F7BD500F7FA82 /* CoreMedia.framework */; };
+		9A73302C190F7BD500F7FA82 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A733029190F7BD500F7FA82 /* MobileCoreServices.framework */; };
+		9A73302D190F7BD500F7FA82 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A73302A190F7BD500F7FA82 /* QuartzCore.framework */; };
+		9A73302F190F7BDF00F7FA82 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A73302E190F7BDF00F7FA82 /* AssetsLibrary.framework */; };
+		9A733031190F7BE800F7FA82 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A733030190F7BE800F7FA82 /* MediaPlayer.framework */; };
+		9A733036190F809900F7FA82 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9A733034190F809900F7FA82 /* Model.xcdatamodeld */; };
+		9A733039190F80A400F7FA82 /* SWCoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A733038190F80A400F7FA82 /* SWCoreDataManager.m */; };
+		9A73303D190F90A200F7FA82 /* UserData.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A73303C190F90A200F7FA82 /* UserData.m */; };
 		AC5AA2A91906AE670084BAA5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC5AA2A81906AE670084BAA5 /* Foundation.framework */; };
 		AC5AA2AB1906AE670084BAA5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC5AA2AA1906AE670084BAA5 /* CoreGraphics.framework */; };
 		AC5AA2AD1906AE670084BAA5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC5AA2AC1906AE670084BAA5 /* UIKit.framework */; };
@@ -64,6 +73,17 @@
 		84B0AA94190D511A00ADCEE2 /* SWBaseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWBaseCell.m; sourceTree = "<group>"; };
 		84B0AA96190D51DC00ADCEE2 /* SWHintCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWHintCell.h; sourceTree = "<group>"; };
 		84B0AA97190D51DC00ADCEE2 /* SWHintCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWHintCell.m; sourceTree = "<group>"; };
+		9A733026190F7BB300F7FA82 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		9A733028190F7BD500F7FA82 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		9A733029190F7BD500F7FA82 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		9A73302A190F7BD500F7FA82 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		9A73302E190F7BDF00F7FA82 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		9A733030190F7BE800F7FA82 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		9A733035190F809900F7FA82 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		9A733037190F80A400F7FA82 /* SWCoreDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWCoreDataManager.h; sourceTree = "<group>"; };
+		9A733038190F80A400F7FA82 /* SWCoreDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWCoreDataManager.m; sourceTree = "<group>"; };
+		9A73303B190F90A200F7FA82 /* UserData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserData.h; sourceTree = "<group>"; };
+		9A73303C190F90A200F7FA82 /* UserData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserData.m; sourceTree = "<group>"; };
 		AC5AA2A51906AE670084BAA5 /* SecondWind.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SecondWind.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC5AA2A81906AE670084BAA5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		AC5AA2AA1906AE670084BAA5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -83,6 +103,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A733031190F7BE800F7FA82 /* MediaPlayer.framework in Frameworks */,
+				9A73302F190F7BDF00F7FA82 /* AssetsLibrary.framework in Frameworks */,
+				9A73302B190F7BD500F7FA82 /* CoreMedia.framework in Frameworks */,
+				9A73302C190F7BD500F7FA82 /* MobileCoreServices.framework in Frameworks */,
+				9A73302D190F7BD500F7FA82 /* QuartzCore.framework in Frameworks */,
+				9A733027190F7BB300F7FA82 /* AVFoundation.framework in Frameworks */,
 				AC5AA2AB1906AE670084BAA5 /* CoreGraphics.framework in Frameworks */,
 				AC5AA2AD1906AE670084BAA5 /* UIKit.framework in Frameworks */,
 				AC5AA2A91906AE670084BAA5 /* Foundation.framework in Frameworks */,
@@ -95,6 +121,7 @@
 		84B0AA5A190D328400ADCEE2 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				9A733033190F805C00F7FA82 /* CoreDataLayer */,
 				84B0AA83190D48A300ADCEE2 /* Cells */,
 				84B0AA7F190D43A400ADCEE2 /* Controls */,
 				84B0AA73190D3EFF00ADCEE2 /* Helpers */,
@@ -190,6 +217,26 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		9A733033190F805C00F7FA82 /* CoreDataLayer */ = {
+			isa = PBXGroup;
+			children = (
+				9A73303A190F909300F7FA82 /* Entities */,
+				9A733037190F80A400F7FA82 /* SWCoreDataManager.h */,
+				9A733038190F80A400F7FA82 /* SWCoreDataManager.m */,
+				9A733034190F809900F7FA82 /* Model.xcdatamodeld */,
+			);
+			path = CoreDataLayer;
+			sourceTree = "<group>";
+		};
+		9A73303A190F909300F7FA82 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				9A73303B190F90A200F7FA82 /* UserData.h */,
+				9A73303C190F90A200F7FA82 /* UserData.m */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
 		AC5AA29C1906AE670084BAA5 = {
 			isa = PBXGroup;
 			children = (
@@ -210,6 +257,12 @@
 		AC5AA2A71906AE670084BAA5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9A733030190F7BE800F7FA82 /* MediaPlayer.framework */,
+				9A73302E190F7BDF00F7FA82 /* AssetsLibrary.framework */,
+				9A733028190F7BD500F7FA82 /* CoreMedia.framework */,
+				9A733029190F7BD500F7FA82 /* MobileCoreServices.framework */,
+				9A73302A190F7BD500F7FA82 /* QuartzCore.framework */,
+				9A733026190F7BB300F7FA82 /* AVFoundation.framework */,
 				AC5AA2A81906AE670084BAA5 /* Foundation.framework */,
 				AC5AA2AA1906AE670084BAA5 /* CoreGraphics.framework */,
 				AC5AA2AC1906AE670084BAA5 /* UIKit.framework */,
@@ -324,13 +377,16 @@
 				84B0AA98190D51DC00ADCEE2 /* SWHintCell.m in Sources */,
 				84B0AA82190D43BB00ADCEE2 /* SWTopTabBar.m in Sources */,
 				84B0AA72190D3EEA00ADCEE2 /* SWArtistsViewController.m in Sources */,
+				9A73303D190F90A200F7FA82 /* UserData.m in Sources */,
 				84B0AA78190D3F4100ADCEE2 /* SWGlobalDataSingleton.m in Sources */,
 				84B0AA95190D511A00ADCEE2 /* SWBaseCell.m in Sources */,
 				84B0AA7B190D3F5300ADCEE2 /* SWMediaLibraryProvider.m in Sources */,
 				84B0AA86190D48C200ADCEE2 /* SWTrackCell.m in Sources */,
 				84B0AA69190D3EC700ADCEE2 /* SWPlaylistsViewController.m in Sources */,
 				84B0AA5E190D32BA00ADCEE2 /* SWMainTabBarViewController.m in Sources */,
+				9A733039190F80A400F7FA82 /* SWCoreDataManager.m in Sources */,
 				84B0AA6C190D3ED100ADCEE2 /* SWHintsViewController.m in Sources */,
+				9A733036190F809900F7FA82 /* Model.xcdatamodeld in Sources */,
 				84B0AA66190D3EB600ADCEE2 /* SWTracksViewController.m in Sources */,
 				84B0AA62190D350B00ADCEE2 /* SWDisclaimerViewController.m in Sources */,
 				AC5AA2B91906AE670084BAA5 /* SWAppDelegate.m in Sources */,
@@ -453,6 +509,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Vladimir Momotov (8X75PFSVU5)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Vladimir Momotov (8X75PFSVU5)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SecondWind/SecondWind-Prefix.pch";
 				INFOPLIST_FILE = "SecondWind/SecondWind-Info.plist";
@@ -469,6 +526,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Vladimir Momotov (8X75PFSVU5)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Vladimir Momotov (8X75PFSVU5)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SecondWind/SecondWind-Prefix.pch";
 				INFOPLIST_FILE = "SecondWind/SecondWind-Info.plist";
@@ -501,6 +559,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		9A733034190F809900F7FA82 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				9A733035190F809900F7FA82 /* Model.xcdatamodel */,
+			);
+			currentVersion = 9A733035190F809900F7FA82 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = AC5AA29D1906AE670084BAA5 /* Project object */;
 }

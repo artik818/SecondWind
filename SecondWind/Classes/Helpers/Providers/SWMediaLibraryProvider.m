@@ -7,31 +7,43 @@
 //
 
 #import "SWMediaLibraryProvider.h"
-#import <MediaPlayer/MediaPlayer.h>
 
-static SWMediaLibraryProvider *globalMediaManager = nil;
+#import <MediaPlayer/MediaPlayer.h>
+#import <AVFoundation/AVFoundation.h>
+
+#import "SWCoreDataManager.h"
+
+static SWMediaLibraryProvider *sharedMediaManager = nil;
 
 @implementation SWMediaLibraryProvider
 
 
-+ (SWMediaLibraryProvider *)globalDataManager
++ (SWMediaLibraryProvider *)sharedMediaManager
 {
-	if (!globalMediaManager) {
-		globalMediaManager = [SWMediaLibraryProvider new];
+	if (!sharedMediaManager) {
+		sharedMediaManager = [SWMediaLibraryProvider new];
 	}
 	
-    return globalMediaManager;
+    return sharedMediaManager;
 }
 
 - (id)init
 {
     self = [super init];
     if (self) {
+        UserData *user = [[SWCoreDataManager coreDataManager] findOrCreateUserData];
+        
+        NSDate *lastDate = user.lastMediaModifiedDate;
+        NSDate *mlLastDate = [MPMediaLibrary defaultMediaLibrary].lastModifiedDate;
+        
+        if (lastDate < mlLastDate) {
+            // TODO: update our cache and lib with new media items
+            NSArray *am = [self getAllMedia];
+        }
         
     }
     return self;
 }
-
 
 - (NSArray *)getAllMedia {
     MPMediaQuery *everything = [[MPMediaQuery alloc] init];
@@ -39,6 +51,9 @@ static SWMediaLibraryProvider *globalMediaManager = nil;
     NSLog(@"Logging items from a generic query...");
     NSArray *itemsFromGenericQuery = [everything items];
     for (MPMediaItem *song in itemsFromGenericQuery) {
+        NSURL *assetURL = [song valueForProperty:MPMediaItemPropertyAssetURL];
+        NSLog (@"%@", [assetURL absoluteString]);
+        AVPlayerItem *avItem = [[AVPlayerItem alloc] initWithURL:assetURL];
         NSString *songTitle = [song valueForProperty: MPMediaItemPropertyTitle];
         NSLog (@"%@", songTitle);
     }
