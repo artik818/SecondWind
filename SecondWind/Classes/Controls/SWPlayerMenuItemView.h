@@ -1,5 +1,5 @@
 //
-//  SWPlayerItemView.h
+//  SWPlayerMenuItemView.h
 //  SecondWind
 //
 //  Created by Arakelyan on 4/30/14.
@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SWPlayerMenuItem.h"
 
-@interface SWPlayerItemView : UIView
+
+
+@interface SWPlayerMenuItemView : UIView
+
+- (id)initWithFrame:(CGRect)frame menuItem:(SWPlayerMenuItem *)menuItem;
 
 @end

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="xc1-vc-gek">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="xc1-vc-gek">
     <dependencies>
         <deployment defaultVersion="1536" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
@@ -44,6 +44,16 @@
                                 </state>
                                 <connections>
                                     <segue destination="IcE-gd-R6V" kind="push" id="N5O-7b-5en"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jg2-F5-qKP">
+                                <rect key="frame" x="149" y="387" width="22" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="Dwc-xV-7Gi" kind="push" id="va3-Ah-YH0"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -327,6 +337,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zgb-YK-heo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="459" y="134"/>
+        </scene>
+        <!--Player View Controller-->
+        <scene sceneID="ENu-Jk-y8s">
+            <objects>
+                <viewController id="Dwc-xV-7Gi" customClass="SWPlayerViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="yqa-0x-Xbd"/>
+                        <viewControllerLayoutGuide type="bottom" id="424-66-uZU"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="4oR-1k-WI1" customClass="SWPlayerView">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="3Av-ub-Jr7"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8Mt-IR-Gt1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-336" y="807"/>
         </scene>
         <!--Navigation Controller - Artists-->
         <scene sceneID="f1N-0u-NBm">

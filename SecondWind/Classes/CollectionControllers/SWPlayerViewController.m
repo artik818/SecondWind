@@ -27,7 +27,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Designated
-//        [self viewDidLoad];
+        [self setupMechanisms];
     }
     return self;
 }
@@ -36,6 +36,11 @@
 {
     [super viewDidLoad];
     
+    [self setupSubViews];
+}
+
+- (void)setupMechanisms
+{
     self.playerMenuObject = [SWRoundRobMenu new];
     NSMutableArray *menuArray = [[NSMutableArray alloc] initWithCapacity:3];
     
@@ -53,20 +58,15 @@
     menuItem.type = PlayerMenuItemTypeFixed;
     [menuArray addObject:menuItem];
     
-    menuItem = [SWPlayerMenuItem new];
-    menuItem.type = PlayerMenuItemTypeFixed;
-    [menuArray addObject:menuItem];
-    
-    menuItem = [SWPlayerMenuItem new];
-    menuItem.type = PlayerMenuItemTypeFixed;
-    [menuArray addObject:menuItem];
-    
     [self.playerMenuObject setupWithItems:menuArray];
     
-    [self.playerMenuObject moveUpItemFor:12];
-    
-    menuItem = [self.playerMenuObject currentItem];
+//    [self.playerMenuObject moveUpItemFor:12];
+//    menuItem = [self.playerMenuObject currentItem];
 }
 
+- (void)setupSubViews
+{
+    
+}
 
 @end

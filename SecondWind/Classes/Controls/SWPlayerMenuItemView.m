@@ -1,31 +1,33 @@
 //
-//  SWPlayerItemView.m
+//  SWPlayerMenuItemView.m
 //  SecondWind
 //
 //  Created by Arakelyan on 4/30/14.
 //  Copyright (c) 2014 Artem. All rights reserved.
 //
 
-#import "SWPlayerItemView.h"
+#import "SWPlayerMenuItemView.h"
 
-@implementation SWPlayerItemView
 
-- (id)initWithFrame:(CGRect)frame
+
+@interface SWPlayerMenuItemView()
+
+@property (nonatomic, strong) SWPlayerMenuItem *menuItem;
+
+@end
+
+
+
+@implementation SWPlayerMenuItemView
+
+- (id)initWithFrame:(CGRect)frame menuItem:(SWPlayerMenuItem *)menuItem
 {
     self = [super initWithFrame:frame];
     if (self) {
-        // Initialization code
+        _menuItem = menuItem;
     }
     return self;
 }
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
-}
-*/
 
 @end

@@ -8,24 +8,32 @@
 
 #import "SWPlayerView.h"
 
+
+
+@interface SWPlayerView()
+
+@property (nonatomic, strong) NSMutableArray *viewsArray;
+
+@end
+
+
+
 @implementation SWPlayerView
 
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
-        // Initialization code
+        [self setupSubviewsWithFrame:frame];
     }
     return self;
 }
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
+- (void)setupSubviewsWithFrame:(CGRect)frame
 {
-    // Drawing code
+    self.viewsArray = [NSMutableArray new];
+    
+    
 }
-*/
 
 @end
