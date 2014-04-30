@@ -11,11 +11,12 @@
 @interface SWRoundRobMenu : NSObject
 
 - (void)setupWithItems:(NSArray *)menuItems;
-- (void)moveDown;
-- (void)moveUp;
+- (void)moveDownFor:(NSInteger)steps;
+- (void)moveUpFor:(NSInteger)steps;
+
 
 - (id)currentItem;
-- (id)moveDownItem;
-- (id)moveUpItem;
+- (id)moveDownItemFor:(NSInteger)steps;
+- (id)moveUpItemFor:(NSInteger)steps;
 
 @end

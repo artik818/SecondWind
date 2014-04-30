@@ -20,15 +20,15 @@
     return [super currentItem];
 }
 
-- (SWPlayerMenuItem *)moveDownItem
+- (SWPlayerMenuItem *)moveDownItemFor:(NSInteger)steps;
 {
-    SWPlayerMenuItem *menuItem = [super moveDownItem];
+    SWPlayerMenuItem *menuItem = [super moveDownItemFor:steps];
     return menuItem;
 }
 
-- (SWPlayerMenuItem *)moveUpItem
+- (SWPlayerMenuItem *)moveUpItemFor:(NSInteger)steps;
 {
-    SWPlayerMenuItem *menuItem = [super moveUpItem];
+    SWPlayerMenuItem *menuItem = [super moveUpItemFor:steps];
     return menuItem;
 }
 

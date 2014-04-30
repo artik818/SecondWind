@@ -32,26 +32,26 @@
     return self.arrayOfMenuItems[self.currentIndex];
 }
 
-- (void)moveDown
+- (void)moveDownFor:(NSInteger)steps
 {
-    self.currentIndex = [self moveDownIndex];
+    self.currentIndex = [self moveDownIndexFor:steps];
 }
 
-- (void)moveUp
+- (void)moveUpFor:(NSInteger)steps
 {
-    self.currentIndex = [self moveUpIndex];
+    self.currentIndex = [self moveUpIndexFor:steps];
 }
 
-- (id)moveDownItem
+- (id)moveDownItemFor:(NSInteger)steps
 {
-    NSInteger nextIndex = [self moveDownIndex];
+    NSInteger nextIndex = [self moveDownIndexFor:steps];
     id menuItem = self.arrayOfMenuItems[nextIndex];
     return menuItem;
 }
 
-- (id)moveUpItem
+- (id)moveUpItemFor:(NSInteger)steps
 {
-    NSInteger nextIndex = [self moveUpIndex];
+    NSInteger nextIndex = [self moveUpIndexFor:steps];
     id menuItem = self.arrayOfMenuItems[nextIndex];
     return menuItem;
 }
@@ -59,25 +59,27 @@
 
 #pragma mark - Utils
 
-- (NSInteger)moveDownIndex
+- (NSInteger)moveDownIndexFor:(NSInteger)steps
 {
-    NSInteger nextIndex = self.currentIndex--;
+    NSInteger nextIndex = self.currentIndex - steps;
     nextIndex = [self normilizeIndex:nextIndex];
     return nextIndex;
 }
 
-- (NSInteger)moveUpIndex
+- (NSInteger)moveUpIndexFor:(NSInteger)steps
 {
-    NSInteger nextIndex = self.currentIndex++;
+    NSInteger nextIndex = self.currentIndex + steps;
     nextIndex = [self normilizeIndex:nextIndex];
     return nextIndex;
 }
 
 - (NSInteger)normilizeIndex:(NSInteger)unnormedIndex
 {
-    NSInteger newIndex = unnormedIndex;
-    newIndex = MIN(newIndex, self.arrayOfMenuItems.count - 1);
-    newIndex = MAX(newIndex, 0);
+    NSInteger newIndex = unnormedIndex % self.arrayOfMenuItems.count;
+    
+    if (unnormedIndex < 0) {
+        newIndex = self.arrayOfMenuItems.count - newIndex;
+    }
     return newIndex;
 }
 
