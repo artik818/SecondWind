@@ -9,11 +9,12 @@
 #import "SWPlayerViewController.h"
 #import "SWRoundRobMenu.h"
 #import "SWPlayerMenuItem.h"
-
+#import "SWPlayerView.h"
 
 
 @interface SWPlayerViewController ()
 
+@property (weak, nonatomic) IBOutlet SWPlayerView *playerView;
 @property (nonatomic, strong) SWRoundRobMenu *playerMenuObject;
 
 @end

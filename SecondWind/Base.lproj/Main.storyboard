@@ -238,7 +238,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YTY-3J-tBi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="459" y="-537"/>
+            <point key="canvasLocation" x="471" y="-537"/>
         </scene>
         <!--Navigation Controller - Albums-->
         <scene sceneID="Jb6-Ye-lUp">
@@ -352,10 +352,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="3Av-ub-Jr7"/>
+                    <connections>
+                        <outlet property="playerView" destination="4oR-1k-WI1" id="xS1-qH-gxM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Mt-IR-Gt1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-336" y="807"/>
+            <point key="canvasLocation" x="-324" y="807"/>
         </scene>
         <!--Navigation Controller - Artists-->
         <scene sceneID="f1N-0u-NBm">
