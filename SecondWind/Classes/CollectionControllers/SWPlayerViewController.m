@@ -79,7 +79,7 @@
 
 - (NSUInteger)numberOfItemsInCarousel:(iCarousel *)carousel
 {
-    return 30;
+    return 3;
 }
 
 - (UIView *)carousel:(iCarousel *)carousel viewForItemAtIndex:(NSUInteger)index reusingView:(UIView *)view
@@ -103,6 +103,10 @@
         case iCarouselOptionWrap:
         {
             return YES;
+        }
+        case iCarouselOptionSpacing:
+        {
+            return 1.8;
         }
         default:
         {
