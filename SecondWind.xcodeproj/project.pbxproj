@@ -40,6 +40,7 @@
 		AC5AA2B91906AE670084BAA5 /* SWAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AC5AA2B81906AE670084BAA5 /* SWAppDelegate.m */; };
 		AC5AA2BC1906AE670084BAA5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC5AA2BA1906AE670084BAA5 /* Main.storyboard */; };
 		AC5AA2C11906AE670084BAA5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC5AA2C01906AE670084BAA5 /* Images.xcassets */; };
+		AC7C5B0C19129AD800E7558A /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = AC7C5B0B19129AD800E7558A /* iCarousel.m */; };
 		AC9FD13D191046460091B9CC /* SWPlayerMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = AC9FD13C191046460091B9CC /* SWPlayerMenuItem.m */; };
 		AC9FD1451910570E0091B9CC /* SWRoundRobMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = AC9FD1441910570D0091B9CC /* SWRoundRobMenu.m */; };
 		AC9FD148191063980091B9CC /* SWPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC9FD147191063980091B9CC /* SWPlayerViewController.m */; };
@@ -105,6 +106,8 @@
 		AC5AA2B81906AE670084BAA5 /* SWAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SWAppDelegate.m; sourceTree = "<group>"; };
 		AC5AA2BB1906AE670084BAA5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AC5AA2C01906AE670084BAA5 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		AC7C5B0A19129AD800E7558A /* iCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCarousel.h; sourceTree = "<group>"; };
+		AC7C5B0B19129AD800E7558A /* iCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCarousel.m; sourceTree = "<group>"; };
 		AC9FD13B191046460091B9CC /* SWPlayerMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWPlayerMenuItem.h; sourceTree = "<group>"; };
 		AC9FD13C191046460091B9CC /* SWPlayerMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWPlayerMenuItem.m; sourceTree = "<group>"; };
 		AC9FD1431910570D0091B9CC /* SWRoundRobMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRoundRobMenu.h; sourceTree = "<group>"; };
@@ -326,6 +329,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		AC7C5B0919129AD800E7558A /* iCarousel */ = {
+			isa = PBXGroup;
+			children = (
+				AC7C5B0A19129AD800E7558A /* iCarousel.h */,
+				AC7C5B0B19129AD800E7558A /* iCarousel.m */,
+			);
+			path = iCarousel;
+			sourceTree = "<group>";
+		};
 		AC9FD13A191045100091B9CC /* DataModels */ = {
 			isa = PBXGroup;
 			children = (
@@ -338,6 +350,7 @@
 		AC9FD13F191048960091B9CC /* FunctionalBlocks */ = {
 			isa = PBXGroup;
 			children = (
+				AC7C5B0919129AD800E7558A /* iCarousel */,
 				AC9FD1431910570D0091B9CC /* SWRoundRobMenu.h */,
 				AC9FD1441910570D0091B9CC /* SWRoundRobMenu.m */,
 			);
@@ -443,6 +456,7 @@
 				84B0AA62190D350B00ADCEE2 /* SWDisclaimerViewController.m in Sources */,
 				7AC5C2DC191102F70091A3DA /* SWPlayerMenuItemView.m in Sources */,
 				AC5AA2B91906AE670084BAA5 /* SWAppDelegate.m in Sources */,
+				AC7C5B0C19129AD800E7558A /* iCarousel.m in Sources */,
 				AC5AA2B51906AE670084BAA5 /* main.m in Sources */,
 				7AC5C2D91911016C0091A3DA /* SWPlayerView.m in Sources */,
 			);

@@ -14,7 +14,7 @@
 
 
 
-@interface SWPlayerViewController ()
+@interface SWPlayerViewController () <iCarouselDelegate, iCarouselDataSource>
 
 @property (weak, nonatomic) IBOutlet SWPlayerView *playerView;
 
@@ -32,7 +32,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Designated
-        [self setupMechanisms];
+//        [self setupMechanisms];
     }
     return self;
 }
@@ -41,10 +41,110 @@
 {
     [super viewDidLoad];
     
-    [self setupSubViews];
-    [self setupGestures];
+//    [self setupSubViews];
+//    [self setupGestures];
+    
+    [self setupCarousel];
 }
 
+
+#pragma mark -
+
+- (void)setupCarousel
+{
+    self.carousel = [[iCarousel alloc] initWithFrame:self.playerView.frame];
+    [self.playerView addSubview:self.carousel];
+    self.carousel.delegate = self;
+    self.carousel.dataSource = self;
+    
+    //configure carousel
+    self.carousel.type = iCarouselTypeRotary;
+    self.carousel.vertical = YES;
+//    self.carousel.offsetMultiplier = 3;
+    
+//    @property (nonatomic, assign) BOOL stopAtItemBoundary;
+//    @property (nonatomic, assign) BOOL scrollToItemBoundary;
+//    @property (nonatomic, assign) BOOL ignorePerpendicularSwipes;
+//    @property (nonatomic, assign) BOOL centerItemWhenSelected;
+
+    //scroll to fixed offset
+    [self.carousel scrollToItemAtIndex:5 animated:NO];
+}
+
+
+
+
+
+#pragma mark iCarousel methods
+
+- (NSUInteger)numberOfItemsInCarousel:(iCarousel *)carousel
+{
+    return 30;
+}
+
+- (UIView *)carousel:(iCarousel *)carousel viewForItemAtIndex:(NSUInteger)index reusingView:(UIView *)view
+{
+    //create a numbered view
+    view = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 200.0f, 200.0f)];
+    view.backgroundColor = [UIColor lightGrayColor];
+    UILabel *label = [[UILabel alloc] initWithFrame:view.bounds];
+    label.text = [NSString stringWithFormat:@"%i", index];
+    label.backgroundColor = [UIColor clearColor];
+    label.textAlignment = NSTextAlignmentCenter;
+    label.font = [label.font fontWithSize:50];
+    [view addSubview:label];
+    return view;
+}
+
+- (CGFloat)carousel:(iCarousel *)carousel valueForOption:(iCarouselOption)option withDefault:(CGFloat)value
+{
+    switch (option)
+    {
+        case iCarouselOptionWrap:
+        {
+            return YES;
+        }
+        default:
+        {
+            return value;
+        }
+    }
+}
+
+- (void)carouselWillBeginDragging:(iCarousel *)carousel
+{
+	NSLog(@"Carousel will begin dragging");
+}
+
+- (void)carouselDidEndDragging:(iCarousel *)carousel willDecelerate:(BOOL)decelerate
+{
+	NSLog(@"Carousel did end dragging and %@ decelerate", decelerate? @"will": @"won't");
+}
+
+- (void)carouselWillBeginDecelerating:(iCarousel *)carousel
+{
+	NSLog(@"Carousel will begin decelerating");
+}
+
+- (void)carouselDidEndDecelerating:(iCarousel *)carousel
+{
+	NSLog(@"Carousel did end decelerating");
+}
+
+- (void)carouselWillBeginScrollingAnimation:(iCarousel *)carousel
+{
+	NSLog(@"Carousel will begin scrolling");
+}
+
+- (void)carouselDidEndScrollingAnimation:(iCarousel *)carousel
+{
+	NSLog(@"Carousel did end scrolling");
+}
+
+
+
+
+/*
 - (void)setupMechanisms
 {
     self.playerMenuObject = [SWRoundRobMenu new];
@@ -151,5 +251,6 @@
         menuItemView.frame = CGRectOffset(menuItemView.frame, 0, yDelta);
     }
 }
+*/
 
 @end

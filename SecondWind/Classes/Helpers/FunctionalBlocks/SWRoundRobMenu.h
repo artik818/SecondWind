@@ -16,6 +16,8 @@
 - (NSInteger)itemsCount;
 
 - (id)currentItem;
+- (id)itemForIndex:(NSInteger)itemIndex;
+- (void)setupCurrentIndex:(NSInteger)newIndex;
 - (id)moveDownItemFor:(NSInteger)steps;
 - (id)moveUpItemFor:(NSInteger)steps;
 

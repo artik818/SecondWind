@@ -32,6 +32,18 @@
     return self.arrayOfMenuItems[self.currentIndex];
 }
 
+- (id)itemForIndex:(NSInteger)itemIndex
+{
+    NSInteger normilizedIndex = [self normilizeIndex:itemIndex];
+    return self.arrayOfMenuItems[normilizedIndex];
+}
+
+- (void)setupCurrentIndex:(NSInteger)newIndex
+{
+    NSInteger normilizedIndex = [self normilizeIndex:newIndex];
+    self.currentIndex = normilizedIndex;
+}
+
 - (void)moveDownFor:(NSInteger)steps
 {
     self.currentIndex = [self moveDownIndexFor:steps];
