@@ -93,11 +93,46 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bg_player_fix" translatesAutoresizingMaskIntoConstraints="NO" id="Vap-xw-9jp">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <tabBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rxq-8Z-9hc" customClass="SWTopTabBar" propertyAccessControl="none">
+                                <rect key="frame" x="0.0" y="64" width="320" height="49"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <items>
+                                    <tabBarItem title="Tracks" id="fpC-gq-4he">
+                                        <inset key="imageInsets" minX="0.0" minY="60" maxX="0.0" maxY="-20"/>
+                                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-15"/>
+                                    </tabBarItem>
+                                    <tabBarItem title="Playlists" id="Upo-TY-fwP">
+                                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-10"/>
+                                    </tabBarItem>
+                                    <tabBarItem title="Hints" id="e2m-Ki-dCz">
+                                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-10"/>
+                                    </tabBarItem>
+                                    <tabBarItem title="Albums" id="6we-CM-2NC">
+                                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-10"/>
+                                    </tabBarItem>
+                                    <tabBarItem title="Artists" id="S8U-II-Noy">
+                                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-10"/>
+                                    </tabBarItem>
+                                </items>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="position">
+                                        <integer key="value" value="0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outlet property="delegate" destination="30h-Fu-pbj" id="3k4-hq-SCz"/>
+                                </connections>
+                            </tabBar>
                             <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" indicatorStyle="white" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="cCA-e0-hL5">
-                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                                <rect key="frame" x="0.0" y="113" width="320" height="455"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Cgd-Lk-ZZL">
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="Cgd-Lk-ZZL">
                                     <size key="itemSize" width="320" height="75"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -105,7 +140,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="HintCellReuseIdentifier" id="Z3C-GF-KDN" customClass="SWHintCell">
-                                        <rect key="frame" x="0.0" y="64" width="320" height="75"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="75"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="75"/>
@@ -150,7 +185,7 @@
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TrackCellReuseIdentifier" id="Fdz-bi-11x" customClass="SWTrackCell">
-                                        <rect key="frame" x="0.0" y="149" width="320" height="75"/>
+                                        <rect key="frame" x="0.0" y="75" width="320" height="75"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="75"/>
@@ -200,34 +235,8 @@
                                     <outlet property="delegate" destination="30h-Fu-pbj" id="DNq-Sk-UTc"/>
                                 </connections>
                             </collectionView>
-                            <tabBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rxq-8Z-9hc" customClass="SWTopTabBar">
-                                <rect key="frame" x="0.0" y="64" width="320" height="49"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <items>
-                                    <tabBarItem title="Tracks" id="fpC-gq-4he">
-                                        <inset key="imageInsets" minX="0.0" minY="60" maxX="0.0" maxY="-20"/>
-                                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-15"/>
-                                    </tabBarItem>
-                                    <tabBarItem title="Playlists" id="Upo-TY-fwP">
-                                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-10"/>
-                                    </tabBarItem>
-                                    <tabBarItem title="Hints" id="e2m-Ki-dCz">
-                                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-10"/>
-                                    </tabBarItem>
-                                    <tabBarItem title="Albums" id="6we-CM-2NC">
-                                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-10"/>
-                                    </tabBarItem>
-                                    <tabBarItem title="Artists" id="S8U-II-Noy">
-                                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-10"/>
-                                    </tabBarItem>
-                                </items>
-                                <connections>
-                                    <outlet property="delegate" destination="30h-Fu-pbj" id="3k4-hq-SCz"/>
-                                </connections>
-                            </tabBar>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="CtW-o9-s61"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
@@ -271,6 +280,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bg_player_no" translatesAutoresizingMaskIntoConstraints="NO" id="Wc8-gk-aK2">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <tabBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1vF-jA-NYy" customClass="SWTopTabBar">
                                 <rect key="frame" x="0.0" y="64" width="320" height="49"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
@@ -307,7 +320,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jcP-4c-dT1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1439" y="-537"/>
+            <point key="canvasLocation" x="1439" y="-531"/>
         </scene>
         <!--Navigation Controller - Playlists-->
         <scene sceneID="xQq-iL-VPs">
@@ -337,6 +350,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bg_player_fix" translatesAutoresizingMaskIntoConstraints="NO" id="F2J-hZ-YNz">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <tabBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JIu-47-VAQ" customClass="SWTopTabBar">
                                 <rect key="frame" x="0.0" y="64" width="320" height="49"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
@@ -453,6 +470,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bg_player_auto" translatesAutoresizingMaskIntoConstraints="NO" id="eF8-5D-9c4">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <tabBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sMY-jY-VTf" customClass="SWTopTabBar">
                                 <rect key="frame" x="0.0" y="64" width="320" height="49"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
@@ -519,6 +540,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bg_player_auto" translatesAutoresizingMaskIntoConstraints="NO" id="OXT-t8-fuH">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <tabBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VyT-VD-Den" customClass="SWTopTabBar">
                                 <rect key="frame" x="0.0" y="64" width="320" height="49"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
@@ -558,6 +583,11 @@
             <point key="canvasLocation" x="1445" y="825"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="bg_player_auto" width="640" height="1136"/>
+        <image name="bg_player_fix" width="640" height="1136"/>
+        <image name="bg_player_no" width="640" height="1136"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

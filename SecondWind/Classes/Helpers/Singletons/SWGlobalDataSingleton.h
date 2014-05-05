@@ -10,6 +10,8 @@
 
 @interface SWGlobalDataSingleton : NSObject
 
+@property (nonatomic) NSUInteger selectedTab;
+
 + (SWGlobalDataSingleton *)globalDataManager;
 
 @end

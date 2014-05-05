@@ -26,6 +26,7 @@ static SWGlobalDataSingleton *globalDataManager = nil;
 {
     self = [super init];
     if (self) {
+        _selectedTab = kTabBarIndex_Tracks;
     }
     return self;
 }
