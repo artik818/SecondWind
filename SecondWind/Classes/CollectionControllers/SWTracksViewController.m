@@ -13,7 +13,7 @@
 
 #import "SWMediaLibraryProvider.h"
 
-@interface SWTracksViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
+@interface SWTracksViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UITabBarDelegate>
 
 @property (nonatomic, strong) NSArray *tracksArray;
 
@@ -21,10 +21,9 @@
 
 @implementation SWTracksViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
+- (id)initWithCoder:(NSCoder *)aDecoder {
+    if (self = [super initWithCoder:aDecoder]) {
+        
     }
     return self;
 }
@@ -41,6 +40,13 @@
     [self.tracksCollectionView registerClass:[SWHintCell class] forCellWithReuseIdentifier:@"HintCellReuseIdentifier"];
     
 //    [SWPlayerViewController new];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    //    UITabBarItem *item = [self.topTabBar.items firstObject];
+    [self.topTabBar setSelectedItemIndex:kTabBarIndex_Tracks animated:YES];
 }
 
 - (void)didReceiveMemoryWarning
@@ -83,6 +89,13 @@
 
 
 
+
+#pragma mark - UITabBarDelegate
+
+- (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item {
+    NSUInteger selIndex = [tabBar.items indexOfObject:item];
+    [self.tabBarController setSelectedIndex:selIndex];
+}
 
 /*
 #pragma mark - Navigation

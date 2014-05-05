@@ -6,8 +6,8 @@
 //  Copyright (c) 2014 Artem. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-
 @interface SWTopTabBar : UITabBar
+
+- (void)setSelectedItemIndex:(NSUInteger)selectedItemIndex animated:(BOOL)animated;
 
 @end

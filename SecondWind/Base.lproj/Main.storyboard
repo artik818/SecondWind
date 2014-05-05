@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="xc1-vc-gek">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="xc1-vc-gek">
     <dependencies>
         <deployment defaultVersion="1536" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
@@ -222,6 +222,9 @@
                                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-10"/>
                                     </tabBarItem>
                                 </items>
+                                <connections>
+                                    <outlet property="delegate" destination="30h-Fu-pbj" id="3k4-hq-SCz"/>
+                                </connections>
                             </tabBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -267,9 +270,40 @@
                     <view key="view" contentMode="scaleToFill" id="86H-t5-upz">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tabBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1vF-jA-NYy" customClass="SWTopTabBar">
+                                <rect key="frame" x="0.0" y="64" width="320" height="49"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <items>
+                                    <tabBarItem title="Tracks" id="qAr-Zf-Cxl">
+                                        <inset key="imageInsets" minX="0.0" minY="60" maxX="0.0" maxY="-20"/>
+                                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-15"/>
+                                    </tabBarItem>
+                                    <tabBarItem title="Playlists" id="q2Q-vr-8v8">
+                                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-10"/>
+                                    </tabBarItem>
+                                    <tabBarItem title="Hints" id="QUz-Vt-e5V">
+                                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-10"/>
+                                    </tabBarItem>
+                                    <tabBarItem title="Albums" id="orM-7h-RT0">
+                                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-10"/>
+                                    </tabBarItem>
+                                    <tabBarItem title="Artists" id="EKf-tk-eL9">
+                                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-10"/>
+                                    </tabBarItem>
+                                </items>
+                                <connections>
+                                    <outlet property="delegate" destination="eLI-yO-gmT" id="RUW-QO-OLj"/>
+                                </connections>
+                            </tabBar>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="UeI-El-zlD"/>
+                    <connections>
+                        <outlet property="topTabBar" destination="1vF-jA-NYy" id="ChY-uM-Zsv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jcP-4c-dT1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -302,9 +336,40 @@
                     <view key="view" contentMode="scaleToFill" id="ux9-9H-iaA">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tabBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JIu-47-VAQ" customClass="SWTopTabBar">
+                                <rect key="frame" x="0.0" y="64" width="320" height="49"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <items>
+                                    <tabBarItem title="Tracks" id="byP-aW-72k">
+                                        <inset key="imageInsets" minX="0.0" minY="60" maxX="0.0" maxY="-20"/>
+                                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-15"/>
+                                    </tabBarItem>
+                                    <tabBarItem title="Playlists" id="plP-5x-jBd">
+                                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-10"/>
+                                    </tabBarItem>
+                                    <tabBarItem title="Hints" id="6Bl-rs-2M9">
+                                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-10"/>
+                                    </tabBarItem>
+                                    <tabBarItem title="Albums" id="Uay-FG-hnb">
+                                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-10"/>
+                                    </tabBarItem>
+                                    <tabBarItem title="Artists" id="TTp-1o-Ia3">
+                                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-10"/>
+                                    </tabBarItem>
+                                </items>
+                                <connections>
+                                    <outlet property="delegate" destination="zVj-65-Bna" id="TG0-7l-UDJ"/>
+                                </connections>
+                            </tabBar>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="HCK-2x-4Vu"/>
+                    <connections>
+                        <outlet property="topTabBar" destination="JIu-47-VAQ" id="KFk-zN-mXF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fs4-gm-CFG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -387,9 +452,40 @@
                     <view key="view" contentMode="scaleToFill" id="6fQ-gA-5tQ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tabBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sMY-jY-VTf" customClass="SWTopTabBar">
+                                <rect key="frame" x="0.0" y="64" width="320" height="49"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <items>
+                                    <tabBarItem title="Tracks" id="T22-Ux-COP">
+                                        <inset key="imageInsets" minX="0.0" minY="60" maxX="0.0" maxY="-20"/>
+                                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-15"/>
+                                    </tabBarItem>
+                                    <tabBarItem title="Playlists" id="DXc-w0-8fB">
+                                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-10"/>
+                                    </tabBarItem>
+                                    <tabBarItem title="Hints" id="YAU-Aw-Ful">
+                                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-10"/>
+                                    </tabBarItem>
+                                    <tabBarItem title="Albums" id="quG-uy-ZGH">
+                                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-10"/>
+                                    </tabBarItem>
+                                    <tabBarItem title="Artists" id="JqK-bf-ZWi">
+                                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-10"/>
+                                    </tabBarItem>
+                                </items>
+                                <connections>
+                                    <outlet property="delegate" destination="8Xl-tl-3rV" id="U5T-UE-nRc"/>
+                                </connections>
+                            </tabBar>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="Vc1-ld-ZCN"/>
+                    <connections>
+                        <outlet property="topTabBar" destination="sMY-jY-VTf" id="1Ys-dg-wWk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QBa-Fs-1Vr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -422,9 +518,40 @@
                     <view key="view" contentMode="scaleToFill" id="tbf-mO-7Ti">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tabBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VyT-VD-Den" customClass="SWTopTabBar">
+                                <rect key="frame" x="0.0" y="64" width="320" height="49"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <items>
+                                    <tabBarItem title="Tracks" id="thV-52-8jq">
+                                        <inset key="imageInsets" minX="0.0" minY="60" maxX="0.0" maxY="-20"/>
+                                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-15"/>
+                                    </tabBarItem>
+                                    <tabBarItem title="Playlists" id="nDN-6e-FUE">
+                                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-10"/>
+                                    </tabBarItem>
+                                    <tabBarItem title="Hints" id="1SS-KS-7ua">
+                                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-10"/>
+                                    </tabBarItem>
+                                    <tabBarItem title="Albums" id="7cc-8C-gQB">
+                                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-10"/>
+                                    </tabBarItem>
+                                    <tabBarItem title="Artists" id="9n4-PZ-JmL">
+                                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-10"/>
+                                    </tabBarItem>
+                                </items>
+                                <connections>
+                                    <outlet property="delegate" destination="xNW-F6-Mmf" id="5je-du-DgI"/>
+                                </connections>
+                            </tabBar>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="Bw5-in-kEL"/>
+                    <connections>
+                        <outlet property="topTabBar" destination="VyT-VD-Den" id="oqb-Yc-cGz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Me-sQ-fvE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

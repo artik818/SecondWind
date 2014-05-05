@@ -8,7 +8,7 @@
 
 #import "SWHintsViewController.h"
 
-@interface SWHintsViewController ()
+@interface SWHintsViewController () <UITabBarDelegate>
 
 @end
 
@@ -29,10 +29,25 @@
     // Do any additional setup after loading the view.
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    //    UITabBarItem *item = [self.topTabBar.items firstObject];
+    [self.topTabBar setSelectedItemIndex:kTabBarIndex_Hints animated:YES];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+
+#pragma mark - UITabBarDelegate
+
+- (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item {
+    NSUInteger selIndex = [tabBar.items indexOfObject:item];
+    [self.tabBarController setSelectedIndex:selIndex];
 }
 
 /*

@@ -6,8 +6,12 @@
 //  Copyright (c) 2014 Artem. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+@import UIKit;
+
+#import "SWTopTabBar.h"
 
 @interface SWArtistsViewController : UIViewController
+
+@property (weak, nonatomic) IBOutlet SWTopTabBar *topTabBar;
 
 @end

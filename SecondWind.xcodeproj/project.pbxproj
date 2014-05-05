@@ -94,6 +94,7 @@
 		9A733038190F80A400F7FA82 /* SWCoreDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWCoreDataManager.m; sourceTree = "<group>"; };
 		9A73303B190F90A200F7FA82 /* UserData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserData.h; sourceTree = "<group>"; };
 		9A73303C190F90A200F7FA82 /* UserData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserData.m; sourceTree = "<group>"; };
+		9AA96862191772B100F5FCBB /* SWGlobalConsts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWGlobalConsts.h; sourceTree = "<group>"; };
 		AC5AA2A51906AE670084BAA5 /* SecondWind.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SecondWind.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC5AA2A81906AE670084BAA5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		AC5AA2AA1906AE670084BAA5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -310,6 +311,7 @@
 				84B0AA5A190D328400ADCEE2 /* Classes */,
 				AC5AA2B71906AE670084BAA5 /* SWAppDelegate.h */,
 				AC5AA2B81906AE670084BAA5 /* SWAppDelegate.m */,
+				9AA96862191772B100F5FCBB /* SWGlobalConsts.h */,
 				AC5AA2BA1906AE670084BAA5 /* Main.storyboard */,
 				AC5AA2C01906AE670084BAA5 /* Images.xcassets */,
 				AC5AA2AF1906AE670084BAA5 /* Supporting Files */,
