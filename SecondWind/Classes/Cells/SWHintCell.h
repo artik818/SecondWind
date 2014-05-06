@@ -6,8 +6,15 @@
 //  Copyright (c) 2014 Artem. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "SWBaseCell.h"
 
-@interface SWHintCell : UICollectionViewCell
+@interface SWHintCell : SWBaseCell
+
+@property (strong, nonatomic) IBOutlet UILabel *labelName;
+@property (weak, nonatomic) IBOutlet UILabel *labelArtist;
+@property (weak, nonatomic) IBOutlet UILabel *labelLength;
+
+@property (weak, nonatomic) IBOutlet UIImageView *imageTrackType;
+@property (weak, nonatomic) IBOutlet UIImageView *imageEdit;
 
 @end

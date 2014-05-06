@@ -8,6 +8,8 @@
 
 #import "SWTrackCell.h"
 
+#import "SWGlobalDataSingleton.h"
+
 @implementation SWTrackCell
 
 - (id)initWithFrame:(CGRect)frame
@@ -20,8 +22,7 @@
 }
 
 - (void)setTrack:(MPMediaItem *)track {
-    
-    _mediaItem = track;
+    [super setTrack:track];
     
 //    NSURL *assetURL = [track valueForProperty:MPMediaItemPropertyAssetURL];
     NSString *songTitle = [track valueForProperty:MPMediaItemPropertyTitle];
@@ -30,7 +31,7 @@
     
     self.labelName.text = songTitle;
     self.labelArtist.text = songArtist;
-    self.labelLength.text = [NSString stringWithFormat:@"%@", songLength];
+    self.labelLength.text = [[SWGlobalDataSingleton globalDataManager] stringFromTimeInterval:[songLength integerValue]];
     
 }
 

@@ -38,8 +38,8 @@
     
     [SWMediaLibraryProvider sharedMediaManager];
     
-    [self.tracksCollectionView registerClass:[SWTrackCell class] forCellWithReuseIdentifier:@"TrackCellReuseIdentifier"];
-    [self.tracksCollectionView registerClass:[SWHintCell class] forCellWithReuseIdentifier:@"HintCellReuseIdentifier"];
+//    [self.tracksCollectionView registerClass:[SWTrackCell class] forCellWithReuseIdentifier:@"TrackCellReuseIdentifier"];
+//    [self.tracksCollectionView registerClass:[SWHintCell class] forCellWithReuseIdentifier:@"HintCellReuseIdentifier"];
     
 //    [SWPlayerViewController new];
 }
@@ -81,7 +81,6 @@
     } else {
         MPMediaItem *song = self.tracksArray[indexPath.row - 1];
         cell = [self.tracksCollectionView dequeueReusableCellWithReuseIdentifier:@"TrackCellReuseIdentifier" forIndexPath:indexPath];
-//        cell.backgroundColor = [UIColor clearColor];
         [(SWTrackCell *)cell setTrack:song];
     }
     

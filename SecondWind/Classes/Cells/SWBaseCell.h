@@ -6,8 +6,12 @@
 //  Copyright (c) 2014 Artem. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import <MediaPlayer/MediaPlayer.h>
 
 @interface SWBaseCell : UICollectionViewCell
+
+@property (strong, nonatomic, readonly) MPMediaItem *mediaItem;
+
+- (void)setTrack:(MPMediaItem *)track;
 
 @end

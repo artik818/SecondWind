@@ -179,11 +179,11 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <connections>
-                                            <outlet property="imageEdit" destination="VYK-71-icA" id="QnA-PL-DwD"/>
-                                            <outlet property="imageTrackType" destination="kU7-RN-h64" id="Z1V-zR-SWG"/>
-                                            <outlet property="labelArtist" destination="5VJ-P8-KKh" id="rTI-Q5-KbQ"/>
-                                            <outlet property="labelLength" destination="uC1-vq-D7h" id="Eoe-hN-72k"/>
-                                            <outlet property="labelName" destination="NzF-ts-JJK" id="fqH-55-PpE"/>
+                                            <outlet property="imageEdit" destination="VYK-71-icA" id="XCm-do-GNo"/>
+                                            <outlet property="imageTrackType" destination="kU7-RN-h64" id="scx-3T-pxS"/>
+                                            <outlet property="labelArtist" destination="5VJ-P8-KKh" id="tXz-mh-e9T"/>
+                                            <outlet property="labelLength" destination="uC1-vq-D7h" id="cTL-oq-Iq3"/>
+                                            <outlet property="labelName" destination="NzF-ts-JJK" id="yc8-Tk-eOa"/>
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TrackCellReuseIdentifier" id="Fdz-bi-11x" customClass="SWTrackCell">
@@ -193,8 +193,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="75"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="42" translatesAutoresizingMaskIntoConstraints="NO" id="dM9-gC-Klo" userLabel="Label - Name">
-                                                    <rect key="frame" x="65" y="9" width="42" height="21"/>
+                                                <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="235" translatesAutoresizingMaskIntoConstraints="NO" id="dM9-gC-Klo" userLabel="Label - Name">
+                                                    <rect key="frame" x="65" y="9" width="235" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -202,13 +202,13 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gx7-SV-1ml" userLabel="Label - Artist">
-                                                    <rect key="frame" x="65" y="38" width="42" height="21"/>
+                                                    <rect key="frame" x="65" y="38" width="140" height="22"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZVK-Ow-3uO" userLabel="Label - Length">
-                                                    <rect key="frame" x="213" y="32" width="42" height="21"/>
+                                                    <rect key="frame" x="213" y="39" width="59" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="highlightedColor"/>

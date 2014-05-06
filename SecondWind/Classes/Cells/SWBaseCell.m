@@ -19,6 +19,10 @@
     return self;
 }
 
+- (void)setTrack:(MPMediaItem *)track {
+    _mediaItem = track;
+}
+
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.

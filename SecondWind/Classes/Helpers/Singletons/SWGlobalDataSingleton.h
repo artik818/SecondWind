@@ -14,4 +14,6 @@
 
 + (SWGlobalDataSingleton *)globalDataManager;
 
+- (NSString *)stringFromTimeInterval:(NSTimeInterval)interval;
+
 @end
