@@ -11,7 +11,9 @@
 @interface SWBaseCell : UICollectionViewCell
 
 @property (strong, nonatomic, readonly) MPMediaItem *mediaItem;
+@property (nonatomic, readonly) TrackQuality trackQuality;
 
 - (void)setTrack:(MPMediaItem *)track;
+- (void)setTrackQuality:(TrackQuality)trackQuality;
 
 @end

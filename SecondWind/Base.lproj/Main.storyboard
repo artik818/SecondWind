@@ -70,6 +70,8 @@
             <objects>
                 <navigationController definesPresentationContext="YES" id="wel-ep-pFP" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Tracks" id="Pcm-rE-sYQ"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="MNZ-3d-0oc">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -84,7 +86,7 @@
         <!--Tracks View Controller-->
         <scene sceneID="Te4-rG-HmM">
             <objects>
-                <viewController storyboardIdentifier="SWTracksViewControllerSID" id="30h-Fu-pbj" customClass="SWTracksViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SWTracksViewControllerSID" extendedLayoutIncludesOpaqueBars="YES" id="30h-Fu-pbj" customClass="SWTracksViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="CaQ-93-boL"/>
                         <viewControllerLayoutGuide type="bottom" id="Tl3-K7-xEB"/>
@@ -100,7 +102,7 @@
                             <tabBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rxq-8Z-9hc" customClass="SWTopTabBar" propertyAccessControl="none">
                                 <rect key="frame" x="0.0" y="64" width="320" height="49"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <items>
                                     <tabBarItem title="Tracks" id="fpC-gq-4he">
                                         <inset key="imageInsets" minX="0.0" minY="60" maxX="0.0" maxY="-20"/>
@@ -119,13 +121,7 @@
                                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-10"/>
                                     </tabBarItem>
                                 </items>
-                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="barTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="position">
-                                        <integer key="value" value="0"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <outlet property="delegate" destination="30h-Fu-pbj" id="3k4-hq-SCz"/>
                                 </connections>
@@ -162,17 +158,17 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uC1-vq-D7h" userLabel="Label - Length">
-                                                    <rect key="frame" x="213" y="32" width="42" height="21"/>
+                                                    <rect key="frame" x="232" y="38" width="42" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kU7-RN-h64">
-                                                    <rect key="frame" x="11" y="25" width="35" height="35"/>
+                                                    <rect key="frame" x="8" y="8" width="55" height="55"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VYK-71-icA">
-                                                    <rect key="frame" x="275" y="30" width="25" height="25"/>
+                                                    <rect key="frame" x="282" y="23" width="25" height="25"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                             </subviews>
@@ -193,8 +189,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="75"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="235" translatesAutoresizingMaskIntoConstraints="NO" id="dM9-gC-Klo" userLabel="Label - Name">
-                                                    <rect key="frame" x="65" y="9" width="235" height="21"/>
+                                                <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="196" translatesAutoresizingMaskIntoConstraints="NO" id="dM9-gC-Klo" userLabel="Label - Name">
+                                                    <rect key="frame" x="81" y="9" width="196" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -202,23 +198,31 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gx7-SV-1ml" userLabel="Label - Artist">
-                                                    <rect key="frame" x="65" y="38" width="140" height="22"/>
+                                                    <rect key="frame" x="81" y="38" width="140" height="22"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZVK-Ow-3uO" userLabel="Label - Length">
-                                                    <rect key="frame" x="213" y="39" width="59" height="21"/>
+                                                    <rect key="frame" x="234" y="39" width="59" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="x2y-49-MSJ">
-                                                    <rect key="frame" x="11" y="25" width="35" height="35"/>
+                                                    <rect key="frame" x="2" y="2" width="71" height="71"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RNz-JM-szg">
-                                                    <rect key="frame" x="275" y="30" width="25" height="25"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="edit_buttn_overlay" translatesAutoresizingMaskIntoConstraints="NO" id="RNz-JM-szg">
+                                                    <rect key="frame" x="285" y="25" width="25" height="25"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="vertical_div_overlay" translatesAutoresizingMaskIntoConstraints="NO" id="tzS-V1-hiM">
+                                                    <rect key="frame" x="76" y="0.0" width="2" height="75"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="hr_overlay" translatesAutoresizingMaskIntoConstraints="NO" id="Ryg-8N-pXj">
+                                                    <rect key="frame" x="0.0" y="73" width="320" height="2"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                             </subviews>
@@ -240,7 +244,7 @@
                                 </connections>
                             </collectionView>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="CtW-o9-s61"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
@@ -291,7 +295,7 @@
                             <tabBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1vF-jA-NYy" customClass="SWTopTabBar">
                                 <rect key="frame" x="0.0" y="64" width="320" height="49"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <items>
                                     <tabBarItem title="Tracks" id="qAr-Zf-Cxl">
                                         <inset key="imageInsets" minX="0.0" minY="60" maxX="0.0" maxY="-20"/>
@@ -591,6 +595,9 @@
         <image name="bg_player_auto" width="640" height="1136"/>
         <image name="bg_player_fix" width="640" height="1136"/>
         <image name="bg_player_no" width="640" height="1136"/>
+        <image name="edit_buttn_overlay" width="150" height="150"/>
+        <image name="hr_overlay" width="640" height="2"/>
+        <image name="vertical_div_overlay" width="2" height="100"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

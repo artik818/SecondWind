@@ -8,7 +8,11 @@
 
 #import "SWArtistsViewController.h"
 
+#import "SWMediaLibraryProvider.h"
+
 @interface SWArtistsViewController () <UITabBarDelegate>
+
+@property (nonatomic, strong) NSArray *artistsArray;
 
 @end
 
@@ -26,12 +30,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.artistsArray = [[SWMediaLibraryProvider sharedMediaManager] getArtists];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    //    UITabBarItem *item = [self.topTabBar.items firstObject];
     [self.topTabBar setSelectedItemIndex:kTabBarIndex_Artists animated:YES];
 }
 

@@ -38,8 +38,6 @@
     
     [SWMediaLibraryProvider sharedMediaManager];
     
-//    [self.tracksCollectionView registerClass:[SWTrackCell class] forCellWithReuseIdentifier:@"TrackCellReuseIdentifier"];
-//    [self.tracksCollectionView registerClass:[SWHintCell class] forCellWithReuseIdentifier:@"HintCellReuseIdentifier"];
     
 //    [SWPlayerViewController new];
 }
@@ -56,13 +54,6 @@
 }
 
 #pragma mark - UICollectionViewDelegateFlowLayout
-
-//- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-//    CGSize cellSize = CGSizeZero;
-//    
-//    
-//    return cellSize;
-//}
 
 #pragma mark - UICollectionViewDataSource
 
@@ -82,6 +73,7 @@
         MPMediaItem *song = self.tracksArray[indexPath.row - 1];
         cell = [self.tracksCollectionView dequeueReusableCellWithReuseIdentifier:@"TrackCellReuseIdentifier" forIndexPath:indexPath];
         [(SWTrackCell *)cell setTrack:song];
+        [(SWTrackCell *)cell setTrackQuality:TrackQualityNone];
     }
     
     return cell;

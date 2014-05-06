@@ -60,6 +60,75 @@ static SWMediaLibraryProvider *sharedMediaManager = nil;
     return itemsFromGenericQuery;
 }
 
+- (NSArray *)getAlbums {
+    MPMediaQuery *query = [[MPMediaQuery alloc] init];
+    
+    // Sets the grouping type for the media query
+    [query setGroupingType: MPMediaGroupingAlbum];
+    
+    NSArray *albums = [query collections];
+    for (MPMediaItemCollection *album in albums) {
+        MPMediaItem *representativeItem = [album representativeItem];
+        NSString *artistName = [representativeItem valueForProperty: MPMediaItemPropertyArtist];
+        NSString *albumName = [representativeItem valueForProperty: MPMediaItemPropertyAlbumTitle];
+        NSLog (@"%@ by %@", albumName, artistName);
+        
+        NSArray *songs = [album items];
+        for (MPMediaItem *song in songs) {
+            NSString *songTitle = [song valueForProperty: MPMediaItemPropertyTitle];
+            NSLog (@"\t\t%@", songTitle);
+        }
+    }
+    
+    return albums;
+}
+
+- (NSArray *)getPlaylists {
+    MPMediaQuery *query = [[MPMediaQuery alloc] init];
+    
+    // Sets the grouping type for the media query
+    [query setGroupingType: MPMediaGroupingPlaylist];
+    
+    NSArray *playlists = [query collections];
+    for (MPMediaItemCollection *album in playlists) {
+        MPMediaItem *representativeItem = [album representativeItem];
+        NSString *artistName = [representativeItem valueForProperty: MPMediaItemPropertyArtist];
+        NSString *albumName = [representativeItem valueForProperty: MPMediaItemPropertyAlbumTitle];
+        NSLog (@"%@ by %@", albumName, artistName);
+        
+        NSArray *songs = [album items];
+        for (MPMediaItem *song in songs) {
+            NSString *songTitle = [song valueForProperty: MPMediaItemPropertyTitle];
+            NSLog (@"\t\t%@", songTitle);
+        }
+    }
+    
+    return playlists;
+}
+
+- (NSArray *)getArtists {
+    MPMediaQuery *query = [[MPMediaQuery alloc] init];
+    
+    // Sets the grouping type for the media query
+    [query setGroupingType: MPMediaGroupingArtist];
+    
+    NSArray *artists = [query collections];
+    for (MPMediaItemCollection *album in artists) {
+        MPMediaItem *representativeItem = [album representativeItem];
+        NSString *artistName = [representativeItem valueForProperty: MPMediaItemPropertyArtist];
+        NSString *albumName = [representativeItem valueForProperty: MPMediaItemPropertyAlbumTitle];
+        NSLog (@"%@ by %@", albumName, artistName);
+        
+        NSArray *songs = [album items];
+        for (MPMediaItem *song in songs) {
+            NSString *songTitle = [song valueForProperty: MPMediaItemPropertyTitle];
+            NSLog (@"\t\t%@", songTitle);
+        }
+    }
+    
+    return artists;
+}
+
 - (NSArray *)getAllMediaWithArtist:(NSString *)artistName {
     MPMediaPropertyPredicate *artistNamePredicate = [MPMediaPropertyPredicate predicateWithValue:artistName
                                                                                      forProperty:MPMediaItemPropertyArtist];

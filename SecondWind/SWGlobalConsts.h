@@ -15,4 +15,14 @@
 #define kTabBarIndex_Albums		3
 #define kTabBarIndex_Artists	4
 
+typedef NS_ENUM(NSUInteger, TrackQuality)
+{
+    TrackQualityNone,
+    TrackQualityBad,
+    TrackQualitySlow,
+    TrackQualityMiddle,
+    TrackQualityFast,
+    TrackQualityMax,
+};
+
 #endif

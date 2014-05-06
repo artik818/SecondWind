@@ -8,7 +8,11 @@
 
 #import "SWPlaylistsViewController.h"
 
+#import "SWMediaLibraryProvider.h"
+
 @interface SWPlaylistsViewController () <UITabBarDelegate>
+
+@property (nonatomic, strong) NSArray *playlistsArray;
 
 @end
 
@@ -26,7 +30,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+
+    self.playlistsArray = [[SWMediaLibraryProvider sharedMediaManager] getPlaylists];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

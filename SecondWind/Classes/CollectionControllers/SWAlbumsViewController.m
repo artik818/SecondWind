@@ -7,8 +7,11 @@
 //
 
 #import "SWAlbumsViewController.h"
+#import "SWMediaLibraryProvider.h"
 
 @interface SWAlbumsViewController () <UITabBarDelegate>
+
+@property (nonatomic, strong) NSArray *albumsArray;
 
 @end
 
@@ -26,7 +29,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    self.albumsArray = [[SWMediaLibraryProvider sharedMediaManager] getAlbums];
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated {

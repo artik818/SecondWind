@@ -13,5 +13,8 @@
 + (SWMediaLibraryProvider *)sharedMediaManager;
 
 - (NSArray *)getAllMedia;
+- (NSArray *)getAlbums;
+- (NSArray *)getPlaylists;
+- (NSArray *)getArtists;
 
 @end

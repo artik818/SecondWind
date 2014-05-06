@@ -23,6 +23,10 @@
     _mediaItem = track;
 }
 
+- (void)setTrackQuality:(TrackQuality)trackQuality {
+    _trackQuality = trackQuality;
+}
+
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
