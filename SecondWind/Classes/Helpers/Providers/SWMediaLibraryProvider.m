@@ -50,14 +50,13 @@ static SWMediaLibraryProvider *sharedMediaManager = nil;
     
     NSLog(@"Logging items from a generic query...");
     NSArray *itemsFromGenericQuery = [everything items];
-    for (MPMediaItem *song in itemsFromGenericQuery) {
-        NSURL *assetURL = [song valueForProperty:MPMediaItemPropertyAssetURL];
-        NSLog (@"%@", [assetURL absoluteString]);
-        AVPlayerItem *avItem = [[AVPlayerItem alloc] initWithURL:assetURL];
-        NSString *songTitle = [song valueForProperty: MPMediaItemPropertyTitle];
-        NSLog (@"%@", songTitle);
-    }
-    
+//    for (MPMediaItem *song in itemsFromGenericQuery) {
+//        NSURL *assetURL = [song valueForProperty:MPMediaItemPropertyAssetURL];
+//        NSLog (@"%@", [assetURL absoluteString]);
+//        AVPlayerItem *avItem = [[AVPlayerItem alloc] initWithURL:assetURL];
+//        NSString *songTitle = [song valueForProperty:MPMediaItemPropertyTitle];
+//        NSLog (@"%@", songTitle);
+//    }
     return itemsFromGenericQuery;
 }
 

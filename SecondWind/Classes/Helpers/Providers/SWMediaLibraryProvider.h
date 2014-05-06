@@ -12,4 +12,6 @@
 
 + (SWMediaLibraryProvider *)sharedMediaManager;
 
+- (NSArray *)getAllMedia;
+
 @end

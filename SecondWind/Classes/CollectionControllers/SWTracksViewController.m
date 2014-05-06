@@ -13,6 +13,8 @@
 
 #import "SWMediaLibraryProvider.h"
 
+#import <MediaPlayer/MediaPlayer.h>
+
 @interface SWTracksViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UITabBarDelegate>
 
 @property (nonatomic, strong) NSArray *tracksArray;
@@ -32,7 +34,7 @@
 {
     [super viewDidLoad];
 
-    self.tracksArray = [NSArray new];
+    self.tracksArray = [[SWMediaLibraryProvider sharedMediaManager] getAllMedia];
     
     [SWMediaLibraryProvider sharedMediaManager];
     
@@ -45,14 +47,12 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    //    UITabBarItem *item = [self.topTabBar.items firstObject];
     [self.topTabBar setSelectedItemIndex:kTabBarIndex_Tracks animated:YES];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - UICollectionViewDelegateFlowLayout
@@ -66,22 +66,30 @@
 
 #pragma mark - UICollectionViewDataSource
 
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
+{
+    [collectionView.collectionViewLayout invalidateLayout];
+    return 1;
+}
+
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     SWBaseCell *cell = nil;
     
     if (indexPath.row == 0) {
-        cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"HintCellReuseIdentifier" forIndexPath:indexPath];
+        cell = [self.tracksCollectionView dequeueReusableCellWithReuseIdentifier:@"HintCellReuseIdentifier" forIndexPath:indexPath];
         cell.backgroundColor = [UIColor redColor];
     } else {
-        cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"TrackCellReuseIdentifier" forIndexPath:indexPath];
-        cell.backgroundColor = [UIColor greenColor];
+        MPMediaItem *song = self.tracksArray[indexPath.row - 1];
+        cell = [self.tracksCollectionView dequeueReusableCellWithReuseIdentifier:@"TrackCellReuseIdentifier" forIndexPath:indexPath];
+//        cell.backgroundColor = [UIColor clearColor];
+        [(SWTrackCell *)cell setTrack:song];
     }
     
     return cell;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return self.tracksArray.count + 10;
+    return self.tracksArray.count + 1;
 }
 
 
