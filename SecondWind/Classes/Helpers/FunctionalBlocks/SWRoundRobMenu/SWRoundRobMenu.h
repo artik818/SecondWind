@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+
+
 @interface SWRoundRobMenu : UIView
+
+@property (nonatomic) CGFloat distanceBetweenCenters;
+
+- (void)setupWithViews:(NSArray *)viewsArray;
 
 @end

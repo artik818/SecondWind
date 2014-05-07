@@ -7,19 +7,22 @@
 //
 
 #import "SWPlayerViewController.h"
-#import "SWRoundRobMenu.h"
-#import "SWPlayerMenuItem.h"
+//#import "SWRoundRob.h"
+//#import "SWPlayerMenuItem.h"
 #import "SWPlayerView.h"
 #import "SWPlayerMenuItemView.h"
+#import "SWRoundRobMenu.h"
 
 
 
-@interface SWPlayerViewController () <iCarouselDelegate, iCarouselDataSource>
+@interface SWPlayerViewController () // <iCarouselDelegate, iCarouselDataSource>
 
 @property (weak, nonatomic) IBOutlet SWPlayerView *playerView;
 
-@property (nonatomic, strong) SWRoundRobMenu *playerMenuObject;
-@property (nonatomic, strong) SWRoundRobMenu *playerMenuViewObject;
+//@property (nonatomic, strong) SWRoundRob *playerMenuObject;
+//@property (nonatomic, strong) SWRoundRob *playerMenuViewObject;
+
+@property (nonatomic, weak) SWRoundRobMenu *roundRobMenu;
 
 @end
 
@@ -44,10 +47,49 @@
 //    [self setupSubViews];
 //    [self setupGestures];
     
-    [self setupCarousel];
+//    [self setupCarousel];
+    
+    [self setupRoundRobMenu];
 }
 
 
+
+- (void)setupRoundRobMenu
+{
+    SWRoundRobMenu *roundRobMenu = [[SWRoundRobMenu alloc] initWithFrame:self.playerView.frame];
+    self.roundRobMenu = roundRobMenu;
+    [self.playerView addSubview:roundRobMenu];
+    
+    CGFloat viewsCount = 3;
+    
+    NSMutableArray *menuViewsArray = [[NSMutableArray alloc] initWithCapacity:viewsCount];
+    
+    
+    
+//    SWPlayerMenuItem *menuItem;
+//    SWPlayerMenuItemView *menuItemView;
+//    CGRect fr;
+    
+    
+    for (NSInteger i = 0; i < viewsCount; ++i) {
+        UIView *view = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 200.0f, 200.0f)];
+        view.backgroundColor = [UIColor lightGrayColor];
+        UILabel *label = [[UILabel alloc] initWithFrame:view.bounds];
+        label.text = [@(i) stringValue]; // [NSString stringWithFormat:@"%lu", (unsigned long)i];
+        label.backgroundColor = [UIColor clearColor];
+        label.textAlignment = NSTextAlignmentCenter;
+        label.font = [label.font fontWithSize:50];
+        [view addSubview:label];
+        
+        [menuViewsArray addObject:view];
+    }
+    
+    [self.roundRobMenu setupWithViews:menuViewsArray];
+    self.roundRobMenu.distanceBetweenCenters = 250;
+}
+
+
+/*
 #pragma mark -
 
 - (void)setupCarousel
@@ -144,7 +186,7 @@
 {
 	NSLog(@"Carousel did end scrolling");
 }
-
+*/
 
 
 
