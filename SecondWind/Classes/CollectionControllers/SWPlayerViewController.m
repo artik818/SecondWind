@@ -54,7 +54,6 @@
 
 
 
-
 - (void)setupRoundRobMenu
 {
     SWRoundRobMenu *roundRobMenu = [[SWRoundRobMenu alloc] initWithFrame:self.playerView.frame];

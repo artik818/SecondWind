@@ -12,5 +12,6 @@
 @interface SWAlbumsViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet SWTopTabBar *topTabBar;
+@property (weak, nonatomic) IBOutlet UICollectionView *albumsCollectionView;
 
 @end

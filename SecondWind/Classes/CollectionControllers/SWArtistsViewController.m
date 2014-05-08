@@ -7,10 +7,11 @@
 //
 
 #import "SWArtistsViewController.h"
+#import "SWArtistCell.h"
 
 #import "SWMediaLibraryProvider.h"
 
-@interface SWArtistsViewController () <UITabBarDelegate>
+@interface SWArtistsViewController () <UITabBarDelegate, UICollectionViewDataSource, UICollectionViewDelegate>
 
 @property (nonatomic, strong) NSArray *artistsArray;
 
@@ -45,6 +46,30 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+#pragma mark - UICollectionViewDelegateFlowLayout
+
+#pragma mark - UICollectionViewDataSource
+
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
+{
+    [collectionView.collectionViewLayout invalidateLayout];
+    return 1;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    NSDictionary *artist = self.artistsArray[indexPath.row];
+    SWArtistCell *cell = [self.artistsCollectionView dequeueReusableCellWithReuseIdentifier:@"ArtistCellReuseIdentifier" forIndexPath:indexPath];
+    [cell setArtist:artist];
+    return cell;
+}
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return self.artistsArray.count;
+}
+
+
+#pragma mark - UICollectionViewDelegate
 
 
 #pragma mark - UITabBarDelegate

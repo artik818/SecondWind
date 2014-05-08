@@ -13,7 +13,7 @@
 
 #import "SWMediaLibraryProvider.h"
 
-#import <MediaPlayer/MediaPlayer.h>
+//#import <MediaPlayer/MediaPlayer.h>
 
 @interface SWTracksViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UITabBarDelegate>
 
