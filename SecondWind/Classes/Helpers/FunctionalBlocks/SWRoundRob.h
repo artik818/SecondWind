@@ -20,5 +20,7 @@
 - (void)setupCurrentIndex:(NSInteger)newIndex;
 - (id)moveDownItemFor:(NSInteger)steps;
 - (id)moveUpItemFor:(NSInteger)steps;
+- (NSInteger)moveDownIndexFor:(NSInteger)steps;
+- (NSInteger)moveUpIndexFor:(NSInteger)steps;
 
 @end

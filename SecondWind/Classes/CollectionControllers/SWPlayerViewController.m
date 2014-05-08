@@ -64,13 +64,6 @@
     
     NSMutableArray *menuViewsArray = [[NSMutableArray alloc] initWithCapacity:viewsCount];
     
-    
-    
-//    SWPlayerMenuItem *menuItem;
-//    SWPlayerMenuItemView *menuItemView;
-//    CGRect fr;
-    
-    
     for (NSInteger i = 0; i < viewsCount; ++i) {
         UIView *view = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 200.0f, 200.0f)];
         view.backgroundColor = [UIColor lightGrayColor];
