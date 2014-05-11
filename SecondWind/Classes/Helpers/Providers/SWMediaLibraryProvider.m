@@ -90,18 +90,6 @@ static SWMediaLibraryProvider *sharedMediaManager = nil;
     [query setGroupingType: MPMediaGroupingPlaylist];
     
     NSArray *playlists = [query collections];
-    for (MPMediaItemCollection *album in playlists) {
-        MPMediaItem *representativeItem = [album representativeItem];
-        NSString *artistName = [representativeItem valueForProperty: MPMediaItemPropertyArtist];
-        NSString *albumName = [representativeItem valueForProperty: MPMediaItemPropertyAlbumTitle];
-        NSLog (@"%@ by %@", albumName, artistName);
-        
-        NSArray *songs = [album items];
-        for (MPMediaItem *song in songs) {
-            NSString *songTitle = [song valueForProperty: MPMediaItemPropertyTitle];
-            NSLog (@"\t\t%@", songTitle);
-        }
-    }
     
     return playlists;
 }

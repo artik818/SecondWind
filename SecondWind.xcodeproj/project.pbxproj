@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		7AC5C2D91911016C0091A3DA /* SWPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC5C2D81911016C0091A3DA /* SWPlayerView.m */; };
 		7AC5C2DC191102F70091A3DA /* SWPlayerMenuItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC5C2DB191102F70091A3DA /* SWPlayerMenuItemView.m */; };
+		84A51007191AD5F8007AD610 /* SWPlaylistCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A51006191AD5F8007AD610 /* SWPlaylistCell.m */; };
 		84B0AA5E190D32BA00ADCEE2 /* SWMainTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B0AA5D190D32BA00ADCEE2 /* SWMainTabBarViewController.m */; };
 		84B0AA62190D350B00ADCEE2 /* SWDisclaimerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B0AA61190D350B00ADCEE2 /* SWDisclaimerViewController.m */; };
 		84B0AA66190D3EB600ADCEE2 /* SWTracksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B0AA65190D3EB600ADCEE2 /* SWTracksViewController.m */; };
@@ -51,6 +52,8 @@
 		7AC5C2D81911016C0091A3DA /* SWPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWPlayerView.m; sourceTree = "<group>"; };
 		7AC5C2DA191102F70091A3DA /* SWPlayerMenuItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWPlayerMenuItemView.h; sourceTree = "<group>"; };
 		7AC5C2DB191102F70091A3DA /* SWPlayerMenuItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWPlayerMenuItemView.m; sourceTree = "<group>"; };
+		84A51005191AD5F8007AD610 /* SWPlaylistCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWPlaylistCell.h; sourceTree = "<group>"; };
+		84A51006191AD5F8007AD610 /* SWPlaylistCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWPlaylistCell.m; sourceTree = "<group>"; };
 		84B0AA5C190D32BA00ADCEE2 /* SWMainTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWMainTabBarViewController.h; sourceTree = "<group>"; };
 		84B0AA5D190D32BA00ADCEE2 /* SWMainTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWMainTabBarViewController.m; sourceTree = "<group>"; };
 		84B0AA60190D350B00ADCEE2 /* SWDisclaimerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWDisclaimerViewController.h; sourceTree = "<group>"; };
@@ -248,6 +251,8 @@
 				84B0AA94190D511A00ADCEE2 /* SWBaseCell.m */,
 				84B0AA96190D51DC00ADCEE2 /* SWHintCell.h */,
 				84B0AA97190D51DC00ADCEE2 /* SWHintCell.m */,
+				84A51005191AD5F8007AD610 /* SWPlaylistCell.h */,
+				84A51006191AD5F8007AD610 /* SWPlaylistCell.m */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -456,6 +461,7 @@
 				84B0AA66190D3EB600ADCEE2 /* SWTracksViewController.m in Sources */,
 				AC9FD13D191046460091B9CC /* SWPlayerMenuItem.m in Sources */,
 				84B0AA62190D350B00ADCEE2 /* SWDisclaimerViewController.m in Sources */,
+				84A51007191AD5F8007AD610 /* SWPlaylistCell.m in Sources */,
 				7AC5C2DC191102F70091A3DA /* SWPlayerMenuItemView.m in Sources */,
 				AC5AA2B91906AE670084BAA5 /* SWAppDelegate.m in Sources */,
 				AC7C5B0C19129AD800E7558A /* iCarousel.m in Sources */,

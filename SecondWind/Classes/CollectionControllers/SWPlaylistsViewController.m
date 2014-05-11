@@ -9,8 +9,9 @@
 #import "SWPlaylistsViewController.h"
 
 #import "SWMediaLibraryProvider.h"
+#import "SWPlaylistCell.h"
 
-@interface SWPlaylistsViewController () <UITabBarDelegate>
+@interface SWPlaylistsViewController () <UITabBarDelegate, UICollectionViewDataSource, UICollisionBehaviorDelegate>
 
 @property (nonatomic, strong) NSArray *playlistsArray;
 
@@ -47,6 +48,37 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - UICollectionViewDelegateFlowLayout
+
+#pragma mark - UICollectionViewDataSource
+
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
+{
+    [collectionView.collectionViewLayout invalidateLayout];
+    return 1;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    SWBaseCell *cell = nil;
+    
+    if (indexPath.row == 0) {
+        cell = [self.playlistsCollectionView dequeueReusableCellWithReuseIdentifier:@"HintCellReuseIdentifier" forIndexPath:indexPath];
+        cell.backgroundColor = [UIColor redColor];
+    } else {
+        MPMediaItemCollection *song = self.playlistsArray[indexPath.row - 1];
+        cell = [self.playlistsCollectionView dequeueReusableCellWithReuseIdentifier:@"PlaylistCellReuseIdentifier" forIndexPath:indexPath];
+        [(SWPlaylistCell *)cell setPlaylist:song];
+    }
+    
+    return cell;
+}
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return self.playlistsArray.count + 1;
+}
+
+
+#pragma mark - UICollectionViewDelegate
 
 #pragma mark - UITabBarDelegate
 

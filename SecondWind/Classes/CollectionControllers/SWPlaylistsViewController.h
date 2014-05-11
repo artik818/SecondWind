@@ -13,5 +13,6 @@
 @interface SWPlaylistsViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet SWTopTabBar *topTabBar;
+@property (weak, nonatomic) IBOutlet UICollectionView *playlistsCollectionView;
 
 @end
