@@ -1,0 +1,133 @@
+#include "SingasteinnEngine.h"
+#include "platform.h"
+#include "Song.h"
+#include "SongStream.h"
+#include "SimpleTempoStorage.h"
+#include "output/WAvStreamWriter.h"
+
+#include <log4cplus/consoleappender.h>
+#include <log4cplus/logger.h>
+#include <log4cplus/loglevel.h>
+#include <log4cplus/loggingmacros.h>
+
+static log4cplus::Logger logger = log4cplus::Logger::getInstance("singasteinn.Engine");
+
+SingasteinnEngine::SingasteinnEngine():
+    mAlive(1),
+    mCurrentTrack(0),
+    mPlayer(0),
+    mTempoStorage(0)
+{
+    initializeLogging();
+    mSensorHandler = new SensorHandler(1024);
+    mTempoStorage = new SimpleTempoStorage("tempo");
+    dynamic_cast<SimpleTempoStorage*>(mTempoStorage)->setWriteOnly(true);
+    mMixer = new SimpleMixer(this);
+
+}
+
+SingasteinnEngine::~SingasteinnEngine(){
+    if (mPlayer)
+        delete mPlayer;
+}
+
+void SingasteinnEngine::initializeLogging(){
+    static bool initialized = false;
+    if (initialized){
+        return;
+    }
+    log4cplus::initialize ();
+    log4cplus::SharedAppenderPtr append_1(new log4cplus::ConsoleAppender());
+    append_1->setName(LOG4CPLUS_TEXT("Console"));
+    append_1->setLayout(std::auto_ptr<log4cplus::Layout>(new log4cplus::PatternLayout("%d{%H:%M:%S.%q} %c{1}: %m\n")));
+    log4cplus::Logger::getRoot().addAppender(append_1);
+
+    //log4cplus::Logger::getRoot().setLogLevel(log4cplus::WARN_LOG_LEVEL);
+    LOG4CPLUS_INFO(logger, "Logging init Ok");
+    initialized = true;
+}
+
+void SingasteinnEngine::playSong(Song::Ptr song){
+    LOG4CPLUS_WARN_FMT(logger, "Playing song %s", song->getPath().c_str());
+    if (!song->readTempoData(mTempoStorage)){
+        song->generateTempoData();
+        song->saveTempoData(mTempoStorage);
+    }
+    song->getTempoData()->print();
+    std::vector<Song::Ptr> p;
+    p.push_back(song);
+    p.push_back(song);
+    p.push_back(song);
+    setCurrentList(p);
+    mCurrentTrack = 0;
+    startPlayback();
+}
+
+void SingasteinnEngine::run(){
+    //return;
+//    dynamic_cast<PlatformStreamPlayer*>(mPlayer)->start();
+//    pthread_create(&mPlayerThread, 0, startPlayerThread, mPlayer);
+    while (mAlive){
+        //if (mCurrentSong)
+            //mCurrentSong->updateTempoScale();
+        sleep(1);
+    }
+}
+
+void SingasteinnEngine::onEOF(IStreamPlayer *player){
+    assert(player == mPlayer);
+    LOG4CPLUS_WARN(logger, "EOF");
+}
+
+void SingasteinnEngine::setCurrentList(Tracklist pl){
+    mPlaylist = pl;
+    mCurrentTrack = 0;
+}
+
+void SingasteinnEngine::startPlayback(){
+    if (mPlayer){
+        LOG4CPLUS_WARN(logger, "startPlayback: streamplayer exists, assuming paused state");
+        mPlayer->resume();
+        return;
+    }
+    if (mWavOutPath.empty()){
+        mPlayer = new PlatformStreamPlayer();
+    }
+    else{
+        mPlayer = new WavStreamWriter(mWavOutPath);
+    }
+    mPlaylist.at(mCurrentTrack)->generateTempoData();
+    mMixer->switchTo(new SongStream(mPlaylist.at(mCurrentTrack))); //TODO FIXME MEMLEAK
+    mPlayer->setSource(mMixer);
+    mPlayer->setClient(this);
+    mPlayer->play();
+}
+
+void SingasteinnEngine::pausePlayback(){
+    if (!mPlayer){
+        LOG4CPLUS_ERROR(logger, "pausePlayback called but streamplayer does not exists");
+        return;
+    }
+    mPlayer->pause();
+
+}
+
+void SingasteinnEngine::stopPlayback(){
+    if (!mPlayer){
+        LOG4CPLUS_ERROR(logger, "stopPlayback called but streamplayer does not exists");
+        return;
+    }
+    delete mPlayer;  // TODO check if destructor stops playback correctly
+    mPlayer = 0;
+}
+
+int SingasteinnEngine::getCurrentTrackIndex(){
+    return mCurrentTrack;
+}
+
+
+void SingasteinnEngine::onMixerTrackEnd(SimpleMixer *mixer){
+    mCurrentTrack = (mCurrentTrack + 1) % mPlaylist.size();
+    LOG4CPLUS_WARN_FMT(logger, "track ended, switching to next (%d)", mCurrentTrack);
+    mMixer->switchTo(new SongStream(mPlaylist.at(mCurrentTrack)));
+}

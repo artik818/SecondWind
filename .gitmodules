@@ -1,0 +1,3 @@
+[submodule "SecondWindLib/secondwindLib"]
+	path = SecondWindLib/secondwindLib
+	url = ../../Equidamoid/secondwind.git

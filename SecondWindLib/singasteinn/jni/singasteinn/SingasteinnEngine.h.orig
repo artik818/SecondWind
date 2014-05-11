@@ -1,0 +1,87 @@
+#ifndef SINGASTEINN_ENGINE_H
+#define SINGASTEINN_ENGINE_H
+
+#include "SensorHandler.h"
+#include "output/IStreamPlayer.h"
+#include "TempoScaler.h"
+#include "SimpleMixer.h"
+#include "ITempoStorage.h"
+#include "Song.h"
+#include <pthread.h>
+#include <vector>
+
+class Song;
+
+
+class SingasteinnEngine: public IStreamPlayerClient, public SimpleMixer::Callback{
+public:
+    typedef std::vector<Song::Ptr> Tracklist;
+private:
+    SensorHandler *mSensorHandler;
+    IStreamPlayer * mPlayer;
+    SimpleMixer * mMixer;
+    ITempoStorage * mTempoStorage;
+    int mCurrentTrack;
+    pthread_t mThread;
+    pthread_t mPlayerThread;
+    bool mAlive;
+    Tracklist mPlaylist;
+
+    std::string mWavOutPath;
+
+public:
+    static void initializeLogging();
+
+    SingasteinnEngine();
+    virtual ~SingasteinnEngine();
+
+    enum PlaybackState{
+        Stopped,
+        Playing,
+        Paused
+    };
+
+    void initSensor();
+
+    void run();
+
+    void playSong(Song::Ptr song);
+
+    virtual void onEOF(IStreamPlayer *player);
+
+    // interface
+
+    void playNext();
+    void playPrev();
+    void playIdx(int idx);
+
+    void startPlayback();
+    void pausePlayback();
+    void stopPlayback();
+
+    Tracklist getCurrentList();
+    void setCurrentList(Tracklist);
+    int getCurrentTrackIndex();
+    PlaybackState getPlaybackState();
+
+    // callbacks
+
+    void onMixerTrackEnd(SimpleMixer *mixer);
+
+    SensorHandler * getSensorHandler(){
+        return mSensorHandler;
+    }
+
+    void setWavDumpPath(std::string path){
+        mWavOutPath = path;
+    }
+
+    ITempoStorage * getTempoStorage(){
+        return mTempoStorage;
+    }
+
+};
+
+
+
+#endif
