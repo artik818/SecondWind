@@ -7,12 +7,21 @@
 //
 
 #import "SWAppDelegate.h"
+#include "SingasteinnEngine.h"
+
+#include "interface/IFittingController.h"
 
 @implementation SWAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-   
+ 
+    singasteinn::SingasteinnEngine::initializeLogging();
+    singasteinn::SingasteinnEngine eng("cache");
+    singasteinn::SongAnalysisService sa;
+    eng.getFittingController()->setFittingMode(singasteinn::IFittingController::FM_ConstTempoFit);
+    eng.getFittingController()->setConstBeatInterval(0.4);
+    
     return YES;
 }
 							

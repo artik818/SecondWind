@@ -8,7 +8,11 @@
 
 #import "SWHintsViewController.h"
 
-@interface SWHintsViewController () <UITabBarDelegate>
+#import "SWHintCell.h"
+
+@interface SWHintsViewController () <UITabBarDelegate, UICollectionViewDataSource, UICollectionViewDelegate>
+
+@property (nonatomic, strong) NSArray *hintsArray;
 
 @end
 
@@ -48,6 +52,18 @@
 - (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item {
     NSUInteger selIndex = [tabBar.items indexOfObject:item];
     [self.tabBarController setSelectedIndex:selIndex];
+}
+
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return self.hintsArray.count;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    SWHintCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"HintCellReuseIdentifier" forIndexPath:indexPath];
+    
+    
+    return cell;
 }
 
 /*

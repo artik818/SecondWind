@@ -10,6 +10,10 @@
 		7AC5C2D91911016C0091A3DA /* SWPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC5C2D81911016C0091A3DA /* SWPlayerView.m */; };
 		7AC5C2DC191102F70091A3DA /* SWPlayerMenuItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC5C2DB191102F70091A3DA /* SWPlayerMenuItemView.m */; };
 		84A51007191AD5F8007AD610 /* SWPlaylistCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A51006191AD5F8007AD610 /* SWPlaylistCell.m */; };
+		84ACBAF7191FFA4A00A9ACDA /* liblog4cplusS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 84ACBAF4191FFA2C00A9ACDA /* liblog4cplusS.a */; };
+		84ACBAF8191FFA4A00A9ACDA /* libsingasteinn.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 84ACBAEA191FFA2C00A9ACDA /* libsingasteinn.a */; };
+		84ACBAF9191FFA4A00A9ACDA /* libsoundtouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 84ACBAEE191FFA2C00A9ACDA /* libsoundtouch.a */; };
+		84ACBB0E19200AF400A9ACDA /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84ACBB00191FFA6100A9ACDA /* OpenAL.framework */; };
 		84B0AA5E190D32BA00ADCEE2 /* SWMainTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B0AA5D190D32BA00ADCEE2 /* SWMainTabBarViewController.m */; };
 		84B0AA62190D350B00ADCEE2 /* SWDisclaimerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B0AA61190D350B00ADCEE2 /* SWDisclaimerViewController.m */; };
 		84B0AA66190D3EB600ADCEE2 /* SWTracksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B0AA65190D3EB600ADCEE2 /* SWTracksViewController.m */; };
@@ -40,7 +44,7 @@
 		AC5AA2AD1906AE670084BAA5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC5AA2AC1906AE670084BAA5 /* UIKit.framework */; };
 		AC5AA2B31906AE670084BAA5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AC5AA2B11906AE670084BAA5 /* InfoPlist.strings */; };
 		AC5AA2B51906AE670084BAA5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AC5AA2B41906AE670084BAA5 /* main.m */; };
-		AC5AA2B91906AE670084BAA5 /* SWAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AC5AA2B81906AE670084BAA5 /* SWAppDelegate.m */; };
+		AC5AA2B91906AE670084BAA5 /* SWAppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = AC5AA2B81906AE670084BAA5 /* SWAppDelegate.mm */; };
 		AC5AA2BC1906AE670084BAA5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC5AA2BA1906AE670084BAA5 /* Main.storyboard */; };
 		AC5AA2C11906AE670084BAA5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC5AA2C01906AE670084BAA5 /* Images.xcassets */; };
 		AC78BD94191ACB6D0077AB32 /* SWRoundRobMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = AC78BD93191ACB6D0077AB32 /* SWRoundRobMenu.m */; };
@@ -50,6 +54,79 @@
 		AC9FD148191063980091B9CC /* SWPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC9FD147191063980091B9CC /* SWPlayerViewController.m */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		84ACBAE9191FFA2C00A9ACDA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 84ACBADB191FFA2C00A9ACDA /* singasteinn.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 480BE67B73604D88941CF0CB;
+			remoteInfo = singasteinn;
+		};
+		84ACBAEB191FFA2C00A9ACDA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 84ACBADB191FFA2C00A9ACDA /* singasteinn.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C9B6EAB3A84C49C5B5D734B1;
+			remoteInfo = "singasteinn-bin";
+		};
+		84ACBAED191FFA2C00A9ACDA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 84ACBADB191FFA2C00A9ACDA /* singasteinn.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BDE8CD8A498E43ECB4214DBF;
+			remoteInfo = soundtouch;
+		};
+		84ACBAEF191FFA2C00A9ACDA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 84ACBADB191FFA2C00A9ACDA /* singasteinn.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B5E49961D6BD46E3B2DB436E;
+			remoteInfo = "ssn-test-analyzer";
+		};
+		84ACBAF1191FFA2C00A9ACDA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 84ACBADB191FFA2C00A9ACDA /* singasteinn.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D92675D436BB483EAC826E94;
+			remoteInfo = "ssn-test-playlistiter";
+		};
+		84ACBAF3191FFA2C00A9ACDA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 84ACBADB191FFA2C00A9ACDA /* singasteinn.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3D98C540D2E44EDF83B30144;
+			remoteInfo = log4cplusS;
+		};
+		84ACBAF5191FFA2C00A9ACDA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 84ACBADB191FFA2C00A9ACDA /* singasteinn.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 09A9420154A146B9B0C1F006;
+			remoteInfo = loggingserver;
+		};
+		84ACBAFA191FFA5100A9ACDA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 84ACBADB191FFA2C00A9ACDA /* singasteinn.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 2AE42D3EF1CF4873ABF7D4BE;
+			remoteInfo = singasteinn;
+		};
+		84ACBAFC191FFA5100A9ACDA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 84ACBADB191FFA2C00A9ACDA /* singasteinn.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 2CE053AB8D874CF3B6F9A154;
+			remoteInfo = soundtouch;
+		};
+		84ACBAFE191FFA5100A9ACDA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 84ACBADB191FFA2C00A9ACDA /* singasteinn.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 81C11084797C48F1B9173152;
+			remoteInfo = log4cplusS;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		7AC5C2D71911016C0091A3DA /* SWPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWPlayerView.h; sourceTree = "<group>"; };
 		7AC5C2D81911016C0091A3DA /* SWPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWPlayerView.m; sourceTree = "<group>"; };
@@ -57,6 +134,9 @@
 		7AC5C2DB191102F70091A3DA /* SWPlayerMenuItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWPlayerMenuItemView.m; sourceTree = "<group>"; };
 		84A51005191AD5F8007AD610 /* SWPlaylistCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWPlaylistCell.h; sourceTree = "<group>"; };
 		84A51006191AD5F8007AD610 /* SWPlaylistCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWPlaylistCell.m; sourceTree = "<group>"; };
+		84ACBADB191FFA2C00A9ACDA /* singasteinn.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = singasteinn.xcodeproj; path = SecondWindLib/secondwind/singasteinn/singasteinn.xcodeproj; sourceTree = "<group>"; };
+		84ACBB00191FFA6100A9ACDA /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
+		84ACBB03191FFCD900A9ACDA /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
 		84B0AA5C190D32BA00ADCEE2 /* SWMainTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWMainTabBarViewController.h; sourceTree = "<group>"; };
 		84B0AA5D190D32BA00ADCEE2 /* SWMainTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWMainTabBarViewController.m; sourceTree = "<group>"; };
 		84B0AA60190D350B00ADCEE2 /* SWDisclaimerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWDisclaimerViewController.h; sourceTree = "<group>"; };
@@ -89,6 +169,10 @@
 		84B0AA94190D511A00ADCEE2 /* SWBaseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWBaseCell.m; sourceTree = "<group>"; };
 		84B0AA96190D51DC00ADCEE2 /* SWHintCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWHintCell.h; sourceTree = "<group>"; };
 		84B0AA97190D51DC00ADCEE2 /* SWHintCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWHintCell.m; sourceTree = "<group>"; };
+		84D5ECD0191FD17A00A4B556 /* libc.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libc.dylib; path = usr/lib/libc.dylib; sourceTree = SDKROOT; };
+		84D5ECD2191FD1AB00A4B556 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		84D5ECD4191FD1BB00A4B556 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
+		84D5ECD6191FD1F400A4B556 /* libstdc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.dylib"; path = "usr/lib/libstdc++.dylib"; sourceTree = SDKROOT; };
 		9A733026190F7BB300F7FA82 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		9A733028190F7BD500F7FA82 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		9A733029190F7BD500F7FA82 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
@@ -114,7 +198,7 @@
 		AC5AA2B41906AE670084BAA5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		AC5AA2B61906AE670084BAA5 /* SecondWind-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SecondWind-Prefix.pch"; sourceTree = "<group>"; };
 		AC5AA2B71906AE670084BAA5 /* SWAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SWAppDelegate.h; sourceTree = "<group>"; };
-		AC5AA2B81906AE670084BAA5 /* SWAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SWAppDelegate.m; sourceTree = "<group>"; };
+		AC5AA2B81906AE670084BAA5 /* SWAppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SWAppDelegate.mm; sourceTree = "<group>"; };
 		AC5AA2BB1906AE670084BAA5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AC5AA2C01906AE670084BAA5 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		AC78BD92191ACB6D0077AB32 /* SWRoundRobMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRoundRobMenu.h; sourceTree = "<group>"; };
@@ -134,6 +218,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84ACBB0E19200AF400A9ACDA /* OpenAL.framework in Frameworks */,
+				84ACBAF7191FFA4A00A9ACDA /* liblog4cplusS.a in Frameworks */,
+				84ACBAF8191FFA4A00A9ACDA /* libsingasteinn.a in Frameworks */,
+				84ACBAF9191FFA4A00A9ACDA /* libsoundtouch.a in Frameworks */,
 				9A733031190F7BE800F7FA82 /* MediaPlayer.framework in Frameworks */,
 				9A73302F190F7BDF00F7FA82 /* AssetsLibrary.framework in Frameworks */,
 				9A73302B190F7BD500F7FA82 /* CoreMedia.framework in Frameworks */,
@@ -156,6 +244,20 @@
 				7AC5C2D81911016C0091A3DA /* SWPlayerView.m */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		84ACBADC191FFA2C00A9ACDA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				84ACBAEA191FFA2C00A9ACDA /* libsingasteinn.a */,
+				84ACBAEC191FFA2C00A9ACDA /* singasteinn-bin */,
+				84ACBAEE191FFA2C00A9ACDA /* libsoundtouch.a */,
+				84ACBAF0191FFA2C00A9ACDA /* ssn-test-analyzer */,
+				84ACBAF2191FFA2C00A9ACDA /* ssn-test-playlistiter */,
+				84ACBAF4191FFA2C00A9ACDA /* liblog4cplusS.a */,
+				84ACBAF6191FFA2C00A9ACDA /* loggingserver */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		84B0AA5A190D328400ADCEE2 /* Classes */ = {
@@ -293,6 +395,7 @@
 		AC5AA29C1906AE670084BAA5 = {
 			isa = PBXGroup;
 			children = (
+				84ACBADB191FFA2C00A9ACDA /* singasteinn.xcodeproj */,
 				AC5AA2AE1906AE670084BAA5 /* SecondWind */,
 				AC5AA2A71906AE670084BAA5 /* Frameworks */,
 				AC5AA2A61906AE670084BAA5 /* Products */,
@@ -310,6 +413,12 @@
 		AC5AA2A71906AE670084BAA5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				84ACBB03191FFCD900A9ACDA /* CoreAudio.framework */,
+				84ACBB00191FFA6100A9ACDA /* OpenAL.framework */,
+				84D5ECD6191FD1F400A4B556 /* libstdc++.dylib */,
+				84D5ECD4191FD1BB00A4B556 /* libc++.dylib */,
+				84D5ECD2191FD1AB00A4B556 /* libz.dylib */,
+				84D5ECD0191FD17A00A4B556 /* libc.dylib */,
 				9A733030190F7BE800F7FA82 /* MediaPlayer.framework */,
 				9A73302E190F7BDF00F7FA82 /* AssetsLibrary.framework */,
 				9A733028190F7BD500F7FA82 /* CoreMedia.framework */,
@@ -328,7 +437,7 @@
 			children = (
 				84B0AA5A190D328400ADCEE2 /* Classes */,
 				AC5AA2B71906AE670084BAA5 /* SWAppDelegate.h */,
-				AC5AA2B81906AE670084BAA5 /* SWAppDelegate.m */,
+				AC5AA2B81906AE670084BAA5 /* SWAppDelegate.mm */,
 				9AA96862191772B100F5FCBB /* SWGlobalConsts.h */,
 				AC5AA2BA1906AE670084BAA5 /* Main.storyboard */,
 				AC5AA2C01906AE670084BAA5 /* Images.xcassets */,
@@ -401,6 +510,9 @@
 			buildRules = (
 			);
 			dependencies = (
+				84ACBAFB191FFA5100A9ACDA /* PBXTargetDependency */,
+				84ACBAFD191FFA5100A9ACDA /* PBXTargetDependency */,
+				84ACBAFF191FFA5100A9ACDA /* PBXTargetDependency */,
 			);
 			name = SecondWind;
 			productName = SecondWind;
@@ -439,12 +551,70 @@
 			mainGroup = AC5AA29C1906AE670084BAA5;
 			productRefGroup = AC5AA2A61906AE670084BAA5 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 84ACBADC191FFA2C00A9ACDA /* Products */;
+					ProjectRef = 84ACBADB191FFA2C00A9ACDA /* singasteinn.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				AC5AA2A41906AE670084BAA5 /* SecondWind */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		84ACBAEA191FFA2C00A9ACDA /* libsingasteinn.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libsingasteinn.a;
+			remoteRef = 84ACBAE9191FFA2C00A9ACDA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		84ACBAEC191FFA2C00A9ACDA /* singasteinn-bin */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = "singasteinn-bin";
+			remoteRef = 84ACBAEB191FFA2C00A9ACDA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		84ACBAEE191FFA2C00A9ACDA /* libsoundtouch.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libsoundtouch.a;
+			remoteRef = 84ACBAED191FFA2C00A9ACDA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		84ACBAF0191FFA2C00A9ACDA /* ssn-test-analyzer */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = "ssn-test-analyzer";
+			remoteRef = 84ACBAEF191FFA2C00A9ACDA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		84ACBAF2191FFA2C00A9ACDA /* ssn-test-playlistiter */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = "ssn-test-playlistiter";
+			remoteRef = 84ACBAF1191FFA2C00A9ACDA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		84ACBAF4191FFA2C00A9ACDA /* liblog4cplusS.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = liblog4cplusS.a;
+			remoteRef = 84ACBAF3191FFA2C00A9ACDA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		84ACBAF6191FFA2C00A9ACDA /* loggingserver */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = loggingserver;
+			remoteRef = 84ACBAF5191FFA2C00A9ACDA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		AC5AA2A31906AE670084BAA5 /* Resources */ = {
@@ -489,7 +659,7 @@
 				84B0AA62190D350B00ADCEE2 /* SWDisclaimerViewController.m in Sources */,
 				84A51007191AD5F8007AD610 /* SWPlaylistCell.m in Sources */,
 				7AC5C2DC191102F70091A3DA /* SWPlayerMenuItemView.m in Sources */,
-				AC5AA2B91906AE670084BAA5 /* SWAppDelegate.m in Sources */,
+				AC5AA2B91906AE670084BAA5 /* SWAppDelegate.mm in Sources */,
 				AC7C5B0C19129AD800E7558A /* iCarousel.m in Sources */,
 				AC5AA2B51906AE670084BAA5 /* main.m in Sources */,
 				7AC5C2D91911016C0091A3DA /* SWPlayerView.m in Sources */,
@@ -497,6 +667,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		84ACBAFB191FFA5100A9ACDA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = singasteinn;
+			targetProxy = 84ACBAFA191FFA5100A9ACDA /* PBXContainerItemProxy */;
+		};
+		84ACBAFD191FFA5100A9ACDA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = soundtouch;
+			targetProxy = 84ACBAFC191FFA5100A9ACDA /* PBXContainerItemProxy */;
+		};
+		84ACBAFF191FFA5100A9ACDA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = log4cplusS;
+			targetProxy = 84ACBAFE191FFA5100A9ACDA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		84B0AA8D190D4CFA00ADCEE2 /* Localizable.strings */ = {
@@ -564,6 +752,13 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					SecondWindLib/secondwind/singasteinn/jni/lib/soundtouch,
+					SecondWindLib/secondwind/singasteinn/jni/lib/soundtouch/include,
+					SecondWindLib/secondwind/singasteinn/jni/singasteinn,
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				ONLY_ACTIVE_ARCH = YES;
 				PROVISIONING_PROFILE = "3AC70458-509A-44DC-AFB1-B0B119521B41";
@@ -598,6 +793,13 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					SecondWindLib/secondwind/singasteinn/jni/lib/soundtouch,
+					SecondWindLib/secondwind/singasteinn/jni/lib/soundtouch/include,
+					SecondWindLib/secondwind/singasteinn/jni/singasteinn,
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PROVISIONING_PROFILE = "3AC70458-509A-44DC-AFB1-B0B119521B41";
 				SDKROOT = iphoneos;
@@ -614,6 +816,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Vladimir Momotov (8X75PFSVU5)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SecondWind/SecondWind-Prefix.pch";
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "SecondWind/SecondWind-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -631,6 +834,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Vladimir Momotov (8X75PFSVU5)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SecondWind/SecondWind-Prefix.pch";
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "SecondWind/SecondWind-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="xc1-vc-gek">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C1021" targetRuntime="iOS.CocoaTouch" variant="6xAndEarlier" propertyAccessControl="none" useAutolayout="YES" initialViewController="xc1-vc-gek">
     <dependencies>
         <deployment defaultVersion="1536" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
@@ -29,15 +29,15 @@
             <objects>
                 <viewController id="x32-ee-JNO" customClass="SWDisclaimerViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="QEK-30-tnS"/>
-                        <viewControllerLayoutGuide type="bottom" id="y1I-cI-nfa"/>
+                        <viewControllerLayoutGuide type="top" id="aiR-dy-eOQ"/>
+                        <viewControllerLayoutGuide type="bottom" id="iPI-7F-Dpc"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Lbs-8K-Oke">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0pe-JJ-Jo3">
-                                <rect key="frame" x="149" y="273" width="22" height="22"/>
+                                <rect key="frame" x="149" y="273" width="18" height="19"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -47,7 +47,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jg2-F5-qKP">
-                                <rect key="frame" x="149" y="387" width="22" height="22"/>
+                                <rect key="frame" x="149" y="387" width="18" height="19"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -88,21 +88,26 @@
             <objects>
                 <viewController storyboardIdentifier="SWTracksViewControllerSID" extendedLayoutIncludesOpaqueBars="YES" id="30h-Fu-pbj" customClass="SWTracksViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="CaQ-93-boL"/>
-                        <viewControllerLayoutGuide type="bottom" id="Tl3-K7-xEB"/>
+                        <viewControllerLayoutGuide type="top" id="cJM-rv-8qm"/>
+                        <viewControllerLayoutGuide type="bottom" id="ifk-1b-B8O"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="4LF-Lh-CdV">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bg_player_fix" translatesAutoresizingMaskIntoConstraints="NO" id="Vap-xw-9jp">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <tabBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rxq-8Z-9hc" customClass="SWTopTabBar" propertyAccessControl="none">
-                                <rect key="frame" x="0.0" y="64" width="320" height="49"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                            <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rxq-8Z-9hc" customClass="SWTopTabBar" propertyAccessControl="none">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="0i3-4Z-2O3"/>
+                                    <constraint firstAttribute="height" constant="49" id="kz7-3I-HnG"/>
+                                </constraints>
+                                <inset key="insetFor6xAndEarlier" minX="0.0" minY="20" maxX="0.0" maxY="-20"/>
                                 <items>
                                     <tabBarItem title="Tracks" id="fpC-gq-4he">
                                         <inset key="imageInsets" minX="0.0" minY="60" maxX="0.0" maxY="-20"/>
@@ -126,10 +131,13 @@
                                     <outlet property="delegate" destination="30h-Fu-pbj" id="3k4-hq-SCz"/>
                                 </connections>
                             </tabBar>
-                            <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" indicatorStyle="white" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="cCA-e0-hL5">
-                                <rect key="frame" x="0.0" y="113" width="320" height="455"/>
+                            <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" indicatorStyle="white" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="cCA-e0-hL5">
+                                <rect key="frame" x="0.0" y="49" width="320" height="455"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="Anz-HU-J0o"/>
+                                </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="Cgd-Lk-ZZL">
                                     <size key="itemSize" width="320" height="75"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -245,6 +253,15 @@
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="rxq-8Z-9hc" firstAttribute="top" secondItem="cJM-rv-8qm" secondAttribute="bottom" id="72j-oE-TYI"/>
+                            <constraint firstItem="cCA-e0-hL5" firstAttribute="leading" secondItem="4LF-Lh-CdV" secondAttribute="leading" id="8at-Bk-xSU"/>
+                            <constraint firstAttribute="trailing" secondItem="cCA-e0-hL5" secondAttribute="trailing" id="YO2-6w-hrQ"/>
+                            <constraint firstItem="cCA-e0-hL5" firstAttribute="top" secondItem="rxq-8Z-9hc" secondAttribute="bottom" id="cZG-eI-4bC"/>
+                            <constraint firstAttribute="trailing" secondItem="rxq-8Z-9hc" secondAttribute="trailing" id="car-KB-cfl"/>
+                            <constraint firstItem="ifk-1b-B8O" firstAttribute="top" secondItem="cCA-e0-hL5" secondAttribute="bottom" id="wKZ-Vd-2ox"/>
+                            <constraint firstItem="rxq-8Z-9hc" firstAttribute="leading" secondItem="4LF-Lh-CdV" secondAttribute="leading" id="wqi-hw-NQR"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="CtW-o9-s61"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
@@ -281,21 +298,25 @@
             <objects>
                 <viewController id="eLI-yO-gmT" customClass="SWAlbumsViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Cp1-og-5gg"/>
-                        <viewControllerLayoutGuide type="bottom" id="iFf-vb-gCr"/>
+                        <viewControllerLayoutGuide type="top" id="wpN-tt-eVj"/>
+                        <viewControllerLayoutGuide type="bottom" id="E7T-jt-lFu"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="86H-t5-upz">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bg_player_no" translatesAutoresizingMaskIntoConstraints="NO" id="Wc8-gk-aK2">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <tabBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1vF-jA-NYy" customClass="SWTopTabBar">
-                                <rect key="frame" x="0.0" y="64" width="320" height="49"/>
+                            <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1vF-jA-NYy" customClass="SWTopTabBar">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="49" id="AaS-pk-69n"/>
+                                    <constraint firstAttribute="width" constant="320" id="wZj-2E-6il"/>
+                                </constraints>
                                 <items>
                                     <tabBarItem title="Tracks" id="qAr-Zf-Cxl">
                                         <inset key="imageInsets" minX="0.0" minY="60" maxX="0.0" maxY="-20"/>
@@ -318,10 +339,13 @@
                                     <outlet property="delegate" destination="eLI-yO-gmT" id="RUW-QO-OLj"/>
                                 </connections>
                             </tabBar>
-                            <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" indicatorStyle="white" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="cV6-GU-1VU">
-                                <rect key="frame" x="0.0" y="113" width="320" height="455"/>
+                            <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" indicatorStyle="white" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="cV6-GU-1VU">
+                                <rect key="frame" x="0.0" y="49" width="320" height="455"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="8FS-1j-4dG"/>
+                                </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="yjt-7c-dLa">
                                     <size key="itemSize" width="320" height="100"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -385,8 +409,20 @@
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="cV6-GU-1VU" firstAttribute="top" secondItem="1vF-jA-NYy" secondAttribute="bottom" id="Iix-mj-mcG"/>
+                            <constraint firstItem="1vF-jA-NYy" firstAttribute="leading" secondItem="86H-t5-upz" secondAttribute="leading" id="NgM-sJ-k7q"/>
+                            <constraint firstAttribute="trailing" secondItem="cV6-GU-1VU" secondAttribute="trailing" id="RLN-d5-K5f"/>
+                            <constraint firstItem="E7T-jt-lFu" firstAttribute="top" secondItem="cV6-GU-1VU" secondAttribute="bottom" id="fvy-Vh-TzG"/>
+                            <constraint firstAttribute="trailing" secondItem="1vF-jA-NYy" secondAttribute="trailing" id="kh6-VB-UgU"/>
+                            <constraint firstItem="cV6-GU-1VU" firstAttribute="leading" secondItem="86H-t5-upz" secondAttribute="leading" id="xJL-ia-Qfl"/>
+                            <constraint firstItem="1vF-jA-NYy" firstAttribute="top" secondItem="wpN-tt-eVj" secondAttribute="bottom" id="z26-aD-PFS"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="UeI-El-zlD"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <connections>
                         <outlet property="albumsCollectionView" destination="cV6-GU-1VU" id="q8P-gt-MEi"/>
                         <outlet property="topTabBar" destination="1vF-jA-NYy" id="ChY-uM-Zsv"/>
@@ -417,21 +453,25 @@
             <objects>
                 <viewController id="zVj-65-Bna" customClass="SWPlaylistsViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="uFw-VB-819"/>
-                        <viewControllerLayoutGuide type="bottom" id="fH3-QZ-QlG"/>
+                        <viewControllerLayoutGuide type="top" id="k6l-Bm-gcG"/>
+                        <viewControllerLayoutGuide type="bottom" id="Pd4-f3-wo9"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ux9-9H-iaA">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bg_player_fix" translatesAutoresizingMaskIntoConstraints="NO" id="F2J-hZ-YNz">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <tabBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JIu-47-VAQ" customClass="SWTopTabBar">
-                                <rect key="frame" x="0.0" y="64" width="320" height="49"/>
+                            <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JIu-47-VAQ" customClass="SWTopTabBar">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="129-eg-8E1"/>
+                                    <constraint firstAttribute="height" constant="49" id="97K-xP-LlD"/>
+                                </constraints>
                                 <items>
                                     <tabBarItem title="Tracks" id="byP-aW-72k">
                                         <inset key="imageInsets" minX="0.0" minY="60" maxX="0.0" maxY="-20"/>
@@ -454,10 +494,13 @@
                                     <outlet property="delegate" destination="zVj-65-Bna" id="TG0-7l-UDJ"/>
                                 </connections>
                             </tabBar>
-                            <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" indicatorStyle="white" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="LHZ-mO-oCA">
-                                <rect key="frame" x="0.0" y="113" width="320" height="455"/>
+                            <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" indicatorStyle="white" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="LHZ-mO-oCA">
+                                <rect key="frame" x="0.0" y="49" width="320" height="455"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="9LX-mt-zeu"/>
+                                </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="zO7-fR-IIZ">
                                     <size key="itemSize" width="320" height="75"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -523,8 +566,20 @@
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="LHZ-mO-oCA" firstAttribute="leading" secondItem="ux9-9H-iaA" secondAttribute="leading" id="BJR-LK-fbh"/>
+                            <constraint firstAttribute="trailing" secondItem="LHZ-mO-oCA" secondAttribute="trailing" id="BcC-Tk-SVz"/>
+                            <constraint firstItem="JIu-47-VAQ" firstAttribute="leading" secondItem="ux9-9H-iaA" secondAttribute="leading" id="HJa-dk-MRh"/>
+                            <constraint firstItem="LHZ-mO-oCA" firstAttribute="top" secondItem="JIu-47-VAQ" secondAttribute="bottom" id="bPA-9H-hha"/>
+                            <constraint firstAttribute="trailing" secondItem="JIu-47-VAQ" secondAttribute="trailing" id="iWh-of-vPz"/>
+                            <constraint firstItem="Pd4-f3-wo9" firstAttribute="top" secondItem="LHZ-mO-oCA" secondAttribute="bottom" id="og0-6B-NnE"/>
+                            <constraint firstItem="JIu-47-VAQ" firstAttribute="top" secondItem="k6l-Bm-gcG" secondAttribute="bottom" id="rrC-FA-HB1"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="HCK-2x-4Vu"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <connections>
                         <outlet property="playlistsCollectionView" destination="LHZ-mO-oCA" id="Tcz-Ru-iIF"/>
                         <outlet property="topTabBar" destination="JIu-47-VAQ" id="KFk-zN-mXF"/>
@@ -567,11 +622,11 @@
             <objects>
                 <viewController id="Dwc-xV-7Gi" customClass="SWPlayerViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="yqa-0x-Xbd"/>
-                        <viewControllerLayoutGuide type="bottom" id="424-66-uZU"/>
+                        <viewControllerLayoutGuide type="top" id="LGc-dn-22M"/>
+                        <viewControllerLayoutGuide type="bottom" id="Hiw-OA-49R"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="4oR-1k-WI1" customClass="SWPlayerView">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -589,6 +644,9 @@
             <objects>
                 <navigationController definesPresentationContext="YES" id="8bJ-oE-Wh5" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Artists" id="eyX-nK-ggI"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="6VI-uc-0y8">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -606,21 +664,25 @@
             <objects>
                 <viewController id="8Xl-tl-3rV" customClass="SWArtistsViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="luh-pp-C9Z"/>
-                        <viewControllerLayoutGuide type="bottom" id="7fv-cJ-VpE"/>
+                        <viewControllerLayoutGuide type="top" id="MQe-Cd-XNw"/>
+                        <viewControllerLayoutGuide type="bottom" id="SNe-2K-FEX"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="6fQ-gA-5tQ">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bg_player_auto" translatesAutoresizingMaskIntoConstraints="NO" id="eF8-5D-9c4">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <tabBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sMY-jY-VTf" customClass="SWTopTabBar">
-                                <rect key="frame" x="0.0" y="64" width="320" height="49"/>
+                            <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sMY-jY-VTf" customClass="SWTopTabBar">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="7Vw-Qa-xYe"/>
+                                    <constraint firstAttribute="height" constant="49" id="IzF-vM-kuN"/>
+                                </constraints>
                                 <items>
                                     <tabBarItem title="Tracks" id="T22-Ux-COP">
                                         <inset key="imageInsets" minX="0.0" minY="60" maxX="0.0" maxY="-20"/>
@@ -643,10 +705,13 @@
                                     <outlet property="delegate" destination="8Xl-tl-3rV" id="U5T-UE-nRc"/>
                                 </connections>
                             </tabBar>
-                            <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Fm4-8Y-Sq9">
-                                <rect key="frame" x="0.0" y="113" width="320" height="455"/>
+                            <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Fm4-8Y-Sq9">
+                                <rect key="frame" x="0.0" y="49" width="320" height="455"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="gkk-8f-MnB"/>
+                                </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="VPS-bo-jyC">
                                     <size key="itemSize" width="320" height="100"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -702,11 +767,21 @@
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="sMY-jY-VTf" secondAttribute="trailing" id="OHN-2k-uAL"/>
+                            <constraint firstItem="Fm4-8Y-Sq9" firstAttribute="top" secondItem="sMY-jY-VTf" secondAttribute="bottom" id="UCo-FN-Ucr"/>
+                            <constraint firstItem="SNe-2K-FEX" firstAttribute="top" secondItem="Fm4-8Y-Sq9" secondAttribute="bottom" id="X1i-I6-br1"/>
+                            <constraint firstAttribute="trailing" secondItem="Fm4-8Y-Sq9" secondAttribute="trailing" id="at6-65-DAV"/>
+                            <constraint firstItem="sMY-jY-VTf" firstAttribute="top" secondItem="MQe-Cd-XNw" secondAttribute="bottom" id="dUa-r4-yuo"/>
+                            <constraint firstItem="sMY-jY-VTf" firstAttribute="leading" secondItem="6fQ-gA-5tQ" secondAttribute="leading" id="eH7-Iw-Et8"/>
+                            <constraint firstItem="Fm4-8Y-Sq9" firstAttribute="leading" secondItem="6fQ-gA-5tQ" secondAttribute="leading" id="hyf-Ir-gi0"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="n9j-tm-Tol">
                         <barButtonItem key="leftBarButtonItem" title="Item" id="mrR-OS-zvF"/>
                         <barButtonItem key="rightBarButtonItem" title="Item" id="M5v-Lc-f9z"/>
                     </navigationItem>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="artistsCollectionView" destination="Fm4-8Y-Sq9" id="txT-Bh-Wyn"/>
                         <outlet property="topTabBar" destination="sMY-jY-VTf" id="1Ys-dg-wWk"/>
@@ -737,21 +812,25 @@
             <objects>
                 <viewController id="xNW-F6-Mmf" customClass="SWHintsViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="GL0-KL-5kA"/>
-                        <viewControllerLayoutGuide type="bottom" id="0rl-aF-ABB"/>
+                        <viewControllerLayoutGuide type="top" id="OFz-uY-J41"/>
+                        <viewControllerLayoutGuide type="bottom" id="cIh-tf-9pW"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="tbf-mO-7Ti">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bg_player_auto" translatesAutoresizingMaskIntoConstraints="NO" id="OXT-t8-fuH">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_player_auto" translatesAutoresizingMaskIntoConstraints="NO" id="OXT-t8-fuH">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <tabBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VyT-VD-Den" customClass="SWTopTabBar">
-                                <rect key="frame" x="0.0" y="64" width="320" height="49"/>
+                            <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VyT-VD-Den" customClass="SWTopTabBar">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="49" id="G3o-O0-Bme"/>
+                                    <constraint firstAttribute="width" constant="320" id="zOc-3C-j2x"/>
+                                </constraints>
                                 <items>
                                     <tabBarItem title="Tracks" id="thV-52-8jq">
                                         <inset key="imageInsets" minX="0.0" minY="60" maxX="0.0" maxY="-20"/>
@@ -774,10 +853,57 @@
                                     <outlet property="delegate" destination="xNW-F6-Mmf" id="5je-du-DgI"/>
                                 </connections>
                             </tabBar>
+                            <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" indicatorStyle="white" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="IrN-mB-coD">
+                                <rect key="frame" x="0.0" y="49" width="320" height="455"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="RwB-Ua-4ON"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="7hW-oa-6Tr">
+                                    <size key="itemSize" width="320" height="100"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="HintCellReuseIdentifier" id="CQn-cW-1tw" customClass="SWHintCell">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="xNW-F6-Mmf" id="kjQ-kV-iqp"/>
+                                    <outlet property="delegate" destination="xNW-F6-Mmf" id="FEy-b8-h1H"/>
+                                </connections>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="IrN-mB-coD" firstAttribute="leading" secondItem="OXT-t8-fuH" secondAttribute="leading" id="Cu1-LW-yL2"/>
+                            <constraint firstAttribute="bottom" secondItem="OXT-t8-fuH" secondAttribute="bottom" constant="-64" id="Gfi-vt-s3f"/>
+                            <constraint firstAttribute="trailing" secondItem="IrN-mB-coD" secondAttribute="trailing" id="JiL-uk-lYH"/>
+                            <constraint firstItem="IrN-mB-coD" firstAttribute="leading" secondItem="tbf-mO-7Ti" secondAttribute="leading" id="MqR-S3-TCH"/>
+                            <constraint firstItem="IrN-mB-coD" firstAttribute="trailing" secondItem="OXT-t8-fuH" secondAttribute="trailing" id="Www-Yz-iXs"/>
+                            <constraint firstAttribute="trailing" secondItem="VyT-VD-Den" secondAttribute="trailing" id="htL-ar-omc"/>
+                            <constraint firstAttribute="bottom" secondItem="IrN-mB-coD" secondAttribute="bottom" id="iZz-cC-lWK"/>
+                            <constraint firstItem="IrN-mB-coD" firstAttribute="top" secondItem="VyT-VD-Den" secondAttribute="bottom" id="pYV-AZ-YTu"/>
+                            <constraint firstItem="OXT-t8-fuH" firstAttribute="top" secondItem="VyT-VD-Den" secondAttribute="top" id="q7n-TE-b4Z"/>
+                            <constraint firstItem="VyT-VD-Den" firstAttribute="top" secondItem="OFz-uY-J41" secondAttribute="bottom" id="ulZ-XW-h29"/>
+                            <constraint firstItem="VyT-VD-Den" firstAttribute="leading" secondItem="tbf-mO-7Ti" secondAttribute="leading" id="x1a-hR-LZJ"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Bw5-in-kEL"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <connections>
                         <outlet property="topTabBar" destination="VyT-VD-Den" id="oqb-Yc-cGz"/>
                     </connections>
@@ -794,8 +920,8 @@
         <image name="bg_player_no" width="640" height="1136"/>
         <image name="hr_overlay" width="640" height="2"/>
         <image name="play" width="99" height="99"/>
-        <image name="swipe_overlay" width="15" height="26"/>
         <image name="shuffle_overlay" width="36" height="31"/>
+        <image name="swipe_overlay" width="15" height="26"/>
         <image name="vertical_div_overlay" width="2" height="100"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
