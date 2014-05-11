@@ -25,4 +25,14 @@ typedef NS_ENUM(NSUInteger, TrackQuality)
     TrackQualityMax,
 };
 
+
+#pragma mark - KVO
+
+#define ARTIST_ALBUMS_COUNT_KEY @"albumsCount"
+#define ARTISTITEM_KEY          @"artistItem"
+#define ARTIST_ARTWORK_KEY      @"artistArtwork"
+
+#define ALBUMITEM_KEY           @"albumItem"
+#define ALBUM_DURATION_KEY      @"albumDuration"
+
 #endif

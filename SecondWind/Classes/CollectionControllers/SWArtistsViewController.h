@@ -13,5 +13,6 @@
 @interface SWArtistsViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet SWTopTabBar *topTabBar;
+@property (weak, nonatomic) IBOutlet UICollectionView *artistsCollectionView;
 
 @end

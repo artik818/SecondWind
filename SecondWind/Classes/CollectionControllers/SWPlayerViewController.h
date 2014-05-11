@@ -13,6 +13,6 @@
 
 @interface SWPlayerViewController : UIViewController
 
-@property (nonatomic, strong) IBOutlet iCarousel *carousel;
+//@property (nonatomic, strong) IBOutlet iCarousel *carousel;
 
 @end

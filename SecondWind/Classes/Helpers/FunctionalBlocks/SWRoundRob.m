@@ -6,11 +6,11 @@
 //  Copyright (c) 2014 Artem. All rights reserved.
 //
 
-#import "SWRoundRobMenu.h"
+#import "SWRoundRob.h"
 
 
 
-@interface SWRoundRobMenu()
+@interface SWRoundRob()
 
 @property (nonatomic, strong) NSArray *arrayOfMenuItems;
 @property (nonatomic) NSInteger currentIndex;
@@ -19,7 +19,7 @@
 
 
 
-@implementation SWRoundRobMenu
+@implementation SWRoundRob
 
 - (void)setupWithItems:(NSArray *)menuItems
 {

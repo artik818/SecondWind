@@ -9,6 +9,8 @@
 #import "SWAlbumsViewController.h"
 #import "SWMediaLibraryProvider.h"
 
+#import "SWAlbumCell.h"
+
 @interface SWAlbumsViewController () <UITabBarDelegate>
 
 @property (nonatomic, strong) NSArray *albumsArray;
@@ -31,7 +33,6 @@
     [super viewDidLoad];
     
     self.albumsArray = [[SWMediaLibraryProvider sharedMediaManager] getAlbums];
-    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -54,6 +55,31 @@
     NSUInteger selIndex = [tabBar.items indexOfObject:item];
     [self.tabBarController setSelectedIndex:selIndex];
 }
+
+
+#pragma mark - UICollectionViewDelegateFlowLayout
+
+#pragma mark - UICollectionViewDataSource
+
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
+{
+    [collectionView.collectionViewLayout invalidateLayout];
+    return 1;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    NSDictionary *album = self.albumsArray[indexPath.row];
+    SWAlbumCell *cell = [self.albumsCollectionView dequeueReusableCellWithReuseIdentifier:@"AlbumsCellReuseIdentifier" forIndexPath:indexPath];
+    [cell setAlbum:album];
+    return cell;
+}
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return self.albumsArray.count;
+}
+
+
+#pragma mark - UICollectionViewDelegate
 
 /*
 #pragma mark - Navigation

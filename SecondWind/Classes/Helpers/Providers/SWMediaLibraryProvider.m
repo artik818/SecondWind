@@ -7,10 +7,6 @@
 //
 
 #import "SWMediaLibraryProvider.h"
-
-#import <MediaPlayer/MediaPlayer.h>
-#import <AVFoundation/AVFoundation.h>
-
 #import "SWCoreDataManager.h"
 
 static SWMediaLibraryProvider *sharedMediaManager = nil;
@@ -61,33 +57,38 @@ static SWMediaLibraryProvider *sharedMediaManager = nil;
 }
 
 - (NSArray *)getAlbums {
-    MPMediaQuery *query = [[MPMediaQuery alloc] init];
+    NSMutableArray *resArray = [NSMutableArray array];
     
-    // Sets the grouping type for the media query
-    [query setGroupingType: MPMediaGroupingAlbum];
-    
+    MPMediaQuery *query = [MPMediaQuery albumsQuery];
     NSArray *albums = [query collections];
-    for (MPMediaItemCollection *album in albums) {
-        MPMediaItem *representativeItem = [album representativeItem];
-        NSString *artistName = [representativeItem valueForProperty: MPMediaItemPropertyArtist];
-        NSString *albumName = [representativeItem valueForProperty: MPMediaItemPropertyAlbumTitle];
-        NSLog (@"%@ by %@", albumName, artistName);
-        
-        NSArray *songs = [album items];
-        for (MPMediaItem *song in songs) {
-            NSString *songTitle = [song valueForProperty: MPMediaItemPropertyTitle];
-            NSLog (@"\t\t%@", songTitle);
-        }
-    }
     
-    return albums;
+    for (MPMediaItemCollection *album in albums) {
+//        MPMediaItem *representativeItem = [album representativeItem];
+//        NSString *artistName = [representativeItem valueForProperty: MPMediaItemPropertyArtist];
+//        NSString *albumName = [representativeItem valueForProperty: MPMediaItemPropertyAlbumTitle];
+
+        NSArray *songs = [album items];
+        NSNumber *addLength = nil;
+        NSNumber *addLengthNew = nil;
+        for (MPMediaItem *song in songs) {
+            if (!addLength) {
+                addLength = [song valueForProperty:MPMediaItemPropertyPlaybackDuration];
+            } else {
+                addLengthNew = [song valueForProperty:MPMediaItemPropertyPlaybackDuration];
+                addLength = [NSNumber numberWithFloat:([addLength floatValue] + [addLengthNew floatValue])];
+            }
+        }
+        NSMutableDictionary *albumsDictionary = [NSMutableDictionary dictionary];
+        
+        [albumsDictionary setValue:album forKey:ALBUMITEM_KEY];
+        [albumsDictionary setValue:addLength forKey:ALBUM_DURATION_KEY];
+        [resArray addObject:albumsDictionary];
+    }
+    return resArray;
 }
 
 - (NSArray *)getPlaylists {
-    MPMediaQuery *query = [[MPMediaQuery alloc] init];
-    
-    // Sets the grouping type for the media query
-    [query setGroupingType: MPMediaGroupingPlaylist];
+    MPMediaQuery *query = [MPMediaQuery playlistsQuery];
     
     NSArray *playlists = [query collections];
     
@@ -95,26 +96,33 @@ static SWMediaLibraryProvider *sharedMediaManager = nil;
 }
 
 - (NSArray *)getArtists {
-    MPMediaQuery *query = [[MPMediaQuery alloc] init];
+    NSMutableArray *resArray = [NSMutableArray array];;
     
-    // Sets the grouping type for the media query
-    [query setGroupingType: MPMediaGroupingArtist];
+    MPMediaQuery *artistQuery = [MPMediaQuery artistsQuery];
+    NSArray *songsByArtist = [artistQuery collections];
+    NSMutableSet *tempSet = [NSMutableSet set];
     
-    NSArray *artists = [query collections];
-    for (MPMediaItemCollection *album in artists) {
-        MPMediaItem *representativeItem = [album representativeItem];
-        NSString *artistName = [representativeItem valueForProperty: MPMediaItemPropertyArtist];
-        NSString *albumName = [representativeItem valueForProperty: MPMediaItemPropertyAlbumTitle];
-        NSLog (@"%@ by %@", albumName, artistName);
-        
-        NSArray *songs = [album items];
-        for (MPMediaItem *song in songs) {
-            NSString *songTitle = [song valueForProperty: MPMediaItemPropertyTitle];
-            NSLog (@"\t\t%@", songTitle);
-        }
-    }
-    
-    return artists;
+    [songsByArtist enumerateObjectsUsingBlock:^(MPMediaItemCollection *artistCollection, NSUInteger idx, BOOL *stop) {
+        NSMutableDictionary *artistDictionary = [NSMutableDictionary dictionary];
+        __block MPMediaItemArtwork *artwork = nil;
+        [[artistCollection items] enumerateObjectsUsingBlock:^(MPMediaItem *songItem, NSUInteger idx, BOOL *stop) {
+            NSString *albumName = [songItem valueForProperty:MPMediaItemPropertyAlbumTitle];
+            if (!artwork) {
+                artwork = [songItem valueForProperty:MPMediaItemPropertyArtwork];
+                BOOL hasArtwork = (artwork.bounds.size.width > 0 && artwork.bounds.size.height > 0);
+                if (!hasArtwork) {
+                    artwork = nil;
+                }
+            }
+            [tempSet addObject:albumName];
+        }];
+        [artistDictionary setValue:[NSNumber numberWithUnsignedInteger:[tempSet count]] forKey:ARTIST_ALBUMS_COUNT_KEY];
+        [artistDictionary setValue:artistCollection forKey:ARTISTITEM_KEY];
+        [artistDictionary setValue:artwork forKey:ARTIST_ARTWORK_KEY];
+        [resArray addObject:artistDictionary];
+        [tempSet removeAllObjects];
+    }];
+    return resArray;
 }
 
 - (NSArray *)getAllMediaWithArtist:(NSString *)artistName {
@@ -145,9 +153,11 @@ static SWMediaLibraryProvider *sharedMediaManager = nil;
     NSArray *itemsFromArtistQuery = [specificQuery items];
 }
 
-- (void)getArtworkForMediaitem:(MPMediaItem *)mediaItem withSie:(CGSize)imageSize {
+- (UIImage *)getArtworkForMediaitem:(MPMediaItem *)mediaItem withSie:(CGSize)imageSize {
     MPMediaItemArtwork *artwork = [mediaItem valueForProperty:MPMediaItemPropertyArtwork];
     UIImage *artworkImage = [artwork imageWithSize:imageSize];
+    
+    return artworkImage;
 }
 
 @end

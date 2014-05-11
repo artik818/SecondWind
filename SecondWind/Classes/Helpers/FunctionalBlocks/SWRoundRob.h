@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface SWRoundRobMenu : NSObject
+@interface SWRoundRob : NSObject
 
 - (void)setupWithItems:(NSArray *)menuItems;
 - (void)moveDownFor:(NSInteger)steps;
@@ -20,5 +20,7 @@
 - (void)setupCurrentIndex:(NSInteger)newIndex;
 - (id)moveDownItemFor:(NSInteger)steps;
 - (id)moveUpItemFor:(NSInteger)steps;
+- (NSInteger)moveDownIndexFor:(NSInteger)steps;
+- (NSInteger)moveUpIndexFor:(NSInteger)steps;
 
 @end
