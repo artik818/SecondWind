@@ -28,6 +28,7 @@
 		84B0AA8B190D4CFA00ADCEE2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 84B0AA8D190D4CFA00ADCEE2 /* Localizable.strings */; };
 		84B0AA95190D511A00ADCEE2 /* SWBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B0AA94190D511A00ADCEE2 /* SWBaseCell.m */; };
 		84B0AA98190D51DC00ADCEE2 /* SWHintCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B0AA97190D51DC00ADCEE2 /* SWHintCell.m */; };
+		84B2999B192164CD00D95B79 /* SWSingasteinnLibraryProvider.mm in Sources */ = {isa = PBXBuildFile; fileRef = 84B2999A192164CD00D95B79 /* SWSingasteinnLibraryProvider.mm */; };
 		9A733027190F7BB300F7FA82 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A733026190F7BB300F7FA82 /* AVFoundation.framework */; };
 		9A73302B190F7BD500F7FA82 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A733028190F7BD500F7FA82 /* CoreMedia.framework */; };
 		9A73302C190F7BD500F7FA82 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A733029190F7BD500F7FA82 /* MobileCoreServices.framework */; };
@@ -108,21 +109,21 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = 84ACBADB191FFA2C00A9ACDA /* singasteinn.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = 2AE42D3EF1CF4873ABF7D4BE;
+			remoteGlobalIDString = 1854F14ADCD344529DEBFC1F;
 			remoteInfo = singasteinn;
 		};
 		84ACBAFC191FFA5100A9ACDA /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 84ACBADB191FFA2C00A9ACDA /* singasteinn.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = 2CE053AB8D874CF3B6F9A154;
+			remoteGlobalIDString = B13032ADFEF14BB18B1C9E92;
 			remoteInfo = soundtouch;
 		};
 		84ACBAFE191FFA5100A9ACDA /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 84ACBADB191FFA2C00A9ACDA /* singasteinn.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = 81C11084797C48F1B9173152;
+			remoteGlobalIDString = 8D8EB66E0CDA41809D5C5758;
 			remoteInfo = log4cplusS;
 		};
 /* End PBXContainerItemProxy section */
@@ -169,6 +170,8 @@
 		84B0AA94190D511A00ADCEE2 /* SWBaseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWBaseCell.m; sourceTree = "<group>"; };
 		84B0AA96190D51DC00ADCEE2 /* SWHintCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWHintCell.h; sourceTree = "<group>"; };
 		84B0AA97190D51DC00ADCEE2 /* SWHintCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWHintCell.m; sourceTree = "<group>"; };
+		84B29999192164CD00D95B79 /* SWSingasteinnLibraryProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWSingasteinnLibraryProvider.h; sourceTree = "<group>"; };
+		84B2999A192164CD00D95B79 /* SWSingasteinnLibraryProvider.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SWSingasteinnLibraryProvider.mm; sourceTree = "<group>"; };
 		84D5ECD0191FD17A00A4B556 /* libc.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libc.dylib; path = usr/lib/libc.dylib; sourceTree = SDKROOT; };
 		84D5ECD2191FD1AB00A4B556 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		84D5ECD4191FD1BB00A4B556 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
@@ -329,6 +332,8 @@
 			children = (
 				84B0AA79190D3F5300ADCEE2 /* SWMediaLibraryProvider.h */,
 				84B0AA7A190D3F5300ADCEE2 /* SWMediaLibraryProvider.m */,
+				84B29999192164CD00D95B79 /* SWSingasteinnLibraryProvider.h */,
+				84B2999A192164CD00D95B79 /* SWSingasteinnLibraryProvider.mm */,
 			);
 			path = Providers;
 			sourceTree = "<group>";
@@ -644,6 +649,7 @@
 				84B0AA78190D3F4100ADCEE2 /* SWGlobalDataSingleton.m in Sources */,
 				84B0AA95190D511A00ADCEE2 /* SWBaseCell.m in Sources */,
 				84B0AA7B190D3F5300ADCEE2 /* SWMediaLibraryProvider.m in Sources */,
+				84B2999B192164CD00D95B79 /* SWSingasteinnLibraryProvider.mm in Sources */,
 				84B0AA86190D48C200ADCEE2 /* SWTrackCell.m in Sources */,
 				AC9FD148191063980091B9CC /* SWPlayerViewController.m in Sources */,
 				AC9FD1451910570E0091B9CC /* SWRoundRob.m in Sources */,
