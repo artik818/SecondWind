@@ -47,6 +47,7 @@
 		AC5AA2B91906AE670084BAA5 /* SWAppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = AC5AA2B81906AE670084BAA5 /* SWAppDelegate.mm */; };
 		AC5AA2BC1906AE670084BAA5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC5AA2BA1906AE670084BAA5 /* Main.storyboard */; };
 		AC5AA2C11906AE670084BAA5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC5AA2C01906AE670084BAA5 /* Images.xcassets */; };
+		AC5F5E6819217D5C00D830B4 /* SWPlayerRoundedView.m in Sources */ = {isa = PBXBuildFile; fileRef = AC5F5E6719217D5C00D830B4 /* SWPlayerRoundedView.m */; };
 		AC78BD94191ACB6D0077AB32 /* SWRoundRobMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = AC78BD93191ACB6D0077AB32 /* SWRoundRobMenu.m */; };
 		AC7C5B0C19129AD800E7558A /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = AC7C5B0B19129AD800E7558A /* iCarousel.m */; };
 		AC9FD13D191046460091B9CC /* SWPlayerMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = AC9FD13C191046460091B9CC /* SWPlayerMenuItem.m */; };
@@ -108,21 +109,21 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = 84ACBADB191FFA2C00A9ACDA /* singasteinn.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = 2AE42D3EF1CF4873ABF7D4BE;
+			remoteGlobalIDString = 1854F14ADCD344529DEBFC1F;
 			remoteInfo = singasteinn;
 		};
 		84ACBAFC191FFA5100A9ACDA /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 84ACBADB191FFA2C00A9ACDA /* singasteinn.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = 2CE053AB8D874CF3B6F9A154;
+			remoteGlobalIDString = B13032ADFEF14BB18B1C9E92;
 			remoteInfo = soundtouch;
 		};
 		84ACBAFE191FFA5100A9ACDA /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 84ACBADB191FFA2C00A9ACDA /* singasteinn.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = 81C11084797C48F1B9173152;
+			remoteGlobalIDString = 8D8EB66E0CDA41809D5C5758;
 			remoteInfo = log4cplusS;
 		};
 /* End PBXContainerItemProxy section */
@@ -201,6 +202,8 @@
 		AC5AA2B81906AE670084BAA5 /* SWAppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SWAppDelegate.mm; sourceTree = "<group>"; };
 		AC5AA2BB1906AE670084BAA5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AC5AA2C01906AE670084BAA5 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		AC5F5E6619217D5C00D830B4 /* SWPlayerRoundedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWPlayerRoundedView.h; sourceTree = "<group>"; };
+		AC5F5E6719217D5C00D830B4 /* SWPlayerRoundedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWPlayerRoundedView.m; sourceTree = "<group>"; };
 		AC78BD92191ACB6D0077AB32 /* SWRoundRobMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRoundRobMenu.h; sourceTree = "<group>"; };
 		AC78BD93191ACB6D0077AB32 /* SWRoundRobMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRoundRobMenu.m; sourceTree = "<group>"; };
 		AC7C5B0A19129AD800E7558A /* iCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCarousel.h; sourceTree = "<group>"; };
@@ -240,6 +243,8 @@
 		7AC5C2D6191101520091A3DA /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				AC5F5E6619217D5C00D830B4 /* SWPlayerRoundedView.h */,
+				AC5F5E6719217D5C00D830B4 /* SWPlayerRoundedView.m */,
 				7AC5C2D71911016C0091A3DA /* SWPlayerView.h */,
 				7AC5C2D81911016C0091A3DA /* SWPlayerView.m */,
 			);
@@ -639,6 +644,7 @@
 				84B0AA98190D51DC00ADCEE2 /* SWHintCell.m in Sources */,
 				84B0AA82190D43BB00ADCEE2 /* SWTopTabBar.m in Sources */,
 				84B0AA72190D3EEA00ADCEE2 /* SWArtistsViewController.m in Sources */,
+				AC5F5E6819217D5C00D830B4 /* SWPlayerRoundedView.m in Sources */,
 				AC78BD94191ACB6D0077AB32 /* SWRoundRobMenu.m in Sources */,
 				9A73303D190F90A200F7FA82 /* UserData.m in Sources */,
 				84B0AA78190D3F4100ADCEE2 /* SWGlobalDataSingleton.m in Sources */,

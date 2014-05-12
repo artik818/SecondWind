@@ -12,7 +12,7 @@
 #import "SWPlayerView.h"
 #import "SWPlayerMenuItemView.h"
 #import "SWRoundRobMenu.h"
-
+#import "SWPlayerRoundedView.h"
 
 
 @interface SWPlayerViewController () // <iCarouselDelegate, iCarouselDataSource>
@@ -57,6 +57,7 @@
 - (void)setupRoundRobMenu
 {
     SWRoundRobMenu *roundRobMenu = [[SWRoundRobMenu alloc] initWithFrame:self.playerView.frame];
+    roundRobMenu.backgroundColor = [UIColor lightGrayColor];
     self.roundRobMenu = roundRobMenu;
     [self.playerView addSubview:roundRobMenu];
     
@@ -65,8 +66,8 @@
     NSMutableArray *menuViewsArray = [[NSMutableArray alloc] initWithCapacity:viewsCount];
     
     for (NSInteger i = 0; i < viewsCount; ++i) {
-        UIView *view = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 200.0f, 200.0f)];
-        view.backgroundColor = [UIColor lightGrayColor];
+        SWPlayerRoundedView *view = [[SWPlayerRoundedView alloc] initWithFrame:CGRectMake(0, 0, 200.0f, 200.0f)];
+//        view.backgroundColor = [UIColor lightGrayColor];
         UILabel *label = [[UILabel alloc] initWithFrame:view.bounds];
         label.text = [@(i) stringValue]; // [NSString stringWithFormat:@"%lu", (unsigned long)i];
         label.backgroundColor = [UIColor clearColor];
@@ -78,7 +79,7 @@
     }
     
     [self.roundRobMenu setupWithViews:menuViewsArray];
-    self.roundRobMenu.distanceBetweenCenters = 250;
+    self.roundRobMenu.distanceBetweenCenters = 290;
 }
 
 
