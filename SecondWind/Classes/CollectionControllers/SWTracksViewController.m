@@ -37,9 +37,11 @@
     self.tracksArray = [[SWMediaLibraryProvider sharedMediaManager] getAllMedia];
     
     [SWMediaLibraryProvider sharedMediaManager];
-    self.navigationController.navigationBar.opaque = NO;
-    self.navigationController.navigationBar.alpha = 0.0f;
-    
+//    self.navigationController.navigationBar.opaque = NO;
+//    self.navigationController.navigationBar.alpha = 0.0f;
+
+    [SWSingasteinnLibraryProvider sharedSingaManager];
+
 //    [SWPlayerViewController new];
 }
 

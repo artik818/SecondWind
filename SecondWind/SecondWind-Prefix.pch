@@ -17,4 +17,6 @@
     #import <AVFoundation/AVFoundation.h>
 
     #import "SWGlobalConsts.h"
+    #import "SWSingasteinnLibraryProvider.h"
+
 #endif
