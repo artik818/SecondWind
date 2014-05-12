@@ -32,6 +32,9 @@
 {
     [super viewDidLoad];
 
+    self.navigationController.navigationBar.opaque = NO;
+//    self.navigationController.navigationBar.alpha = 0.0f;
+    
     self.playlistsArray = [[SWMediaLibraryProvider sharedMediaManager] getPlaylists];
 }
 

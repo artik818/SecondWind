@@ -7,7 +7,7 @@
 //
 
 #import "SWAppDelegate.h"
-//#include "SingasteinnEngine.h"
+#include "SingasteinnEngine.h"
 
 #include "interface/IFittingController.h"
 
