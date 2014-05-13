@@ -13,38 +13,8 @@
 
 @implementation SWAppDelegate
 
-- (NSString *)cachesDir
-{
-    NSString *cachesPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
-    NSString *bmtPath = [cachesPath stringByAppendingPathComponent:@"BMTSystemCache"];
-    BOOL isDir = NO;
-    BOOL exists = [[NSFileManager defaultManager] fileExistsAtPath:bmtPath isDirectory:&isDir];
-    if (exists && !isDir){
-        [[NSFileManager defaultManager] removeItemAtPath:bmtPath error:nil];
-        exists = NO;
-    }
-    if (!exists) {
-        [[NSFileManager defaultManager] createDirectoryAtPath:bmtPath
-                                  withIntermediateDirectories:YES
-                                                   attributes:nil
-                                                        error:nil];
-    }
-    return bmtPath;
-}
-
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
- 
-    NSString *dir = [self cachesDir];
-    singasteinn::SingasteinnEngine *engine = new singasteinn::SingasteinnEngine([dir cStringUsingEncoding:NSUnicodeStringEncoding]);
-    engine->initializeLogging();
-    
-//    singasteinn::SingasteinnEngine eng("cache");
-//    singasteinn::SongAnalysisService sa;
-//    eng.getFittingController()->setFittingMode(singasteinn::IFittingController::FM_ConstTempoFit);
-//    eng.getFittingController()->setConstBeatInterval(0.4);
-    
     return YES;
 }
 							
