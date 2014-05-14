@@ -78,8 +78,10 @@ static SingasteinnEngine *engine = nil;
     for (MPMediaItem *sng in asserts) {
         NSURL *assetURL = [sng valueForProperty:MPMediaItemPropertyAssetURL];
         NSLog (@"%@", [assetURL absoluteString]);
-        Song::Ptr song(new Song([[assetURL absoluteString] cStringUsingEncoding:NSUnicodeStringEncoding]));
-        sa.processSongSync(song);
+        NSString *urls = [assetURL absoluteString];
+        const char *url = [urls cStringUsingEncoding:NSASCIIStringEncoding];
+//        Song::Ptr song(new Song(url));
+//        sa.processSongSync(song);
     }
     //        IPlaybackController * mController = engine ->getPlaybackController()
     //        mController->switchToSong(song);
