@@ -20,6 +20,144 @@
 @property (nonatomic) NSInteger currentIndex;
 @property (nonatomic, strong) SWRoundRob *helperRoundRob;
 
+@property (nonatomic, readonly) CGPoint centerPos;
+@property (nonatomic) CGFloat currentCenterY;
+
+@property (nonatomic, strong) NSTimer *timer;
+
+@end
+
+
+@implementation SWRoundRobMenu
+
+- (id)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    if (self) {
+        _currentIndex = 0;
+        _centerPos = CGPointMake(frame.size.width / 2, frame.size.height / 2);
+        _currentCenterY = _centerPos.y;
+        _helperRoundRob = [SWRoundRob new];
+        [self setupGestures];
+    }
+    return self;
+}
+
+#pragma mark - Interface funcs
+
+- (void)setupWithViews:(NSArray *)viewsArray startIndex:(NSInteger)startViewIndex
+{
+    _viewsArray = viewsArray;
+    [_helperRoundRob setupWithItems:viewsArray];
+    self.currentIndex = startViewIndex;
+    [_helperRoundRob setupCurrentIndex:self.currentIndex];
+    [self setNeedsDisplay];
+}
+
+
+
+#pragma mark - Gestures
+
+- (void)setupGestures
+{
+    UIPanGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panGestureDetected:)];
+    [self addGestureRecognizer:panGestureRecognizer];
+    
+    UISwipeGestureRecognizer *swipeGestureRecognizer;
+    swipeGestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeGestureDetected:)];
+    swipeGestureRecognizer.direction = UISwipeGestureRecognizerDirectionUp;
+    [self addGestureRecognizer:swipeGestureRecognizer];
+    
+    swipeGestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeGestureDetected:)];
+    swipeGestureRecognizer.direction = UISwipeGestureRecognizerDirectionDown;
+    [self addGestureRecognizer:swipeGestureRecognizer];
+}
+
+- (void)panGestureDetected:(UIPanGestureRecognizer *)recognizer
+{
+    UIGestureRecognizerState state = [recognizer state];
+    
+    if (state == UIGestureRecognizerStateBegan || state == UIGestureRecognizerStateChanged)
+    {
+        CGPoint translation = [recognizer translationInView:recognizer.view];
+        [recognizer setTranslation:CGPointZero inView:recognizer.view];
+        
+        self.currentCenterY += translation.y;
+        [self positionViewsAccordingToCurrentCenterY];
+    }
+    
+    if (state == UIGestureRecognizerStateEnded)
+    {
+//        [self moveNearestViewOnPoint:self.center];
+    }
+}
+
+- (void)swipeGestureDetected:(UISwipeGestureRecognizer *)recognizer
+{
+    UISwipeGestureRecognizerDirection direction = recognizer.direction;
+    if (UISwipeGestureRecognizerDirectionUp == direction) {
+        self.currentCenterY -= 250;
+        [self positionViewsAccordingToCurrentCenterY];
+    }
+    if (UISwipeGestureRecognizerDirectionDown == direction) {
+        self.currentCenterY += 250;
+        [self positionViewsAccordingToCurrentCenterY];
+    }
+}
+
+
+#pragma mark - Utils
+
+- (void)positionViewsAccordingToCurrentCenterY
+{
+    // первый проход вверх
+    // второй проход вниз
+    
+}
+
+
+- (void)ifHaveToBeAttachedViewWithDeltaIndex:(NSInteger)deltaIndex
+{
+    
+}
+
+
+
+#pragma mark - Animation
+
+- (void)startAnimation
+{
+    if (!_timer) {
+        self.timer = [NSTimer timerWithTimeInterval:1.0/60.0 target:self selector:@selector(step) userInfo:nil repeats:YES];
+        [[NSRunLoop mainRunLoop] addTimer:_timer forMode:NSDefaultRunLoopMode];
+#ifdef ICAROUSEL_IOS
+        [[NSRunLoop mainRunLoop] addTimer:_timer forMode:UITrackingRunLoopMode];
+#endif
+    }
+}
+
+- (void)stopAnimation
+{
+    [_timer invalidate];
+    _timer = nil;
+}
+
+- (void)step
+{
+    
+}
+
+@end
+
+
+
+/*
+@interface SWRoundRobMenu()
+
+@property (nonatomic, strong) NSArray *viewsArray;
+@property (nonatomic) NSInteger currentIndex;
+@property (nonatomic, strong) SWRoundRob *helperRoundRob;
+
 @end
 
 
@@ -41,7 +179,7 @@
 {
     _viewsArray = viewsArray;
     [_helperRoundRob setupWithItems:viewsArray];
-    [_helperRoundRob setupCurrentIndex:4];
+    [_helperRoundRob setupCurrentIndex:1];
     [self setNeedsDisplay];
 }
 
@@ -214,3 +352,4 @@
 
 
 @end
+*/

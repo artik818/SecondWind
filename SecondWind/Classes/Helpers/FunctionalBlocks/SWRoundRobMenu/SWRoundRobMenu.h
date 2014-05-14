@@ -14,6 +14,6 @@
 
 @property (nonatomic) CGFloat distanceBetweenCenters;
 
-- (void)setupWithViews:(NSArray *)viewsArray;
+- (void)setupWithViews:(NSArray *)viewsArray startIndex:(NSInteger)startViewIndex;
 
 @end
