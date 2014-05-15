@@ -7,8 +7,11 @@
 //
 
 #import "SWTracksViewController.h"
+
 #import "SWTrackCell.h"
 #import "SWHintCell.h"
+#import "SWSearchHeader.h"
+
 #import "SWPlayerViewController.h"
 
 #import "SWMediaLibraryProvider.h"
@@ -37,18 +40,17 @@
     self.tracksArray = [[SWMediaLibraryProvider sharedMediaManager] getAllMedia];
     
     [SWMediaLibraryProvider sharedMediaManager];
-//    self.navigationController.navigationBar.opaque = NO;
-//    self.navigationController.navigationBar.alpha = 0.0f;
-
     [SWSingasteinnLibraryProvider sharedSingaManager];
 
-//    [SWPlayerViewController new];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    
+
+    self.navigationController.navigationBar.translucent = YES;
+  
     [self.topTabBar setSelectedItemIndex:kTabBarIndex_Tracks animated:YES];
+    [self.tracksCollectionView.collectionViewLayout prepareLayout];
 }
 
 - (void)didReceiveMemoryWarning
@@ -87,8 +89,21 @@
 }
 
 
-#pragma mark - UICollectionViewDelegate
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
+    UICollectionReusableView *reusableview = nil;
+    
+    if (kind == UICollectionElementKindSectionHeader) {
+        SWSearchHeader *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"TracksCollectionViewHeaderReuseIdentifier" forIndexPath:indexPath];
+        reusableview = headerView;
+    }
+    
+    if (kind == UICollectionElementKindSectionFooter) {
+    }
+    
+    return reusableview;
+}
 
+#pragma mark - UICollectionViewDelegate
 
 
 

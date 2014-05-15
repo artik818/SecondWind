@@ -13,4 +13,6 @@
 @property (weak, nonatomic) IBOutlet UICollectionView *tracksCollectionView;
 @property (weak, nonatomic) IBOutlet SWTopTabBar *topTabBar;
 
+@property (weak, nonatomic) IBOutlet UISearchBar *topSearchBar;
+
 @end

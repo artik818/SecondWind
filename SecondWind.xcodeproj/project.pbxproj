@@ -39,6 +39,8 @@
 		9A733036190F809900F7FA82 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9A733034190F809900F7FA82 /* Model.xcdatamodeld */; };
 		9A733039190F80A400F7FA82 /* SWCoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A733038190F80A400F7FA82 /* SWCoreDataManager.m */; };
 		9A73303D190F90A200F7FA82 /* UserData.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A73303C190F90A200F7FA82 /* UserData.m */; };
+		9A88F32A19249CBA002FA627 /* SWSearchHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A88F32919249CBA002FA627 /* SWSearchHeader.m */; };
+		9A88F33519249F5C002FA627 /* SWTracksFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A88F33419249F5C002FA627 /* SWTracksFlowLayout.m */; };
 		9A8BD4E4191B549B00594654 /* SWArtistCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A8BD4E3191B549B00594654 /* SWArtistCell.m */; };
 		9A8BD4E7191BA14F00594654 /* SWAlbumCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A8BD4E6191BA14F00594654 /* SWAlbumCell.m */; };
 		AC5AA2A91906AE670084BAA5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC5AA2A81906AE670084BAA5 /* Foundation.framework */; };
@@ -191,6 +193,10 @@
 		9A733038190F80A400F7FA82 /* SWCoreDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWCoreDataManager.m; sourceTree = "<group>"; };
 		9A73303B190F90A200F7FA82 /* UserData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserData.h; sourceTree = "<group>"; };
 		9A73303C190F90A200F7FA82 /* UserData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserData.m; sourceTree = "<group>"; };
+		9A88F32819249CBA002FA627 /* SWSearchHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWSearchHeader.h; sourceTree = "<group>"; };
+		9A88F32919249CBA002FA627 /* SWSearchHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWSearchHeader.m; sourceTree = "<group>"; };
+		9A88F33319249F5C002FA627 /* SWTracksFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWTracksFlowLayout.h; sourceTree = "<group>"; };
+		9A88F33419249F5C002FA627 /* SWTracksFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWTracksFlowLayout.m; sourceTree = "<group>"; };
 		9A8BD4E2191B549A00594654 /* SWArtistCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWArtistCell.h; sourceTree = "<group>"; };
 		9A8BD4E3191B549B00594654 /* SWArtistCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWArtistCell.m; sourceTree = "<group>"; };
 		9A8BD4E5191BA14F00594654 /* SWAlbumCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWAlbumCell.h; sourceTree = "<group>"; };
@@ -383,6 +389,10 @@
 				84B0AA97190D51DC00ADCEE2 /* SWHintCell.m */,
 				84A51005191AD5F8007AD610 /* SWPlaylistCell.h */,
 				84A51006191AD5F8007AD610 /* SWPlaylistCell.m */,
+				9A88F32819249CBA002FA627 /* SWSearchHeader.h */,
+				9A88F32919249CBA002FA627 /* SWSearchHeader.m */,
+				9A88F33319249F5C002FA627 /* SWTracksFlowLayout.h */,
+				9A88F33419249F5C002FA627 /* SWTracksFlowLayout.m */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -661,6 +671,7 @@
 				84B0AA95190D511A00ADCEE2 /* SWBaseCell.m in Sources */,
 				84B0AA7B190D3F5300ADCEE2 /* SWMediaLibraryProvider.m in Sources */,
 				84B2999B192164CD00D95B79 /* SWSingasteinnLibraryProvider.mm in Sources */,
+				9A88F33519249F5C002FA627 /* SWTracksFlowLayout.m in Sources */,
 				84B0AA86190D48C200ADCEE2 /* SWTrackCell.m in Sources */,
 				AC9FD148191063980091B9CC /* SWPlayerViewController.m in Sources */,
 				AC9FD1451910570E0091B9CC /* SWRoundRob.m in Sources */,
@@ -670,6 +681,7 @@
 				9A733039190F80A400F7FA82 /* SWCoreDataManager.m in Sources */,
 				9A8BD4E7191BA14F00594654 /* SWAlbumCell.m in Sources */,
 				84B0AA6C190D3ED100ADCEE2 /* SWHintsViewController.m in Sources */,
+				9A88F32A19249CBA002FA627 /* SWSearchHeader.m in Sources */,
 				9A733036190F809900F7FA82 /* Model.xcdatamodeld in Sources */,
 				84B0AA66190D3EB600ADCEE2 /* SWTracksViewController.m in Sources */,
 				9A8BD4E4191B549B00594654 /* SWArtistCell.m in Sources */,
