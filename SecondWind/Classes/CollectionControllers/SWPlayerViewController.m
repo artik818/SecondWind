@@ -61,7 +61,7 @@
     self.roundRobMenu = roundRobMenu;
     [self.playerView addSubview:roundRobMenu];
     
-    CGFloat viewsCount = 3;
+    CGFloat viewsCount = 6;
     
     NSMutableArray *menuViewsArray = [[NSMutableArray alloc] initWithCapacity:viewsCount];
     
@@ -78,7 +78,7 @@
         [menuViewsArray addObject:view];
     }
     
-    [self.roundRobMenu setupWithViews:menuViewsArray];
+    [self.roundRobMenu setupWithViews:menuViewsArray startIndex:2];
     self.roundRobMenu.distanceBetweenCenters = 290;
 }
 
