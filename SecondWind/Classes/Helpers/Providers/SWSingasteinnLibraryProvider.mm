@@ -49,7 +49,7 @@ static SingasteinnEngine *engine = nil;
         engine = new SingasteinnEngine([dir cStringUsingEncoding:NSUnicodeStringEncoding]);
         engine->initializeLogging();
         
-        [self processMediaLibrary];
+//        [self processMediaLibrary];
     }
     return self;
 }
@@ -73,21 +73,33 @@ static SingasteinnEngine *engine = nil;
 }
 
 - (void)processMediaLibrary {
-    SongAnalysisService sa;
+    __block SongAnalysisService sa;
     NSArray *asserts = [[SWMediaLibraryProvider sharedMediaManager] getAllMedia];
+    
+    dispatch_queue_t processQueue = dispatch_queue_create("Process Queue",NULL);
+    
     for (MPMediaItem *sng in asserts) {
-        NSURL *assetURL = [sng valueForProperty:MPMediaItemPropertyAssetURL];
-        NSLog (@"%@", [assetURL absoluteString]);
-        NSString *urls = [assetURL absoluteString];
-        const char *url = [urls cStringUsingEncoding:NSASCIIStringEncoding];
-//        Song::Ptr song(new Song(url));
-//        sa.processSongSync(song);
+        dispatch_async(processQueue, ^{
+
+            NSURL *assetURL = [sng valueForProperty:MPMediaItemPropertyAssetURL];
+            NSLog (@"%@", [assetURL absoluteString]);
+            NSString *urls = [assetURL absoluteString];
+            const char *url = [urls cStringUsingEncoding:NSASCIIStringEncoding];
+            Song::Ptr song(new Song(url));
+            
+            sa.processSongSync(song);
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                // Update the UI
+            });
+            
+        }); 
     }
-    //        IPlaybackController * mController = engine ->getPlaybackController()
-    //        mController->switchToSong(song);
-    //        mController->setPlaybackState(singasteinn::IPlaybackController::PS_Playing);
-    //        eng.getFittingController()->setFittingMode(singasteinn::IFittingController::FM_ConstTempoFit);
-    //    eng.getFittingController()->setConstBeatInterval(0.4);
+//    IPlaybackController * mController = engine ->getPlaybackController();
+//        mController->switchToSong(song);
+//        mController->setPlaybackState(singasteinn::IPlaybackController::PS_Playing);
+//        eng.getFittingController()->setFittingMode(singasteinn::IFittingController::FM_ConstTempoFit);
+//    eng.getFittingController()->setConstBeatInterval(0.4);
 }
 
 
