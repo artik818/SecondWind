@@ -15,13 +15,9 @@
 #import "SWPlayerRoundedView.h"
 
 
-@interface SWPlayerViewController () // <iCarouselDelegate, iCarouselDataSource>
+@interface SWPlayerViewController () <SWRoundRobMenuDatasource>
 
 @property (weak, nonatomic) IBOutlet SWPlayerView *playerView;
-
-//@property (nonatomic, strong) SWRoundRob *playerMenuObject;
-//@property (nonatomic, strong) SWRoundRob *playerMenuViewObject;
-
 @property (nonatomic, weak) SWRoundRobMenu *roundRobMenu;
 
 @end
@@ -35,7 +31,6 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Designated
-//        [self setupMechanisms];
     }
     return self;
 }
@@ -43,11 +38,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-//    [self setupSubViews];
-//    [self setupGestures];
-    
-//    [self setupCarousel];
     
     [self setupRoundRobMenu];
 }
@@ -61,25 +51,29 @@
     self.roundRobMenu = roundRobMenu;
     [self.playerView addSubview:roundRobMenu];
     
-    CGFloat viewsCount = 6;
-    
-    NSMutableArray *menuViewsArray = [[NSMutableArray alloc] initWithCapacity:viewsCount];
-    
-    for (NSInteger i = 0; i < viewsCount; ++i) {
-        SWPlayerRoundedView *view = [[SWPlayerRoundedView alloc] initWithFrame:CGRectMake(0, 0, 200.0f, 200.0f)];
-//        view.backgroundColor = [UIColor lightGrayColor];
-        UILabel *label = [[UILabel alloc] initWithFrame:view.bounds];
-        label.text = [@(i) stringValue]; // [NSString stringWithFormat:@"%lu", (unsigned long)i];
-        label.backgroundColor = [UIColor clearColor];
-        label.textAlignment = NSTextAlignmentCenter;
-        label.font = [label.font fontWithSize:50];
-        [view addSubview:label];
-        
-        [menuViewsArray addObject:view];
-    }
-    
-    [self.roundRobMenu setupWithViews:menuViewsArray startIndex:2];
-    self.roundRobMenu.distanceBetweenCenters = 290;
+    self.roundRobMenu.datasource = self;
+    [self.roundRobMenu setupWithStartIndex:0 distanceBetweenCenters:290];
+}
+
+
+#pragma mark - SWRoundRobMenuDatasource
+
+- (NSInteger)roundRobMenuNumberOfItems:(SWRoundRobMenu *)roundRobMenu
+{
+    return 3;
+}
+
+- (UIView *)roundRobMenu:(SWRoundRobMenu *)roundRobMenu viewForItemWithIndex:(NSInteger)itemIndex
+{
+    UIView *view = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 200.0f, 200.0f)];
+    view.backgroundColor = [UIColor lightGrayColor];
+    UILabel *label = [[UILabel alloc] initWithFrame:view.bounds];
+    label.text = [NSString stringWithFormat:@"%lu", (unsigned long)index];
+    label.backgroundColor = [UIColor clearColor];
+    label.textAlignment = NSTextAlignmentCenter;
+    label.font = [label.font fontWithSize:50];
+    [view addSubview:label];
+    return view;
 }
 
 

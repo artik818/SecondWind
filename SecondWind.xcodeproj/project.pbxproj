@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		7AC5C2D91911016C0091A3DA /* SWPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC5C2D81911016C0091A3DA /* SWPlayerView.m */; };
 		7AC5C2DC191102F70091A3DA /* SWPlayerMenuItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC5C2DB191102F70091A3DA /* SWPlayerMenuItemView.m */; };
+		84060C7D19255DF10069F108 /* EndlessScroller.m in Sources */ = {isa = PBXBuildFile; fileRef = 84060C7C19255DF10069F108 /* EndlessScroller.m */; };
 		84A51007191AD5F8007AD610 /* SWPlaylistCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A51006191AD5F8007AD610 /* SWPlaylistCell.m */; };
 		84ACBAF7191FFA4A00A9ACDA /* liblog4cplusS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 84ACBAF4191FFA2C00A9ACDA /* liblog4cplusS.a */; };
 		84ACBAF8191FFA4A00A9ACDA /* libsingasteinn.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 84ACBAEA191FFA2C00A9ACDA /* libsingasteinn.a */; };
@@ -137,6 +138,8 @@
 		7AC5C2D81911016C0091A3DA /* SWPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWPlayerView.m; sourceTree = "<group>"; };
 		7AC5C2DA191102F70091A3DA /* SWPlayerMenuItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWPlayerMenuItemView.h; sourceTree = "<group>"; };
 		7AC5C2DB191102F70091A3DA /* SWPlayerMenuItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWPlayerMenuItemView.m; sourceTree = "<group>"; };
+		84060C7B19255DF10069F108 /* EndlessScroller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EndlessScroller.h; sourceTree = "<group>"; };
+		84060C7C19255DF10069F108 /* EndlessScroller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EndlessScroller.m; sourceTree = "<group>"; };
 		84A51005191AD5F8007AD610 /* SWPlaylistCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWPlaylistCell.h; sourceTree = "<group>"; };
 		84A51006191AD5F8007AD610 /* SWPlaylistCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWPlaylistCell.m; sourceTree = "<group>"; };
 		84ACBADB191FFA2C00A9ACDA /* singasteinn.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = singasteinn.xcodeproj; path = SecondWindLib/secondwind/singasteinn/singasteinn.xcodeproj; sourceTree = "<group>"; };
@@ -261,6 +264,15 @@
 				7AC5C2D81911016C0091A3DA /* SWPlayerView.m */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		84060C7A19255DF10069F108 /* EndlessScroller */ = {
+			isa = PBXGroup;
+			children = (
+				84060C7B19255DF10069F108 /* EndlessScroller.h */,
+				84060C7C19255DF10069F108 /* EndlessScroller.m */,
+			);
+			path = EndlessScroller;
 			sourceTree = "<group>";
 		};
 		84ACBADC191FFA2C00A9ACDA /* Products */ = {
@@ -513,6 +525,7 @@
 		AC9FD13F191048960091B9CC /* FunctionalBlocks */ = {
 			isa = PBXGroup;
 			children = (
+				84060C7A19255DF10069F108 /* EndlessScroller */,
 				AC78BD91191ACB330077AB32 /* SWRoundRobMenu */,
 				AC7C5B0919129AD800E7558A /* iCarousel */,
 				AC9FD1431910570D0091B9CC /* SWRoundRob.h */,
@@ -692,6 +705,7 @@
 				AC5AA2B91906AE670084BAA5 /* SWAppDelegate.mm in Sources */,
 				AC7C5B0C19129AD800E7558A /* iCarousel.m in Sources */,
 				AC5AA2B51906AE670084BAA5 /* main.m in Sources */,
+				84060C7D19255DF10069F108 /* EndlessScroller.m in Sources */,
 				7AC5C2D91911016C0091A3DA /* SWPlayerView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

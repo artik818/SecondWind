@@ -7,8 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "iCarousel.h"
-
+//#import "iCarousel.h"
 
 
 @interface SWPlayerViewController : UIViewController

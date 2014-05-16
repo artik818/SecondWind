@@ -10,10 +10,21 @@
 
 
 
+@class SWRoundRobMenu;
+
+@protocol SWRoundRobMenuDatasource <NSObject>
+
+- (NSInteger)roundRobMenuNumberOfItems:(SWRoundRobMenu *)roundRobMenu;
+- (UIView *)roundRobMenu:(SWRoundRobMenu *)roundRobMenu viewForItemWithIndex:(NSInteger)itemIndex;
+
+@end
+
+
+
 @interface SWRoundRobMenu : UIView
 
-@property (nonatomic) CGFloat distanceBetweenCenters;
+@property (nonatomic, weak) id<SWRoundRobMenuDatasource> datasource;
 
-- (void)setupWithViews:(NSArray *)viewsArray startIndex:(NSInteger)startViewIndex;
+- (void)setupWithStartIndex:(NSInteger)startViewIndex distanceBetweenCenters:(CGFloat)distanceBetweenCenters;
 
 @end

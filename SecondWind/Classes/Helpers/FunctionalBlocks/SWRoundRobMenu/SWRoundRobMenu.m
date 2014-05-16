@@ -16,8 +16,9 @@
 
 @interface SWRoundRobMenu()
 
-@property (nonatomic, strong) NSArray *viewsArray;
 @property (nonatomic) NSInteger currentIndex;
+@property (nonatomic) CGFloat distanceBetweenCenters;
+
 @property (nonatomic, strong) SWRoundRob *helperRoundRob;
 
 @property (nonatomic, readonly) CGPoint centerPos;
@@ -45,15 +46,31 @@
 
 #pragma mark - Interface funcs
 
-- (void)setupWithViews:(NSArray *)viewsArray startIndex:(NSInteger)startViewIndex
+- (void)setupWithStartIndex:(NSInteger)startViewIndex distanceBetweenCenters:(CGFloat)distanceBetweenCenters
 {
-    _viewsArray = viewsArray;
-    [_helperRoundRob setupWithItems:viewsArray];
     self.currentIndex = startViewIndex;
     [_helperRoundRob setupCurrentIndex:self.currentIndex];
-    [self setNeedsDisplay];
+    _distanceBetweenCenters = distanceBetweenCenters;
+    
+    [self resetupComponents];
 }
 
+
+
+#pragma mark - Utils
+
+- (void)resetupComponents
+{
+    static NSInteger prevIndex = -1;
+    static CGFloat prevCenterY = -1;
+    
+    if ((prevIndex != [self.helperRoundRob moveDownIndexFor:0]) || (prevCenterY != self.currentCenterY)) {
+        
+    }
+    
+    prevIndex = [self.helperRoundRob moveDownIndexFor:0];
+    prevCenterY = self.currentCenterY;
+}
 
 
 #pragma mark - Gestures
@@ -83,7 +100,7 @@
         [recognizer setTranslation:CGPointZero inView:recognizer.view];
         
         self.currentCenterY += translation.y;
-        [self positionViewsAccordingToCurrentCenterY];
+        [self resetupComponents];
     }
     
     if (state == UIGestureRecognizerStateEnded)
@@ -97,15 +114,17 @@
     UISwipeGestureRecognizerDirection direction = recognizer.direction;
     if (UISwipeGestureRecognizerDirectionUp == direction) {
         self.currentCenterY -= 250;
-        [self positionViewsAccordingToCurrentCenterY];
+        [self resetupComponents];
     }
     if (UISwipeGestureRecognizerDirectionDown == direction) {
         self.currentCenterY += 250;
-        [self positionViewsAccordingToCurrentCenterY];
+        [self resetupComponents];
     }
 }
 
 
+
+/*
 #pragma mark - Utils
 
 - (void)positionViewsAccordingToCurrentCenterY
@@ -120,7 +139,7 @@
 {
     
 }
-
+*/
 
 
 #pragma mark - Animation
@@ -130,9 +149,9 @@
     if (!_timer) {
         self.timer = [NSTimer timerWithTimeInterval:1.0/60.0 target:self selector:@selector(step) userInfo:nil repeats:YES];
         [[NSRunLoop mainRunLoop] addTimer:_timer forMode:NSDefaultRunLoopMode];
-#ifdef ICAROUSEL_IOS
-        [[NSRunLoop mainRunLoop] addTimer:_timer forMode:UITrackingRunLoopMode];
-#endif
+//#ifdef ICAROUSEL_IOS
+//        [[NSRunLoop mainRunLoop] addTimer:_timer forMode:UITrackingRunLoopMode];
+//#endif
     }
 }
 
