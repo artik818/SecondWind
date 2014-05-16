@@ -14,6 +14,20 @@
 #define SWRectSetCenterPos(r, x, y) CGRectMake(x - (r.size.width / 2), y - (r.size.height / 2), r.size.width, r.size.height)
 
 
+
+@interface viewObject : NSObject
+
+@property (nonatomic, strong) UIView *view;
+@property (nonatomic) NSInteger viewIndex;
+
+@end
+
+@implementation viewObject
+
+@end
+
+
+
 @interface SWRoundRobMenu()
 
 @property (nonatomic) NSInteger currentIndex;
@@ -26,7 +40,11 @@
 
 @property (nonatomic, strong) NSTimer *timer;
 
+@property (nonatomic, strong) NSMutableArray *viewsArray;
+@property (nonatomic) NSInteger centerViewIndexInViewsArray;
+
 @end
+
 
 
 @implementation SWRoundRobMenu
@@ -39,6 +57,7 @@
         _centerPos = CGPointMake(frame.size.width / 2, frame.size.height / 2);
         _currentCenterY = _centerPos.y;
         _helperRoundRob = [SWRoundRob new];
+        _viewsArray = [NSMutableArray new];
         [self setupGestures];
     }
     return self;
@@ -70,6 +89,37 @@
     
     prevIndex = [self.helperRoundRob moveDownIndexFor:0];
     prevCenterY = self.currentCenterY;
+}
+
+- (void)resetupCenterAndBelowViews
+{
+    
+    
+    
+    [self.datasource roundRobMenu:self viewForItemWithIndex:self.currentIndex];
+}
+
+- (void)moveViewsFromViewsArray
+{
+    NSInteger currentMenuItemIndex;
+    
+    //
+    currentMenuItemIndex = self.currentIndex;
+    for (NSInteger viewIndex = self.centerViewIndexInViewsArray; viewIndex < self.viewsArray.count; viewIndex++) {
+        UIView *currentView;
+        // there is no view with index i
+        if (viewIndex >= self.viewsArray.count) {
+            currentView = [self.datasource roundRobMenu:self viewForItemWithIndex:currentMenuItemIndex];
+            [self addSubview:currentView];
+            [self.viewsArray addObject:currentView];
+        }
+        else {
+            currentView = self.viewsArray[viewIndex];
+        }
+        currentView.frame = SWRectSetCenterPos(currentView.frame, self.centerPos.x, self.currentCenterY + (self.distanceBetweenCenters * viewIndex));
+        
+        currentMenuItemIndex++;
+    }
 }
 
 
