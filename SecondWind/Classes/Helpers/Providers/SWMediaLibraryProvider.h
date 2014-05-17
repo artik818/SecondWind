@@ -17,6 +17,7 @@
 - (NSArray *)getPlaylists;
 - (NSArray *)getArtists;
 
-- (UIImage *)getArtworkForMediaitem:(MPMediaItem *)mediaItem withSie:(CGSize)imageSize;
+- (NSArray *)getAllMediaWithAlbum:(NSString *)albumName;
+- (UIImage *)getArtworkForMediaitem:(MPMediaItem *)mediaItem withSize:(CGSize)imageSize;
 
 @end

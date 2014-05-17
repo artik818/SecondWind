@@ -9,6 +9,7 @@
 #import "SWHintsViewController.h"
 
 #import "SWHintCell.h"
+#import "SWSearchHeader.h"
 
 @interface SWHintsViewController () <UITabBarDelegate, UICollectionViewDataSource, UICollectionViewDelegate>
 
@@ -64,6 +65,20 @@
     
     
     return cell;
+}
+
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
+    UICollectionReusableView *reusableview = nil;
+    
+    if (kind == UICollectionElementKindSectionHeader) {
+        SWSearchHeader *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"TracksCollectionViewHeaderReuseIdentifier" forIndexPath:indexPath];
+        reusableview = headerView;
+    }
+    
+    if (kind == UICollectionElementKindSectionFooter) {
+    }
+    
+    return reusableview;
 }
 
 /*

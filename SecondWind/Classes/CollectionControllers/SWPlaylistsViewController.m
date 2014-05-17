@@ -11,6 +11,8 @@
 #import "SWMediaLibraryProvider.h"
 #import "SWPlaylistCell.h"
 
+#import "SWSearchHeader.h"
+
 @interface SWPlaylistsViewController () <UITabBarDelegate, UICollectionViewDataSource, UICollisionBehaviorDelegate>
 
 @property (nonatomic, strong) NSArray *playlistsArray;
@@ -80,6 +82,19 @@
     return self.playlistsArray.count + 1;
 }
 
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
+    UICollectionReusableView *reusableview = nil;
+    
+    if (kind == UICollectionElementKindSectionHeader) {
+        SWSearchHeader *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"TracksCollectionViewHeaderReuseIdentifier" forIndexPath:indexPath];
+        reusableview = headerView;
+    }
+    
+    if (kind == UICollectionElementKindSectionFooter) {
+    }
+    
+    return reusableview;
+}
 
 #pragma mark - UICollectionViewDelegate
 

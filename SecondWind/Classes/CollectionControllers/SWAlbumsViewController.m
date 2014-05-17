@@ -11,6 +11,8 @@
 
 #import "SWAlbumCell.h"
 
+#import "SWSearchHeader.h"
+
 @interface SWAlbumsViewController () <UITabBarDelegate>
 
 @property (nonatomic, strong) NSArray *albumsArray;
@@ -78,10 +80,23 @@
     return self.albumsArray.count;
 }
 
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
+    UICollectionReusableView *reusableview = nil;
+    
+    if (kind == UICollectionElementKindSectionHeader) {
+        SWSearchHeader *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"TracksCollectionViewHeaderReuseIdentifier" forIndexPath:indexPath];
+        reusableview = headerView;
+    }
+    
+    if (kind == UICollectionElementKindSectionFooter) {
+    }
+    
+    return reusableview;
+}
 
 #pragma mark - UICollectionViewDelegate
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -89,7 +104,10 @@
 {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    if ([segue.identifier isEqualToString:@"AlbumDetailsSeageway"]) {
+        
+    }
 }
-*/
+
 
 @end

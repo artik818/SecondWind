@@ -1,25 +1,23 @@
 //
-//  SWArtistsViewController.m
+//  SWAlbumDetailViewController.m
 //  SecondWind
 //
-//  Created by Momus on 27.04.14.
+//  Created by Momus on 17.05.14.
 //  Copyright (c) 2014 Artem. All rights reserved.
 //
 
-#import "SWArtistsViewController.h"
+#import "SWAlbumDetailViewController.h"
 
-#import "SWArtistCell.h"
-#import "SWSearchHeader.h"
+#import "SWTrackCell.h"
 
-#import "SWMediaLibraryProvider.h"
+@interface SWAlbumDetailViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 
-@interface SWArtistsViewController () <UITabBarDelegate, UICollectionViewDataSource, UICollectionViewDelegate>
-
-@property (nonatomic, strong) NSArray *artistsArray;
+@property (nonatomic, strong) NSArray *tracksArray;
+@property (nonatomic, strong) NSString *albumName;
 
 @end
 
-@implementation SWArtistsViewController
+@implementation SWAlbumDetailViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -34,13 +32,8 @@
 {
     [super viewDidLoad];
     
-    self.artistsArray = [[SWMediaLibraryProvider sharedMediaManager] getArtists];
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
+    self.tracksArray = [[SWMediaLibraryProvider sharedMediaManager] getAllMediaWithAlbum:self.albumName];
     
-    [self.topTabBar setSelectedItemIndex:kTabBarIndex_Artists animated:YES];
 }
 
 - (void)didReceiveMemoryWarning
@@ -48,8 +41,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-#pragma mark - UICollectionViewDelegateFlowLayout
 
 #pragma mark - UICollectionViewDataSource
 
@@ -60,39 +51,30 @@
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    NSDictionary *artist = self.artistsArray[indexPath.row];
-    SWArtistCell *cell = [self.artistsCollectionView dequeueReusableCellWithReuseIdentifier:@"ArtistCellReuseIdentifier" forIndexPath:indexPath];
-    [cell setArtist:artist];
+    NSDictionary *album = self.tracksArray[indexPath.row];
+    SWTrackCell *cell = [self.albumTracksCollectionView dequeueReusableCellWithReuseIdentifier:@"AlbumDetailCellReuseIdentifier" forIndexPath:indexPath];
     return cell;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return self.artistsArray.count;
+    return self.tracksArray.count;
 }
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
     UICollectionReusableView *reusableview = nil;
-    
-    if (kind == UICollectionElementKindSectionHeader) {
-        SWSearchHeader *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"TracksCollectionViewHeaderReuseIdentifier" forIndexPath:indexPath];
-        reusableview = headerView;
-    }
-    
-    if (kind == UICollectionElementKindSectionFooter) {
-    }
-    
+//
+//    if (kind == UICollectionElementKindSectionHeader) {
+//        SWSearchHeader *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"TracksCollectionViewHeaderReuseIdentifier" forIndexPath:indexPath];
+//        reusableview = headerView;
+//    }
+//    
+//    if (kind == UICollectionElementKindSectionFooter) {
+//    }
+//    
     return reusableview;
 }
 
 #pragma mark - UICollectionViewDelegate
-
-
-#pragma mark - UITabBarDelegate
-
-- (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item {
-    NSUInteger selIndex = [tabBar.items indexOfObject:item];
-    [self.tabBarController setSelectedIndex:selIndex];
-}
 
 
 /*

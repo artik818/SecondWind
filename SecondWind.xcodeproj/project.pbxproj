@@ -30,6 +30,7 @@
 		84B0AA95190D511A00ADCEE2 /* SWBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B0AA94190D511A00ADCEE2 /* SWBaseCell.m */; };
 		84B0AA98190D51DC00ADCEE2 /* SWHintCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B0AA97190D51DC00ADCEE2 /* SWHintCell.m */; };
 		84B2999B192164CD00D95B79 /* SWSingasteinnLibraryProvider.mm in Sources */ = {isa = PBXBuildFile; fileRef = 84B2999A192164CD00D95B79 /* SWSingasteinnLibraryProvider.mm */; };
+		84B3EB7F1927A7DB004E91C2 /* SWAlbumDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B3EB7E1927A7DB004E91C2 /* SWAlbumDetailViewController.m */; };
 		84BFBB3019241705006AEC84 /* SWNowPlayingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BFBB2F19241705006AEC84 /* SWNowPlayingViewController.m */; };
 		9A733027190F7BB300F7FA82 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A733026190F7BB300F7FA82 /* AVFoundation.framework */; };
 		9A73302B190F7BD500F7FA82 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A733028190F7BD500F7FA82 /* CoreMedia.framework */; };
@@ -179,6 +180,8 @@
 		84B0AA97190D51DC00ADCEE2 /* SWHintCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWHintCell.m; sourceTree = "<group>"; };
 		84B29999192164CD00D95B79 /* SWSingasteinnLibraryProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWSingasteinnLibraryProvider.h; sourceTree = "<group>"; };
 		84B2999A192164CD00D95B79 /* SWSingasteinnLibraryProvider.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SWSingasteinnLibraryProvider.mm; sourceTree = "<group>"; };
+		84B3EB7D1927A7DB004E91C2 /* SWAlbumDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWAlbumDetailViewController.h; sourceTree = "<group>"; };
+		84B3EB7E1927A7DB004E91C2 /* SWAlbumDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWAlbumDetailViewController.m; sourceTree = "<group>"; };
 		84BFBB2E19241705006AEC84 /* SWNowPlayingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWNowPlayingViewController.h; sourceTree = "<group>"; };
 		84BFBB2F19241705006AEC84 /* SWNowPlayingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWNowPlayingViewController.m; sourceTree = "<group>"; };
 		84D5ECD0191FD17A00A4B556 /* libc.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libc.dylib; path = usr/lib/libc.dylib; sourceTree = SDKROOT; };
@@ -335,6 +338,8 @@
 				84B0AA6B190D3ED100ADCEE2 /* SWHintsViewController.m */,
 				84B0AA6D190D3EDE00ADCEE2 /* SWAlbumsViewController.h */,
 				84B0AA6E190D3EDE00ADCEE2 /* SWAlbumsViewController.m */,
+				84B3EB7D1927A7DB004E91C2 /* SWAlbumDetailViewController.h */,
+				84B3EB7E1927A7DB004E91C2 /* SWAlbumDetailViewController.m */,
 				84B0AA70190D3EEA00ADCEE2 /* SWArtistsViewController.h */,
 				84B0AA71190D3EEA00ADCEE2 /* SWArtistsViewController.m */,
 				AC9FD146191063980091B9CC /* SWPlayerViewController.h */,
@@ -683,6 +688,7 @@
 				84B0AA78190D3F4100ADCEE2 /* SWGlobalDataSingleton.m in Sources */,
 				84B0AA95190D511A00ADCEE2 /* SWBaseCell.m in Sources */,
 				84B0AA7B190D3F5300ADCEE2 /* SWMediaLibraryProvider.m in Sources */,
+				84B3EB7F1927A7DB004E91C2 /* SWAlbumDetailViewController.m in Sources */,
 				84B2999B192164CD00D95B79 /* SWSingasteinnLibraryProvider.mm in Sources */,
 				9A88F33519249F5C002FA627 /* SWTracksFlowLayout.m in Sources */,
 				84B0AA86190D48C200ADCEE2 /* SWTrackCell.m in Sources */,

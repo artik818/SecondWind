@@ -44,7 +44,6 @@ static SWMediaLibraryProvider *sharedMediaManager = nil;
 - (NSArray *)getAllMedia {
     MPMediaQuery *everything = [[MPMediaQuery alloc] init];
     
-    NSLog(@"Logging items from a generic query...");
     NSArray *itemsFromGenericQuery = [everything items];
     return itemsFromGenericQuery;
 }
@@ -76,6 +75,20 @@ static SWMediaLibraryProvider *sharedMediaManager = nil;
     }
     return resArray;
 }
+
+- (NSArray *)getAllMediaWithAlbum:(NSString *)albumName {
+    MPMediaPropertyPredicate *albumNamePredicate = [MPMediaPropertyPredicate predicateWithValue:albumName
+                                                                                    forProperty:MPMediaItemPropertyAlbumTitle];
+    
+    MPMediaQuery *myAlbumQuery = [[MPMediaQuery alloc] init];
+    [myAlbumQuery addFilterPredicate:albumNamePredicate];
+    
+    NSArray *itemsFromAlbumQuery = [myAlbumQuery items];
+    
+    return itemsFromAlbumQuery;
+}
+
+
 
 - (NSArray *)getPlaylists {
     MPMediaQuery *query = [MPMediaQuery playlistsQuery];

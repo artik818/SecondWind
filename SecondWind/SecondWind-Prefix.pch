@@ -18,5 +18,5 @@
 
     #import "SWGlobalConsts.h"
     #import "SWSingasteinnLibraryProvider.h"
-
+    #import "SWMediaLibraryProvider.h"
 #endif
