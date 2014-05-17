@@ -7,6 +7,7 @@
 //
 
 #import "SWAlbumsViewController.h"
+#import "SWAlbumDetailViewController.m"
 #import "SWMediaLibraryProvider.h"
 
 #import "SWAlbumCell.h"
@@ -105,7 +106,9 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
     if ([segue.identifier isEqualToString:@"AlbumDetailsSeageway"]) {
-        
+        SWAlbumCell *cell = (SWAlbumCell *)sender;
+        SWAlbumDetailViewController *vc = segue.destinationViewController;
+        vc.album = cell.albumDict;
     }
 }
 

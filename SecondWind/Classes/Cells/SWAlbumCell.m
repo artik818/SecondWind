@@ -22,6 +22,9 @@
 }
 
 - (void)setAlbum:(NSDictionary *)albumDict {
+    
+    _albumDict = albumDict;
+    
     MPMediaItemCollection *collIt = albumDict[ALBUMITEM_KEY];
     MPMediaItemArtwork *artwork = [[collIt representativeItem] valueForProperty:MPMediaItemPropertyArtwork];
     NSString *albumName = [[collIt representativeItem] valueForProperty:MPMediaItemPropertyAlbumTitle];

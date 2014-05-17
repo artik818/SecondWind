@@ -6,11 +6,9 @@
 //  Copyright (c) 2014 Artem. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-
 @interface SWAlbumDetailViewController : UIViewController
 
-@property (nonatomic, strong) MPMediaItem *album;
+@property (nonatomic, strong) NSDictionary *album;
 @property (weak, nonatomic) IBOutlet UICollectionView *albumTracksCollectionView;
 
 @end

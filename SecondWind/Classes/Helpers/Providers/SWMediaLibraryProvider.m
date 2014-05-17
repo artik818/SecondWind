@@ -156,7 +156,7 @@ static SWMediaLibraryProvider *sharedMediaManager = nil;
     NSArray *itemsFromArtistQuery = [specificQuery items];
 }
 
-- (UIImage *)getArtworkForMediaitem:(MPMediaItem *)mediaItem withSie:(CGSize)imageSize {
+- (UIImage *)getArtworkForMediaitem:(MPMediaItem *)mediaItem withSize:(CGSize)imageSize {
     MPMediaItemArtwork *artwork = [mediaItem valueForProperty:MPMediaItemPropertyArtwork];
     UIImage *artworkImage = [artwork imageWithSize:imageSize];
     

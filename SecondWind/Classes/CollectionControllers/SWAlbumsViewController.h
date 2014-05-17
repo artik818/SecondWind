@@ -6,7 +6,6 @@
 //  Copyright (c) 2014 Artem. All rights reserved.
 //
 
-@import UIKit;
 #import "SWTopTabBar.h"
 
 @interface SWAlbumsViewController : UIViewController

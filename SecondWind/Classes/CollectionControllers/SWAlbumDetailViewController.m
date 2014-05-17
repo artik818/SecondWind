@@ -32,6 +32,9 @@
 {
     [super viewDidLoad];
     
+    MPMediaItem *itm = self.album[ALBUMITEM_KEY];
+    self.albumName = [itm valueForProperty:MPMediaItemPropertyAlbumTitle];
+    
     self.tracksArray = [[SWMediaLibraryProvider sharedMediaManager] getAllMediaWithAlbum:self.albumName];
     
 }

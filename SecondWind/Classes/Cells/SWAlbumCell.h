@@ -17,6 +17,8 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *buttonShuffle;
 
+@property (nonatomic, strong, readonly) NSDictionary *albumDict;
+
 - (void)setAlbum:(NSDictionary *)albumDict;
 
 @end
