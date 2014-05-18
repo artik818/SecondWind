@@ -7,8 +7,9 @@
 //
 
 #import "SWAlbumDetailViewController.h"
+#import "SWGlobalDataSingleton.h"
 
-#import "SWTrackCell.h"
+#import "SWAlbumTrackCell.h"
 
 @interface SWAlbumDetailViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 
@@ -32,8 +33,21 @@
 {
     [super viewDidLoad];
     
-    MPMediaItem *itm = self.album[ALBUMITEM_KEY];
-    self.albumName = [itm valueForProperty:MPMediaItemPropertyAlbumTitle];
+    MPMediaItemCollection *itm = self.album[ALBUMITEM_KEY];
+    self.albumName = [[itm representativeItem] valueForProperty:MPMediaItemPropertyAlbumTitle];
+    NSString *songArtist = [[itm representativeItem] valueForProperty:MPMediaItemPropertyAlbumArtist];
+    self.labelArtistName.text = songArtist;
+    self.labelAlbumName.text = self.albumName;
+    
+    NSUInteger tracksCount = [[itm items] count];
+    NSTimeInterval durTime = [self.album[ALBUM_DURATION_KEY] doubleValue];
+    NSString *duration = [[SWGlobalDataSingleton globalDataManager] stringFromTimeInterval:durTime];
+    
+    NSString *trackCountString = [NSString stringWithFormat:@"%lu %@", (unsigned long)tracksCount, NSLocalizedString(@"tracksTitle", nil)];
+    if (tracksCount == 1) {
+        trackCountString = [NSString stringWithFormat:@"%lu %@", (unsigned long)tracksCount, NSLocalizedString(@"trackTitle", nil)];
+    }
+    self.labelAlbumDuration.text = [NSString stringWithFormat:@"%@, %@", trackCountString, duration];
     
     self.tracksArray = [[SWMediaLibraryProvider sharedMediaManager] getAllMediaWithAlbum:self.albumName];
     
@@ -54,8 +68,11 @@
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    NSDictionary *album = self.tracksArray[indexPath.row];
-    SWTrackCell *cell = [self.albumTracksCollectionView dequeueReusableCellWithReuseIdentifier:@"AlbumDetailCellReuseIdentifier" forIndexPath:indexPath];
+    MPMediaItem *track = self.tracksArray[indexPath.row];
+    SWAlbumTrackCell *cell = [self.albumTracksCollectionView dequeueReusableCellWithReuseIdentifier:@"AlbumDetailCellReuseIdentifier" forIndexPath:indexPath];
+    [cell setTrack:track];
+    [cell setTrackQuality:TrackQualityNone];
+
     return cell;
 }
 

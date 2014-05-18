@@ -7,10 +7,9 @@
 //
 
 #import "SWPlaylistsViewController.h"
+#import "SWPlaylistDetailsViewController.h"
 
-#import "SWMediaLibraryProvider.h"
 #import "SWPlaylistCell.h"
-
 #import "SWSearchHeader.h"
 
 @interface SWPlaylistsViewController () <UITabBarDelegate, UICollectionViewDataSource, UICollisionBehaviorDelegate>
@@ -70,7 +69,7 @@
         cell = [self.playlistsCollectionView dequeueReusableCellWithReuseIdentifier:@"HintCellReuseIdentifier" forIndexPath:indexPath];
         cell.backgroundColor = [UIColor redColor];
     } else {
-        MPMediaItemCollection *song = self.playlistsArray[indexPath.row - 1];
+        MPMediaPlaylist *song = self.playlistsArray[indexPath.row - 1];
         cell = [self.playlistsCollectionView dequeueReusableCellWithReuseIdentifier:@"PlaylistCellReuseIdentifier" forIndexPath:indexPath];
         [(SWPlaylistCell *)cell setPlaylist:song];
     }
@@ -105,15 +104,15 @@
     [self.tabBarController setSelectedIndex:selIndex];
 }
 
-/*
+
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if ([segue.identifier isEqualToString:@"SWPlayLisyDetailSegue"]) {
+        SWPlaylistDetailsViewController *vc = segue.destinationViewController;
+        vc.playList = ((SWPlaylistCell *)sender).playList;
+    }
 }
-*/
 
 @end

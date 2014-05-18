@@ -21,8 +21,10 @@
 }
 
 - (void)setArtist:(NSDictionary *)artist {
+    
     NSInteger albumsCount = [artist[ARTIST_ALBUMS_COUNT_KEY] integerValue];
     MPMediaItemCollection *artistItem = artist[ARTISTITEM_KEY];
+    _currentArtist = artistItem;
     
     MPMediaItem *representativeItem = [artistItem representativeItem];
     NSString *artistName = [representativeItem valueForProperty:MPMediaItemPropertyArtist];

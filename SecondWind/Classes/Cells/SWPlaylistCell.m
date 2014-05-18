@@ -19,10 +19,13 @@
     return self;
 }
 
-- (void)setPlaylist:(MPMediaItemCollection *)playlist {
-        MPMediaItem *representativeItem = [playlist representativeItem];
-        NSString *albumName = [representativeItem valueForProperty:MPMediaItemPropertyAlbumTitle];
-        NSArray *songs = [playlist items];
+- (void)setPlaylist:(MPMediaPlaylist *)playlist {
+    
+    _playList = playlist;
+    
+//    MPMediaItem *representativeItem = [playlist representativeItem];
+    NSString *albumName = [playlist valueForProperty:MPMediaPlaylistPropertyName];
+    NSArray *songs = [playlist items];
     
     self.labelName.text = albumName;
     if ([songs count] == 1) {

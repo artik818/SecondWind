@@ -10,10 +10,13 @@
 
 @interface SWPlaylistCell : SWBaseCell
 
+@property (nonatomic, strong, readonly) MPMediaPlaylist *playList;
+
 @property (weak, nonatomic) IBOutlet UILabel *labelName;
 @property (weak, nonatomic) IBOutlet UILabel *labelTracksCount;
 
 @property (weak, nonatomic) IBOutlet UIImageView *imagePlay;
 
-- (void)setPlaylist:(MPMediaItemCollection *)playlist;
+- (void)setPlaylist:(MPMediaPlaylist *)playlist;
+
 @end
