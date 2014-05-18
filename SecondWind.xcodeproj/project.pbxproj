@@ -10,6 +10,10 @@
 		7AC5C2D91911016C0091A3DA /* SWPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC5C2D81911016C0091A3DA /* SWPlayerView.m */; };
 		7AC5C2DC191102F70091A3DA /* SWPlayerMenuItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC5C2DB191102F70091A3DA /* SWPlayerMenuItemView.m */; };
 		84060C7D19255DF10069F108 /* EndlessScroller.m in Sources */ = {isa = PBXBuildFile; fileRef = 84060C7C19255DF10069F108 /* EndlessScroller.m */; };
+		84091C661928C15B00D0D6A7 /* SWAlbumDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84091C651928C15B00D0D6A7 /* SWAlbumDetailViewController.m */; };
+		84091C691928C4F000D0D6A7 /* SWAlbumTrackCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84091C681928C4F000D0D6A7 /* SWAlbumTrackCell.m */; };
+		84091C6C1928D32C00D0D6A7 /* SWPlaylistDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84091C6B1928D32C00D0D6A7 /* SWPlaylistDetailsViewController.m */; };
+		84091C6F1928E71100D0D6A7 /* SWArtistDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84091C6E1928E71100D0D6A7 /* SWArtistDetailsViewController.m */; };
 		84A51007191AD5F8007AD610 /* SWPlaylistCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A51006191AD5F8007AD610 /* SWPlaylistCell.m */; };
 		84ACBAF7191FFA4A00A9ACDA /* liblog4cplusS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 84ACBAF4191FFA2C00A9ACDA /* liblog4cplusS.a */; };
 		84ACBAF8191FFA4A00A9ACDA /* libsingasteinn.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 84ACBAEA191FFA2C00A9ACDA /* libsingasteinn.a */; };
@@ -30,7 +34,6 @@
 		84B0AA95190D511A00ADCEE2 /* SWBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B0AA94190D511A00ADCEE2 /* SWBaseCell.m */; };
 		84B0AA98190D51DC00ADCEE2 /* SWHintCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B0AA97190D51DC00ADCEE2 /* SWHintCell.m */; };
 		84B2999B192164CD00D95B79 /* SWSingasteinnLibraryProvider.mm in Sources */ = {isa = PBXBuildFile; fileRef = 84B2999A192164CD00D95B79 /* SWSingasteinnLibraryProvider.mm */; };
-		84B3EB7F1927A7DB004E91C2 /* SWAlbumDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B3EB7E1927A7DB004E91C2 /* SWAlbumDetailViewController.m */; };
 		84BFBB3019241705006AEC84 /* SWNowPlayingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BFBB2F19241705006AEC84 /* SWNowPlayingViewController.m */; };
 		9A733027190F7BB300F7FA82 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A733026190F7BB300F7FA82 /* AVFoundation.framework */; };
 		9A73302B190F7BD500F7FA82 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A733028190F7BD500F7FA82 /* CoreMedia.framework */; };
@@ -141,6 +144,14 @@
 		7AC5C2DB191102F70091A3DA /* SWPlayerMenuItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWPlayerMenuItemView.m; sourceTree = "<group>"; };
 		84060C7B19255DF10069F108 /* EndlessScroller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EndlessScroller.h; sourceTree = "<group>"; };
 		84060C7C19255DF10069F108 /* EndlessScroller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EndlessScroller.m; sourceTree = "<group>"; };
+		84091C641928C15B00D0D6A7 /* SWAlbumDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWAlbumDetailViewController.h; sourceTree = "<group>"; };
+		84091C651928C15B00D0D6A7 /* SWAlbumDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWAlbumDetailViewController.m; sourceTree = "<group>"; };
+		84091C671928C4F000D0D6A7 /* SWAlbumTrackCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWAlbumTrackCell.h; sourceTree = "<group>"; };
+		84091C681928C4F000D0D6A7 /* SWAlbumTrackCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWAlbumTrackCell.m; sourceTree = "<group>"; };
+		84091C6A1928D32C00D0D6A7 /* SWPlaylistDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWPlaylistDetailsViewController.h; sourceTree = "<group>"; };
+		84091C6B1928D32C00D0D6A7 /* SWPlaylistDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWPlaylistDetailsViewController.m; sourceTree = "<group>"; };
+		84091C6D1928E71100D0D6A7 /* SWArtistDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWArtistDetailsViewController.h; sourceTree = "<group>"; };
+		84091C6E1928E71100D0D6A7 /* SWArtistDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWArtistDetailsViewController.m; sourceTree = "<group>"; };
 		84A51005191AD5F8007AD610 /* SWPlaylistCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWPlaylistCell.h; sourceTree = "<group>"; };
 		84A51006191AD5F8007AD610 /* SWPlaylistCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWPlaylistCell.m; sourceTree = "<group>"; };
 		84ACBADB191FFA2C00A9ACDA /* singasteinn.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = singasteinn.xcodeproj; path = SecondWindLib/secondwind/singasteinn/singasteinn.xcodeproj; sourceTree = "<group>"; };
@@ -180,8 +191,6 @@
 		84B0AA97190D51DC00ADCEE2 /* SWHintCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWHintCell.m; sourceTree = "<group>"; };
 		84B29999192164CD00D95B79 /* SWSingasteinnLibraryProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWSingasteinnLibraryProvider.h; sourceTree = "<group>"; };
 		84B2999A192164CD00D95B79 /* SWSingasteinnLibraryProvider.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SWSingasteinnLibraryProvider.mm; sourceTree = "<group>"; };
-		84B3EB7D1927A7DB004E91C2 /* SWAlbumDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWAlbumDetailViewController.h; sourceTree = "<group>"; };
-		84B3EB7E1927A7DB004E91C2 /* SWAlbumDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWAlbumDetailViewController.m; sourceTree = "<group>"; };
 		84BFBB2E19241705006AEC84 /* SWNowPlayingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWNowPlayingViewController.h; sourceTree = "<group>"; };
 		84BFBB2F19241705006AEC84 /* SWNowPlayingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWNowPlayingViewController.m; sourceTree = "<group>"; };
 		84D5ECD0191FD17A00A4B556 /* libc.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libc.dylib; path = usr/lib/libc.dylib; sourceTree = SDKROOT; };
@@ -330,6 +339,12 @@
 		84B0AA63190D3EA200ADCEE2 /* CollectionControllers */ = {
 			isa = PBXGroup;
 			children = (
+				84091C6A1928D32C00D0D6A7 /* SWPlaylistDetailsViewController.h */,
+				84091C6B1928D32C00D0D6A7 /* SWPlaylistDetailsViewController.m */,
+				84091C6D1928E71100D0D6A7 /* SWArtistDetailsViewController.h */,
+				84091C6E1928E71100D0D6A7 /* SWArtistDetailsViewController.m */,
+				84091C641928C15B00D0D6A7 /* SWAlbumDetailViewController.h */,
+				84091C651928C15B00D0D6A7 /* SWAlbumDetailViewController.m */,
 				84B0AA64190D3EB600ADCEE2 /* SWTracksViewController.h */,
 				84B0AA65190D3EB600ADCEE2 /* SWTracksViewController.m */,
 				84B0AA67190D3EC700ADCEE2 /* SWPlaylistsViewController.h */,
@@ -338,8 +353,6 @@
 				84B0AA6B190D3ED100ADCEE2 /* SWHintsViewController.m */,
 				84B0AA6D190D3EDE00ADCEE2 /* SWAlbumsViewController.h */,
 				84B0AA6E190D3EDE00ADCEE2 /* SWAlbumsViewController.m */,
-				84B3EB7D1927A7DB004E91C2 /* SWAlbumDetailViewController.h */,
-				84B3EB7E1927A7DB004E91C2 /* SWAlbumDetailViewController.m */,
 				84B0AA70190D3EEA00ADCEE2 /* SWArtistsViewController.h */,
 				84B0AA71190D3EEA00ADCEE2 /* SWArtistsViewController.m */,
 				AC9FD146191063980091B9CC /* SWPlayerViewController.h */,
@@ -394,6 +407,8 @@
 		84B0AA83190D48A300ADCEE2 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				84091C671928C4F000D0D6A7 /* SWAlbumTrackCell.h */,
+				84091C681928C4F000D0D6A7 /* SWAlbumTrackCell.m */,
 				84B0AA84190D48C200ADCEE2 /* SWTrackCell.h */,
 				84B0AA85190D48C200ADCEE2 /* SWTrackCell.m */,
 				84B0AA93190D511A00ADCEE2 /* SWBaseCell.h */,
@@ -688,10 +703,11 @@
 				84B0AA78190D3F4100ADCEE2 /* SWGlobalDataSingleton.m in Sources */,
 				84B0AA95190D511A00ADCEE2 /* SWBaseCell.m in Sources */,
 				84B0AA7B190D3F5300ADCEE2 /* SWMediaLibraryProvider.m in Sources */,
-				84B3EB7F1927A7DB004E91C2 /* SWAlbumDetailViewController.m in Sources */,
+				84091C661928C15B00D0D6A7 /* SWAlbumDetailViewController.m in Sources */,
 				84B2999B192164CD00D95B79 /* SWSingasteinnLibraryProvider.mm in Sources */,
 				9A88F33519249F5C002FA627 /* SWTracksFlowLayout.m in Sources */,
 				84B0AA86190D48C200ADCEE2 /* SWTrackCell.m in Sources */,
+				84091C6C1928D32C00D0D6A7 /* SWPlaylistDetailsViewController.m in Sources */,
 				AC9FD148191063980091B9CC /* SWPlayerViewController.m in Sources */,
 				AC9FD1451910570E0091B9CC /* SWRoundRob.m in Sources */,
 				84B0AA69190D3EC700ADCEE2 /* SWPlaylistsViewController.m in Sources */,
@@ -699,6 +715,8 @@
 				84B0AA5E190D32BA00ADCEE2 /* SWMainTabBarViewController.m in Sources */,
 				9A733039190F80A400F7FA82 /* SWCoreDataManager.m in Sources */,
 				9A8BD4E7191BA14F00594654 /* SWAlbumCell.m in Sources */,
+				84091C6F1928E71100D0D6A7 /* SWArtistDetailsViewController.m in Sources */,
+				84091C691928C4F000D0D6A7 /* SWAlbumTrackCell.m in Sources */,
 				84B0AA6C190D3ED100ADCEE2 /* SWHintsViewController.m in Sources */,
 				9A88F32A19249CBA002FA627 /* SWSearchHeader.m in Sources */,
 				9A733036190F809900F7FA82 /* Model.xcdatamodeld in Sources */,

@@ -10,6 +10,8 @@
 
 @interface SWArtistCell : SWBaseCell
 
+@property (nonatomic, strong, readonly) MPMediaItemCollection *currentArtist;
+
 @property (weak, nonatomic) IBOutlet UILabel *labelAlbumsCount;
 @property (weak, nonatomic) IBOutlet UILabel *labelArtistName;
 @property (weak, nonatomic) IBOutlet UILabel *labelSongsCount;

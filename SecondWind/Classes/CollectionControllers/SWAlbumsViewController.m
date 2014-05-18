@@ -7,7 +7,7 @@
 //
 
 #import "SWAlbumsViewController.h"
-#import "SWAlbumDetailViewController.m"
+#import "SWAlbumDetailViewController.h"
 #import "SWMediaLibraryProvider.h"
 
 #import "SWAlbumCell.h"

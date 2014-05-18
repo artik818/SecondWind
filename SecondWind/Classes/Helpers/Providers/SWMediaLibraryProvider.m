@@ -98,6 +98,20 @@ static SWMediaLibraryProvider *sharedMediaManager = nil;
     return playlists;
 }
 
+- (NSArray *)getAllMediaWithPlayList:(NSString *)playlistName {
+    NSArray *resArray = [NSMutableArray array];;
+
+    NSArray *plists = [self getPlaylists];
+    for (MPMediaPlaylist *playlist in plists) {
+        NSString *plistName = [playlist valueForProperty:MPMediaPlaylistPropertyName];
+        if ([plistName isEqualToString:playlistName]) {
+            resArray = [playlist items];
+            break;
+        }
+    }
+    return resArray;
+}
+
 - (NSArray *)getArtists {
     NSMutableArray *resArray = [NSMutableArray array];;
     
@@ -131,11 +145,11 @@ static SWMediaLibraryProvider *sharedMediaManager = nil;
 - (NSArray *)getAllMediaWithArtist:(NSString *)artistName {
     MPMediaPropertyPredicate *artistNamePredicate = [MPMediaPropertyPredicate predicateWithValue:artistName
                                                                                      forProperty:MPMediaItemPropertyArtist];
-    
-    MPMediaQuery *myArtistQuery = [[MPMediaQuery alloc] init];
-    [myArtistQuery addFilterPredicate:artistNamePredicate];
-    
-    NSArray *itemsFromArtistQuery = [myArtistQuery items];
+    NSSet *predicates = [NSSet setWithObjects:artistNamePredicate, nil];
+    MPMediaQuery *myArtistQuery = [[MPMediaQuery alloc] initWithFilterPredicates:predicates];
+    myArtistQuery.groupingType = MPMediaGroupingAlbum;
+
+    NSArray *itemsFromArtistQuery = [myArtistQuery collections];
     
     return itemsFromArtistQuery;
 }
