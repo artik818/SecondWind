@@ -56,6 +56,11 @@
 
 @property (nonatomic, strong) EndlessScroller *scroller;
 
+@property (nonatomic) CGFloat stepDuration;
+@property (nonatomic) CGFloat stepFullDelta;
+@property (nonatomic) CGFloat stepCurrentDeltaSumm;
+@property (nonatomic) CGFloat stepOneDelta;
+
 @end
 
 
@@ -223,8 +228,6 @@
     NSInteger currentItemIndex;
     UIView *currentView;
     
-    NSInteger numberOfItems = [self.datasource roundRobMenuNumberOfItems:self];
-    
     viewObject = self.viewObjectsArray.lastObject;
     
     currentItemIndex = viewObject.viewIndex;
@@ -297,6 +300,39 @@
     }
 }
 
+- (void)moveViewsToNearest
+{
+    __block CGFloat minAbsDelta = self.distanceBetweenCenters;
+    __block CGFloat realDelta = 0;
+    __block NSInteger realViewIndex = 0;
+    
+    [self.viewObjectsArray enumerateObjectsUsingBlock:^(ViewObject *viewObject, NSUInteger idx, BOOL *stop) {
+        UIView *view = viewObject.view;
+        CGFloat currentDelta = self.centerPos.y - view.center.y;
+        if (ABS(currentDelta) < minAbsDelta) {
+            minAbsDelta = ABS(currentDelta);
+            realDelta = currentDelta;
+            realViewIndex = idx;
+        }
+    }];
+    
+    if (realDelta) {
+        [UIView animateWithDuration:0.5 animations:^{
+            ViewObject *viewObject = self.viewObjectsArray[realViewIndex];
+            self.centerViewIndexInViewsArray = realViewIndex;
+            self.centerItemIndex = viewObject.viewIndex;
+            self.currentCenterY = self.centerPos.y;
+            for (viewObject in self.viewObjectsArray) {
+                UIView *currentView = viewObject.view;
+                currentView.frame = CGRectOffset(currentView.frame, 0, realDelta);
+            }
+        } completion:^(BOOL finished) {
+            [self addNewViewsIfNeeded];
+            [self removeBadViewsIfNeeded];
+        }];
+    }
+}
+
 - (NSInteger)normilizeIndex:(NSInteger)unnormedIndex ifCount:(NSInteger)count
 {
     if (unnormedIndex < 0) {
@@ -305,6 +341,7 @@
     NSInteger newIndex = ABS(unnormedIndex % count);
     return newIndex;
 }
+
 
 
 #pragma mark - Gestures
@@ -339,7 +376,7 @@
     
     if (state == UIGestureRecognizerStateEnded)
     {
-//        [self moveNearestViewOnPoint:self.center];
+        [self moveViewsToNearest];
     }
 }
 
@@ -347,12 +384,12 @@
 {
     UISwipeGestureRecognizerDirection direction = recognizer.direction;
     if (UISwipeGestureRecognizerDirectionUp == direction) {
-        self.currentCenterY -= 250;
-//        [self resetupComponents];
+//        [self moveViewsFromViewsArrayToDelta:-self.distanceBetweenCenters];
+        [self startSteppingWithDelta:-self.distanceBetweenCenters duration:0.5];
     }
     if (UISwipeGestureRecognizerDirectionDown == direction) {
-        self.currentCenterY += 250;
-//        [self resetupComponents];
+//        [self moveViewsFromViewsArrayToDelta:self.distanceBetweenCenters];
+        [self startSteppingWithDelta:self.distanceBetweenCenters duration:0.5];
     }
 }
 
@@ -379,7 +416,32 @@
 
 - (void)step
 {
+    CGFloat currentDelta = self.stepOneDelta;
+    CGFloat nextSumm = self.stepCurrentDeltaSumm + currentDelta;
     
+    BOOL flSopStepping = NO;
+    
+    if (ABS(nextSumm) >= ABS(self.stepFullDelta)) {
+        currentDelta = self.stepFullDelta - self.stepCurrentDeltaSumm;
+        flSopStepping = YES;
+    }
+    
+    self.stepCurrentDeltaSumm += currentDelta;
+    
+    if (flSopStepping) {
+        [self stopAnimation];
+    }
+    
+    [self moveViewsFromViewsArrayToDelta:currentDelta];
+}
+
+- (void)startSteppingWithDelta:(CGFloat)delta duration:(CGFloat)duration
+{
+    self.stepFullDelta = delta;
+    self.stepOneDelta = delta / duration / 60;
+    self.stepDuration = duration;
+    self.stepCurrentDeltaSumm = 0;
+    [self startAnimation];
 }
 
 @end

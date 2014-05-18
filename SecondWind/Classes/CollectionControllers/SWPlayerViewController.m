@@ -60,7 +60,7 @@
 
 - (NSInteger)roundRobMenuNumberOfItems:(SWRoundRobMenu *)roundRobMenu
 {
-    return 5;
+    return 3;
 }
 
 - (UIView *)roundRobMenu:(SWRoundRobMenu *)roundRobMenu viewForItemWithIndex:(NSInteger)itemIndex
