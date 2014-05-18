@@ -8,40 +8,53 @@
 
 #import "SWRoundRobMenu.h"
 #import "SWRoundRob.h"
+#import "EndlessScroller.h"
+
 
 
 #define SWRectSetPos(r, x, y) CGRectMake(x, y, r.size.width, r.size.height)
 #define SWRectSetCenterPos(r, x, y) CGRectMake(x - (r.size.width / 2), y - (r.size.height / 2), r.size.width, r.size.height)
 
 
+#define MAX_BAD_VIEWS       2
 
-@interface viewObject : NSObject
+
+@interface ViewObject : NSObject
 
 @property (nonatomic, strong) UIView *view;
 @property (nonatomic) NSInteger viewIndex;
 
-@end
-
-@implementation viewObject
+- (void)setupVithView:(UIView *)view viewIndex:(NSInteger)viewIndex;
 
 @end
 
 
+@implementation ViewObject
 
-@interface SWRoundRobMenu()
+- (void)setupVithView:(UIView *)view viewIndex:(NSInteger)viewIndex
+{
+    self.view = view;
+    self.viewIndex = viewIndex;
+}
 
-@property (nonatomic) NSInteger currentIndex;
+@end
+
+
+
+@interface SWRoundRobMenu() //<EndlessScrollerDataSource>
+
+@property (nonatomic) NSInteger centerItemIndex;
 @property (nonatomic) CGFloat distanceBetweenCenters;
-
-@property (nonatomic, strong) SWRoundRob *helperRoundRob;
 
 @property (nonatomic, readonly) CGPoint centerPos;
 @property (nonatomic) CGFloat currentCenterY;
 
 @property (nonatomic, strong) NSTimer *timer;
 
-@property (nonatomic, strong) NSMutableArray *viewsArray;
+@property (nonatomic, strong) NSMutableArray *viewObjectsArray;
 @property (nonatomic) NSInteger centerViewIndexInViewsArray;
+
+@property (nonatomic, strong) EndlessScroller *scroller;
 
 @end
 
@@ -53,73 +66,244 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        _currentIndex = 0;
+        
+        _centerItemIndex = 0;
         _centerPos = CGPointMake(frame.size.width / 2, frame.size.height / 2);
         _currentCenterY = _centerPos.y;
-        _helperRoundRob = [SWRoundRob new];
-        _viewsArray = [NSMutableArray new];
+        _viewObjectsArray = [NSMutableArray new];
         [self setupGestures];
     }
     return self;
 }
 
+
 #pragma mark - Interface funcs
 
 - (void)setupWithStartIndex:(NSInteger)startViewIndex distanceBetweenCenters:(CGFloat)distanceBetweenCenters
 {
-    self.currentIndex = startViewIndex;
-    [_helperRoundRob setupCurrentIndex:self.currentIndex];
+    self.centerItemIndex = startViewIndex;
     _distanceBetweenCenters = distanceBetweenCenters;
     
-    [self resetupComponents];
+    [self setupComponents];
+    [self addNewViewsIfNeeded];
 }
 
 
 
 #pragma mark - Utils
 
-- (void)resetupComponents
+- (void)setupComponents
 {
-    static NSInteger prevIndex = -1;
-    static CGFloat prevCenterY = -1;
-    
-    if ((prevIndex != [self.helperRoundRob moveDownIndexFor:0]) || (prevCenterY != self.currentCenterY)) {
-        
+    NSInteger numberOfItems = [self.datasource roundRobMenuNumberOfItems:self];
+    if (self.centerItemIndex >= numberOfItems) {
+        self.centerItemIndex = 0;
     }
     
-    prevIndex = [self.helperRoundRob moveDownIndexFor:0];
-    prevCenterY = self.currentCenterY;
-}
-
-- (void)resetupCenterAndBelowViews
-{
+    NSInteger currentItemIndex = self.centerItemIndex;
     
+    NSInteger i = 0;
     
-    
-    [self.datasource roundRobMenu:self viewForItemWithIndex:self.currentIndex];
-}
-
-- (void)moveViewsFromViewsArray
-{
-    NSInteger currentMenuItemIndex;
-    
-    //
-    currentMenuItemIndex = self.currentIndex;
-    for (NSInteger viewIndex = self.centerViewIndexInViewsArray; viewIndex < self.viewsArray.count; viewIndex++) {
-        UIView *currentView;
-        // there is no view with index i
-        if (viewIndex >= self.viewsArray.count) {
-            currentView = [self.datasource roundRobMenu:self viewForItemWithIndex:currentMenuItemIndex];
+    do {
+        if (currentItemIndex >= numberOfItems) {
+            currentItemIndex = 0;
+        }
+        
+        UIView *currentView = [self.datasource roundRobMenu:self viewForItemWithIndex:currentItemIndex];
+        
+        currentView.frame = SWRectSetCenterPos(currentView.frame, self.centerPos.x, self.currentCenterY + (i * self.distanceBetweenCenters));
+        if (CGRectIntersectsRect(currentView.frame, self.bounds)) {
             [self addSubview:currentView];
-            [self.viewsArray addObject:currentView];
+            ViewObject *viewObject = [ViewObject new];
+            [viewObject setupVithView:currentView viewIndex:currentItemIndex];
+            [self.viewObjectsArray addObject:viewObject];
         }
         else {
-            currentView = self.viewsArray[viewIndex];
+            break;
         }
-        currentView.frame = SWRectSetCenterPos(currentView.frame, self.centerPos.x, self.currentCenterY + (self.distanceBetweenCenters * viewIndex));
         
-        currentMenuItemIndex++;
+        currentItemIndex++;
+        i++;
+    } while (YES);
+    
+    
+    i = -1;
+    currentItemIndex = self.centerItemIndex - 1;
+    do {
+        if (currentItemIndex < 0) {
+            currentItemIndex = numberOfItems - 1;
+        }
+        
+        UIView *currentView = [self.datasource roundRobMenu:self viewForItemWithIndex:currentItemIndex];
+        
+        currentView.frame = SWRectSetCenterPos(currentView.frame, self.centerPos.x, self.currentCenterY + (i * self.distanceBetweenCenters));
+        if (CGRectIntersectsRect(currentView.frame, self.bounds)) {
+            [self addSubview:currentView];
+            ViewObject *viewObject = [ViewObject new];
+            [viewObject setupVithView:currentView viewIndex:currentItemIndex];
+            [self.viewObjectsArray insertObject:viewObject atIndex:0];
+            self.centerViewIndexInViewsArray++;
+        }
+        else {
+            break;
+        }
+        
+        currentItemIndex--;
+        i--;
+    } while (YES);
+    
+}
+
+- (void)moveViewsFromViewsArrayToDelta:(CGFloat)yDelta
+{
+    CGFloat formCenterYDisrance = self.currentCenterY - self.centerPos.y;
+    
+    for (NSInteger viewIndex = 0; viewIndex < self.viewObjectsArray.count; viewIndex++) {
+        ViewObject *viewObject = self.viewObjectsArray[viewIndex];
+        UIView *currentView = viewObject.view;
+        currentView.frame = CGRectOffset(currentView.frame, 0, yDelta);
     }
+    
+    [self addNewViewsIfNeeded];
+    [self removeBadViewsIfNeeded];
+}
+
+- (void)removeBadViewsIfNeeded
+{
+    ViewObject *viewObject;
+    NSInteger currentItemIndex;
+    UIView *currentView;
+    
+    NSInteger badViewsCount = 0;
+    for (NSInteger i = 0; i < MAX_BAD_VIEWS; i++) {
+        viewObject = self.viewObjectsArray[i];
+        
+        currentItemIndex = viewObject.viewIndex;
+        currentView = viewObject.view;
+        
+        if (!CGRectIntersectsRect(currentView.frame, self.bounds)) {
+            badViewsCount++;
+        }
+    }
+    
+    if (badViewsCount >= MAX_BAD_VIEWS) {
+        viewObject = self.viewObjectsArray.firstObject;
+        currentView = viewObject.view;
+        [currentView removeFromSuperview];
+        [self.viewObjectsArray removeObjectAtIndex:0];
+        self.centerViewIndexInViewsArray--;
+    }
+    
+    // ------------------------
+    
+    badViewsCount = 0;
+    for (NSInteger i = self.viewObjectsArray.count - 1; i >= self.viewObjectsArray.count - MAX_BAD_VIEWS; i--) {
+        viewObject = self.viewObjectsArray[i];
+        
+        currentItemIndex = viewObject.viewIndex;
+        currentView = viewObject.view;
+        
+        if (!CGRectIntersectsRect(currentView.frame, self.bounds)) {
+            badViewsCount++;
+        }
+    }
+    
+    if (badViewsCount >= MAX_BAD_VIEWS) {
+        viewObject = self.viewObjectsArray.lastObject;
+        currentView = viewObject.view;
+        [currentView removeFromSuperview];
+        [self.viewObjectsArray removeObjectAtIndex:self.viewObjectsArray.count - 1];
+        self.centerViewIndexInViewsArray--;
+    }
+
+}
+
+- (void)addNewViewsIfNeeded
+{
+    ViewObject *viewObject;
+    NSInteger currentItemIndex;
+    UIView *currentView;
+    
+    NSInteger numberOfItems = [self.datasource roundRobMenuNumberOfItems:self];
+    
+    viewObject = self.viewObjectsArray.lastObject;
+    
+    currentItemIndex = viewObject.viewIndex;
+    currentView = viewObject.view;
+    
+    if (CGRectIntersectsRect(currentView.frame, self.bounds)) {
+        [self addNewViewAtEnd];
+    }
+    
+    //--------
+    
+    viewObject = self.viewObjectsArray.firstObject;
+    
+    currentItemIndex = viewObject.viewIndex;
+    currentView = viewObject.view;
+    
+    if (CGRectIntersectsRect(currentView.frame, self.bounds)) {
+        [self addNewViewAtBegin];
+    }
+}
+
+- (void)addNewViewAtEnd
+{
+    ViewObject *viewObject;
+    NSInteger currentItemIndex;
+    UIView *currentView;
+    
+    NSInteger numberOfItems = [self.datasource roundRobMenuNumberOfItems:self];
+    
+    viewObject = self.viewObjectsArray.lastObject;
+    
+    currentItemIndex = viewObject.viewIndex;
+    currentView = viewObject.view;
+    
+    // add new view
+    currentItemIndex++;
+    currentItemIndex = [self normilizeIndex:currentItemIndex ifCount:numberOfItems];
+    UIView *newView = [self.datasource roundRobMenu:self viewForItemWithIndex:currentItemIndex];
+    newView.frame = CGRectOffset(currentView.frame, 0, self.distanceBetweenCenters);
+    [self addSubview:newView];
+    ViewObject *newViewObject = [ViewObject new];
+    [newViewObject setupVithView:newView viewIndex:currentItemIndex];
+    [self.viewObjectsArray addObject:newViewObject];
+}
+
+- (void)addNewViewAtBegin
+{
+    ViewObject *viewObject;
+    NSInteger currentItemIndex;
+    UIView *currentView;
+    
+    NSInteger numberOfItems = [self.datasource roundRobMenuNumberOfItems:self];
+    
+    viewObject = self.viewObjectsArray.firstObject;
+    
+    currentItemIndex = viewObject.viewIndex;
+    currentView = viewObject.view;
+    
+    if (CGRectIntersectsRect(currentView.frame, self.bounds)) {
+        // add new view
+        currentItemIndex--;
+        currentItemIndex = [self normilizeIndex:currentItemIndex ifCount:numberOfItems];
+        UIView *newView = [self.datasource roundRobMenu:self viewForItemWithIndex:currentItemIndex];
+        newView.frame = CGRectOffset(currentView.frame, 0, -self.distanceBetweenCenters);
+        [self addSubview:newView];
+        ViewObject *newViewObject = [ViewObject new];
+        [newViewObject setupVithView:newView viewIndex:currentItemIndex];
+        [self.viewObjectsArray insertObject:newViewObject atIndex:0];
+        self.centerViewIndexInViewsArray++;
+    }
+}
+
+- (NSInteger)normilizeIndex:(NSInteger)unnormedIndex ifCount:(NSInteger)count
+{
+    if (unnormedIndex < 0) {
+        unnormedIndex -= 1;
+    }
+    NSInteger newIndex = ABS(unnormedIndex % count);
+    return newIndex;
 }
 
 
@@ -150,7 +334,7 @@
         [recognizer setTranslation:CGPointZero inView:recognizer.view];
         
         self.currentCenterY += translation.y;
-        [self resetupComponents];
+        [self moveViewsFromViewsArrayToDelta:translation.y];
     }
     
     if (state == UIGestureRecognizerStateEnded)
@@ -164,32 +348,14 @@
     UISwipeGestureRecognizerDirection direction = recognizer.direction;
     if (UISwipeGestureRecognizerDirectionUp == direction) {
         self.currentCenterY -= 250;
-        [self resetupComponents];
+//        [self resetupComponents];
     }
     if (UISwipeGestureRecognizerDirectionDown == direction) {
         self.currentCenterY += 250;
-        [self resetupComponents];
+//        [self resetupComponents];
     }
 }
 
-
-
-/*
-#pragma mark - Utils
-
-- (void)positionViewsAccordingToCurrentCenterY
-{
-    // первый проход вверх
-    // второй проход вниз
-    
-}
-
-
-- (void)ifHaveToBeAttachedViewWithDeltaIndex:(NSInteger)deltaIndex
-{
-    
-}
-*/
 
 
 #pragma mark - Animation
@@ -217,208 +383,3 @@
 }
 
 @end
-
-
-
-/*
-@interface SWRoundRobMenu()
-
-@property (nonatomic, strong) NSArray *viewsArray;
-@property (nonatomic) NSInteger currentIndex;
-@property (nonatomic, strong) SWRoundRob *helperRoundRob;
-
-@end
-
-
-
-@implementation SWRoundRobMenu
-
-- (id)initWithFrame:(CGRect)frame
-{
-    self = [super initWithFrame:frame];
-    if (self) {
-        _currentIndex = 0;
-        _helperRoundRob = [SWRoundRob new];
-        [self setupGestures];
-    }
-    return self;
-}
-
-- (void)setupWithViews:(NSArray *)viewsArray
-{
-    _viewsArray = viewsArray;
-    [_helperRoundRob setupWithItems:viewsArray];
-    [_helperRoundRob setupCurrentIndex:1];
-    [self setNeedsDisplay];
-}
-
-
-#pragma mark - setters / getters
-
-- (void)setDistanceBetweenCenters:(CGFloat)distanceBetweenCenters
-{
-    _distanceBetweenCenters = distanceBetweenCenters;
-    [self setNeedsDisplay];
-//    [self layoutIfNeeded];
-}
-
-
-#pragma mark -
-
-- (void)layoutSubviews
-{
-    [self resetupComponents];
-}
-
-
-
-#pragma mark - Utils
-
-- (void)resetupComponents
-{
-    CGPoint centerPoint = self.center;
-    [self positionElementsIfCenterPointIs:centerPoint];
-}
-
-// здесь centerPoint - всегда позиция основного элемента
-- (void)positionElementsIfCenterPointIs:(CGPoint)centerPoint
-{
-    UIView *someView = nil;
-    
-    for (NSInteger i = 0; i < self.helperRoundRob.itemsCount ; ++i) {
-        someView = [self.helperRoundRob moveUpItemFor:i];
-        
-        BOOL isIntersects;
-        CGPoint newPoint = [self pointOfViewWithIndex:i ifStartCenterPoint:centerPoint isIntersects:&isIntersects]; //!!!!! NOT Right
-        
-        if (isIntersects) {
-            [self repositionAndAddIfNeededView:someView onSuperView:self atCenterPoint:newPoint];
-        }
-        else {
-            [self removeFromSuperIfNeededView:someView];
-        }
-    }
-}
-
-- (void)moveViewsForYDelta:(CGFloat)yDelta
-{
-    UIView *currentView = [self.helperRoundRob currentItem];
-    CGPoint centerPoint = currentView.center;
-    centerPoint.y += yDelta;
-    [self positionElementsIfCenterPointIs:centerPoint];
-}
-
-- (void)moveNearestViewOnPoint:(CGPoint)somePoint
-{
-    NSInteger nearestIndex = [self indexOfNearestElementToPoint:somePoint];
-    UIView *newCenterView = [self.helperRoundRob itemForIndex:nearestIndex];
-    CGFloat yDelta = self.center.y - newCenterView.center.y;
-    [self.helperRoundRob setupCurrentIndex:nearestIndex];
-    [UIView animateWithDuration:0.5 animations:^{
-        [self moveViewsForYDelta:yDelta];
-    }];
-}
-
-- (CGPoint)pointOfViewWithIndex:(NSInteger)viewIndex ifStartCenterPoint:(CGPoint)startCenterPoint isIntersects:(BOOL *)isIntersects
-{
-    *isIntersects = YES;
-    CGPoint retVal = CGPointMake(startCenterPoint.x, startCenterPoint.y + (viewIndex * self.distanceBetweenCenters));
-    
-    UIView *currentView = self.viewsArray[viewIndex];
-    CGRect viewFrame = currentView.frame;
-    viewFrame = SWRectSetCenterPos(viewFrame, retVal.x, retVal.y);
-    
-    // если не пересекает, пробуем разместить сверху
-    if (!CGRectIntersectsRect(viewFrame, self.bounds)) {
-        retVal = CGPointMake(startCenterPoint.x, startCenterPoint.y - ((self.viewsArray.count - viewIndex) * self.distanceBetweenCenters));
-        viewFrame = SWRectSetCenterPos(viewFrame, retVal.x, retVal.y);
-        if (!CGRectIntersectsRect(viewFrame, self.bounds)) {
-            isIntersects = NO;
-        }
-    }
-    
-    return retVal;
-}
-
-- (void)removeFromSuperIfNeededView:(UIView *)someView
-{
-    if (someView.superview) {
-        [someView removeFromSuperview];
-    }
-}
-
-- (void)repositionAndAddIfNeededView:(UIView *)someView onSuperView:(UIView *)destView atCenterPoint:(CGPoint)centerPoint
-{
-    someView.center = centerPoint;
-    if (!someView.superview) {
-        [destView addSubview:someView];
-    }
-}
-
-- (NSInteger)indexOfNearestElementToPoint:(CGPoint)somePoint
-{
-    NSInteger retVal = 0;
-    
-    CGFloat minYDelta = self.bounds.size.height;
-    
-    for (NSInteger i = 0; i < self.helperRoundRob.itemsCount ; ++i) {
-        UIView *someView = [self.helperRoundRob moveUpItemFor:i];
-        CGFloat currentDelta = ABS(someView.center.y - somePoint.y);
-        if (currentDelta < minYDelta) {
-            minYDelta = currentDelta;
-            retVal = [self.helperRoundRob moveUpIndexFor:i];
-        }
-    }
-    
-    return retVal;
-}
-
-
-#pragma mark - Gestures
-
-- (void)setupGestures
-{
-    UIPanGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panGestureDetected:)];
-    [self addGestureRecognizer:panGestureRecognizer];
-    
-    UISwipeGestureRecognizer *swipeGestureRecognizer;
-    swipeGestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeGestureDetected:)];
-    swipeGestureRecognizer.direction = UISwipeGestureRecognizerDirectionUp;
-    [self addGestureRecognizer:swipeGestureRecognizer];
-    
-    swipeGestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeGestureDetected:)];
-    swipeGestureRecognizer.direction = UISwipeGestureRecognizerDirectionDown;
-    [self addGestureRecognizer:swipeGestureRecognizer];
-}
-
-- (void)panGestureDetected:(UIPanGestureRecognizer *)recognizer
-{
-    UIGestureRecognizerState state = [recognizer state];
-    
-    if (state == UIGestureRecognizerStateBegan || state == UIGestureRecognizerStateChanged)
-    {
-        CGPoint translation = [recognizer translationInView:recognizer.view];
-        [self moveViewsForYDelta:translation.y];
-        NSLog(@"%@", NSStringFromCGPoint(translation));
-        [recognizer setTranslation:CGPointZero inView:recognizer.view];
-    }
-    if (state == UIGestureRecognizerStateEnded)
-    {
-        [self moveNearestViewOnPoint:self.center];
-    }
-}
-
-- (void)swipeGestureDetected:(UISwipeGestureRecognizer *)recognizer
-{
-    UISwipeGestureRecognizerDirection direction = recognizer.direction;
-    if (UISwipeGestureRecognizerDirectionUp == direction) {
-        [self moveViewsForYDelta:-250];
-    }
-    if (UISwipeGestureRecognizerDirectionDown == direction) {
-        [self moveViewsForYDelta:250];
-    }
-}
-
-
-@end
-*/

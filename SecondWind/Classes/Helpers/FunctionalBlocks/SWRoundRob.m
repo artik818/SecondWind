@@ -95,7 +95,7 @@
     if (unnormedIndex < 0) {
         unnormedIndex -= 1;
     }
-    NSInteger newIndex = unnormedIndex % self.arrayOfMenuItems.count;
+    NSInteger newIndex = ABS(unnormedIndex % self.arrayOfMenuItems.count);
     return newIndex;
 }
 

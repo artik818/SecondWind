@@ -60,15 +60,14 @@
 
 - (NSInteger)roundRobMenuNumberOfItems:(SWRoundRobMenu *)roundRobMenu
 {
-    return 3;
+    return 5;
 }
 
 - (UIView *)roundRobMenu:(SWRoundRobMenu *)roundRobMenu viewForItemWithIndex:(NSInteger)itemIndex
 {
-    UIView *view = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 200.0f, 200.0f)];
-    view.backgroundColor = [UIColor lightGrayColor];
+    SWPlayerRoundedView *view = [[SWPlayerRoundedView alloc] initWithFrame:CGRectMake(0, 0, 200.0f, 200.0f)];
     UILabel *label = [[UILabel alloc] initWithFrame:view.bounds];
-    label.text = [NSString stringWithFormat:@"%lu", (unsigned long)index];
+    label.text = [NSString stringWithFormat:@"%lu", (unsigned long)itemIndex];
     label.backgroundColor = [UIColor clearColor];
     label.textAlignment = NSTextAlignmentCenter;
     label.font = [label.font fontWithSize:50];
