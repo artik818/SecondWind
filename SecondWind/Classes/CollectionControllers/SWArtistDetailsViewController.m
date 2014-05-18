@@ -69,6 +69,11 @@
     return cell;
 }
 
+//- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
+//    if (kind isEqualToString:<#(NSString *)#>) {
+//        <#statements#>
+//    }
+//}
 /*
 #pragma mark - Navigation
 

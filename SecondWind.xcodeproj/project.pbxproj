@@ -34,6 +34,7 @@
 		84B0AA95190D511A00ADCEE2 /* SWBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B0AA94190D511A00ADCEE2 /* SWBaseCell.m */; };
 		84B0AA98190D51DC00ADCEE2 /* SWHintCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B0AA97190D51DC00ADCEE2 /* SWHintCell.m */; };
 		84B2999B192164CD00D95B79 /* SWSingasteinnLibraryProvider.mm in Sources */ = {isa = PBXBuildFile; fileRef = 84B2999A192164CD00D95B79 /* SWSingasteinnLibraryProvider.mm */; };
+		84B5D3B619296758001092E4 /* SWArtistDetailHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B5D3B519296758001092E4 /* SWArtistDetailHeader.m */; };
 		84BFBB3019241705006AEC84 /* SWNowPlayingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BFBB2F19241705006AEC84 /* SWNowPlayingViewController.m */; };
 		9A733027190F7BB300F7FA82 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A733026190F7BB300F7FA82 /* AVFoundation.framework */; };
 		9A73302B190F7BD500F7FA82 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A733028190F7BD500F7FA82 /* CoreMedia.framework */; };
@@ -191,6 +192,8 @@
 		84B0AA97190D51DC00ADCEE2 /* SWHintCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWHintCell.m; sourceTree = "<group>"; };
 		84B29999192164CD00D95B79 /* SWSingasteinnLibraryProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWSingasteinnLibraryProvider.h; sourceTree = "<group>"; };
 		84B2999A192164CD00D95B79 /* SWSingasteinnLibraryProvider.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SWSingasteinnLibraryProvider.mm; sourceTree = "<group>"; };
+		84B5D3B419296758001092E4 /* SWArtistDetailHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWArtistDetailHeader.h; sourceTree = "<group>"; };
+		84B5D3B519296758001092E4 /* SWArtistDetailHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWArtistDetailHeader.m; sourceTree = "<group>"; };
 		84BFBB2E19241705006AEC84 /* SWNowPlayingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWNowPlayingViewController.h; sourceTree = "<group>"; };
 		84BFBB2F19241705006AEC84 /* SWNowPlayingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWNowPlayingViewController.m; sourceTree = "<group>"; };
 		84D5ECD0191FD17A00A4B556 /* libc.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libc.dylib; path = usr/lib/libc.dylib; sourceTree = SDKROOT; };
@@ -423,6 +426,8 @@
 				84A51006191AD5F8007AD610 /* SWPlaylistCell.m */,
 				9A88F32819249CBA002FA627 /* SWSearchHeader.h */,
 				9A88F32919249CBA002FA627 /* SWSearchHeader.m */,
+				84B5D3B419296758001092E4 /* SWArtistDetailHeader.h */,
+				84B5D3B519296758001092E4 /* SWArtistDetailHeader.m */,
 				9A88F33319249F5C002FA627 /* SWTracksFlowLayout.h */,
 				9A88F33419249F5C002FA627 /* SWTracksFlowLayout.m */,
 			);
@@ -699,6 +704,7 @@
 				84B0AA72190D3EEA00ADCEE2 /* SWArtistsViewController.m in Sources */,
 				AC5F5E6819217D5C00D830B4 /* SWPlayerRoundedView.m in Sources */,
 				AC78BD94191ACB6D0077AB32 /* SWRoundRobMenu.m in Sources */,
+				84B5D3B619296758001092E4 /* SWArtistDetailHeader.m in Sources */,
 				9A73303D190F90A200F7FA82 /* UserData.m in Sources */,
 				84B0AA78190D3F4100ADCEE2 /* SWGlobalDataSingleton.m in Sources */,
 				84B0AA95190D511A00ADCEE2 /* SWBaseCell.m in Sources */,
@@ -829,7 +835,7 @@
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "FB570B73-F2DD-4A57-8BE2-918C967755C2";
+				PROVISIONING_PROFILE = "C8E33CBF-84D3-42BB-B850-5749F16BAD0D";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -869,7 +875,7 @@
 					SecondWindLib/secondwind/singasteinn/jni/singasteinn,
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-				PROVISIONING_PROFILE = "FB570B73-F2DD-4A57-8BE2-918C967755C2";
+				PROVISIONING_PROFILE = "C8E33CBF-84D3-42BB-B850-5749F16BAD0D";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -888,7 +894,7 @@
 				INFOPLIST_FILE = "SecondWind/SecondWind-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "FB570B73-F2DD-4A57-8BE2-918C967755C2";
+				PROVISIONING_PROFILE = "C8E33CBF-84D3-42BB-B850-5749F16BAD0D";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -906,7 +912,7 @@
 				INFOPLIST_FILE = "SecondWind/SecondWind-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "FB570B73-F2DD-4A57-8BE2-918C967755C2";
+				PROVISIONING_PROFILE = "C8E33CBF-84D3-42BB-B850-5749F16BAD0D";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
