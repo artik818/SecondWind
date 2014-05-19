@@ -9,8 +9,9 @@
 #import "SWArtistDetailsViewController.h"
 
 #import "SWAlbumTrackCell.h"
+#import "SWArtistDetailHeader.h"
 
-@interface SWArtistDetailsViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
+@interface SWArtistDetailsViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, SWArtistDetailHeaderDelegate>
 
 @property (nonatomic, strong) NSArray *artistTracksArray;
 
@@ -69,11 +70,32 @@
     return cell;
 }
 
-//- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
-//    if (kind isEqualToString:<#(NSString *)#>) {
-//        <#statements#>
-//    }
-//}
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
+    
+    UICollectionReusableView *reusableview = nil;
+    
+    if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
+        SWArtistDetailHeader *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"SWArtistDetailHeaderReuseIdentifier" forIndexPath:indexPath];
+
+        MPMediaItemCollection *album = self.artistTracksArray[indexPath.section];
+        [headerView setAlbum:album];
+        
+        headerView.delegate = self;
+        
+        reusableview = headerView;
+    }
+    else if ([kind isEqualToString:UICollectionElementKindSectionFooter]) {
+    }
+    
+    return reusableview;
+}
+
+#pragma mark - SWArtistDetailHeaderDelegate methods
+
+- (void)shuffleButtonAction:(UIButton *)sender {
+    
+}
+
 /*
 #pragma mark - Navigation
 

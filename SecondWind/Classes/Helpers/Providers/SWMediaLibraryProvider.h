@@ -22,5 +22,6 @@
 - (NSArray *)getAllMediaWithArtist:(NSString *)artistName;
 
 - (UIImage *)getArtworkForMediaitem:(MPMediaItem *)mediaItem withSize:(CGSize)imageSize;
+- (NSNumber *)getAlbumDurationTimeInterval:(MPMediaItemCollection *)album;
 
 @end

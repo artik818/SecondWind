@@ -10,3 +10,6 @@
 "trackTitle" = "Track";
 "songsTitle" = "Songs:";
 "albumsTitle" = "Albums:";
+
+"unknownArtist" = "Unknown Artist";
+"unknownAlbum" = "Unknown Album";

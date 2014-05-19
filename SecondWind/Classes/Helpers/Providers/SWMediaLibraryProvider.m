@@ -56,24 +56,29 @@ static SWMediaLibraryProvider *sharedMediaManager = nil;
     
     for (MPMediaItemCollection *album in albums) {
 
-        NSArray *songs = [album items];
-        NSNumber *addLength = nil;
-        NSNumber *addLengthNew = nil;
-        for (MPMediaItem *song in songs) {
-            if (!addLength) {
-                addLength = [song valueForProperty:MPMediaItemPropertyPlaybackDuration];
-            } else {
-                addLengthNew = [song valueForProperty:MPMediaItemPropertyPlaybackDuration];
-                addLength = [NSNumber numberWithFloat:([addLength floatValue] + [addLengthNew floatValue])];
-            }
-        }
         NSMutableDictionary *albumsDictionary = [NSMutableDictionary dictionary];
+        NSNumber *albumDuration = [self getAlbumDurationTimeInterval:album];
         
         [albumsDictionary setValue:album forKey:ALBUMITEM_KEY];
-        [albumsDictionary setValue:addLength forKey:ALBUM_DURATION_KEY];
+        [albumsDictionary setValue:albumDuration forKey:ALBUM_DURATION_KEY];
         [resArray addObject:albumsDictionary];
     }
     return resArray;
+}
+
+- (NSNumber *)getAlbumDurationTimeInterval:(MPMediaItemCollection *)album {
+    NSArray *songs = [album items];
+    NSNumber *addLength = nil;
+    NSNumber *addLengthNew = nil;
+    for (MPMediaItem *song in songs) {
+        if (!addLength) {
+            addLength = [song valueForProperty:MPMediaItemPropertyPlaybackDuration];
+        } else {
+            addLengthNew = [song valueForProperty:MPMediaItemPropertyPlaybackDuration];
+            addLength = [NSNumber numberWithFloat:([addLength floatValue] + [addLengthNew floatValue])];
+        }
+    }
+    return addLength;
 }
 
 - (NSArray *)getAllMediaWithAlbum:(NSString *)albumName {

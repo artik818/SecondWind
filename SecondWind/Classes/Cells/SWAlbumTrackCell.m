@@ -8,7 +8,6 @@
 
 #import "SWAlbumTrackCell.h"
 
-#import "SWGlobalDataSingleton.h"
 
 @implementation SWAlbumTrackCell
 

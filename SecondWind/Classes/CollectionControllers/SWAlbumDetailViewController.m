@@ -7,7 +7,6 @@
 //
 
 #import "SWAlbumDetailViewController.h"
-#import "SWGlobalDataSingleton.h"
 
 #import "SWAlbumTrackCell.h"
 

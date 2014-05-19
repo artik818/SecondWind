@@ -8,8 +8,6 @@
 
 #import "SWTrackCell.h"
 
-#import "SWGlobalDataSingleton.h"
-
 @implementation SWTrackCell
 
 - (id)initWithFrame:(CGRect)frame

@@ -5,5 +5,10 @@
   Created by Momus on 27.04.14.
   Copyright (c) 2014 Artem. All rights reserved.
 */
+"tracksTitle" = "Tracks";
+"trackTitle" = "Track";
 "songsTitle" = "Songs:";
 "albumsTitle" = "Albums:";
+
+"unknownArtist" = "Unknown Artist";
+"unknownAlbum" = "Unknown Album";

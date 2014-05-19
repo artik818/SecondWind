@@ -8,8 +8,6 @@
 
 #import "SWAlbumCell.h"
 
-#import "SWGlobalDataSingleton.h"
-
 @implementation SWAlbumCell
 
 - (id)initWithFrame:(CGRect)frame

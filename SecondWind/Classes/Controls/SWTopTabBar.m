@@ -10,7 +10,7 @@
 #define WHITE_LINE_HEIGHT   4.0f
 
 #import "SWTopTabBar.h"
-#import "SWGlobalDataSingleton.h"
+
 
 #import <CoreGraphics/CoreGraphics.h>
 

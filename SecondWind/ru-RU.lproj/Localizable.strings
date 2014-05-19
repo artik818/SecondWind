@@ -9,3 +9,6 @@
 "trackTitle" = "Песня";
 "songsTitle" = "Песен:";
 "albumsTitle" = "Альбомов:";
+
+"unknownArtist" = "Неизвестный артист";
+"unknownAlbum" = "Неизвестный альбом";
