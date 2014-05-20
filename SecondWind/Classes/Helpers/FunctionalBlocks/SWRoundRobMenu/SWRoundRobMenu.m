@@ -175,10 +175,10 @@
         [self addSubview:bkImageView];
     }
     
-    [self setupBackgroundsAlphaIfNearestViewIndex:self.centerItemIndex delta:0];
+    [self setupBackgroundsAlphaIfNearestItemIndex:self.centerItemIndex delta:0];
 }
 
-- (void)getAlphaPercentForNearestView:(CGFloat *)percentNearestView smezhniyView:(CGFloat *)percentSmezhniyView IfNearestViewIndex:(NSInteger)viewIndex delta:(CGFloat)delta
+- (void)getPercentForNearestView:(CGFloat *)percentNearestView smezhniyView:(CGFloat *)percentSmezhniyView delta:(CGFloat)delta
 {
     CGFloat distanceFromMainView = ABS(delta);
     CGFloat distanceFromSmezhniyView = self.distanceBetweenCenters - distanceFromMainView;
@@ -215,7 +215,7 @@
     *percentSmezhniyView = alphaSmezhniyView;
 }
 
-- (void)setupBackgroundsAlphaIfNearestViewIndex:(NSInteger)viewIndex delta:(CGFloat)delta
+- (void)setupBackgroundsAlphaIfNearestItemIndex:(NSInteger)viewIndex delta:(CGFloat)delta
 {
     NSInteger smezhniyIndex = (delta > 0) ? (viewIndex + 1) : (viewIndex - 1);
     NSInteger itemsCount = [self.datasource roundRobMenuNumberOfItems:self];
@@ -225,13 +225,32 @@
     CGFloat alphaSmezhniyView = 0;
     UIImageView *bkGroundImageView;
     
-    [self getAlphaPercentForNearestView:&alphaMainView smezhniyView:&alphaSmezhniyView IfNearestViewIndex:viewIndex delta:delta];
+    [self getPercentForNearestView:&alphaMainView smezhniyView:&alphaSmezhniyView delta:delta];
     
     bkGroundImageView = self.backgroundViewsArray[viewIndex];
     bkGroundImageView.alpha = alphaMainView;
     
     bkGroundImageView = self.backgroundViewsArray[smezhniyIndex];
     bkGroundImageView.alpha = alphaSmezhniyView;
+}
+
+- (void)setupScaleIfNearestViewObjectIndex:(NSInteger)viewObjectIndex delta:(CGFloat)delta
+{
+    NSInteger smezhniyIndex = (delta > 0) ? (viewObjectIndex + 1) : (viewObjectIndex - 1);
+    NSInteger itemsCount = [self.datasource roundRobMenuNumberOfItems:self];
+    smezhniyIndex = [self normilizeIndex:smezhniyIndex ifCount:itemsCount];
+    
+    CGFloat alphaMainView = 0;
+    CGFloat alphaSmezhniyView = 0;
+    UIView *currentView;
+    
+    [self getPercentForNearestView:&alphaMainView smezhniyView:&alphaSmezhniyView delta:delta];
+    
+//    bkGroundImageView = self.backgroundViewsArray[viewIndex];
+//    bkGroundImageView.alpha = alphaMainView;
+//    
+//    bkGroundImageView = self.backgroundViewsArray[smezhniyIndex];
+//    bkGroundImageView.alpha = alphaSmezhniyView;
 }
 
 - (void)moveViewsFromViewsArrayToDelta:(CGFloat)yDelta
@@ -248,7 +267,8 @@
     
 //    NSLog(@"realDelta == %7.3f, realObjectIndex == %d, viewIndex == %d", realDelta, realObjectIndex, viewIndex);
 
-    [self setupBackgroundsAlphaIfNearestViewIndex:viewIndex delta:realDelta];
+    [self setupBackgroundsAlphaIfNearestItemIndex:viewIndex delta:realDelta];
+//!!!!!    [self setupScaleIfNearestViewObjectIndex:<#(NSInteger)#> delta:<#(CGFloat)#>]
     
     for (NSInteger viewIndex = 0; viewIndex < self.viewObjectsArray.count; viewIndex++) {
         ViewObject *viewObject = self.viewObjectsArray[viewIndex];
