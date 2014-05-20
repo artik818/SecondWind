@@ -170,21 +170,16 @@
         UIImageView *bkImageView = [[UIImageView alloc] initWithFrame:self.bounds];
         bkImageView.image = bkImage;
         [self.backgroundViewsArray addObject:bkImageView];
-//        bkImageView.alpha = (self.centerItemIndex == i) ? 1 : 0;
+        bkImageView.alpha = 0;
+//        bkImageView.transform = CGAffineTransformMakeScale(0.5, 0.5);
         [self addSubview:bkImageView];
     }
     
     [self setupBackgroundsAlphaIfNearestViewIndex:self.centerItemIndex delta:0];
 }
 
-- (void)setupBackgroundsAlphaIfNearestViewIndex:(NSInteger)viewIndex delta:(CGFloat)delta
+- (void)getAlphaPercentForNearestView:(CGFloat *)percentNearestView smezhniyView:(CGFloat *)percentSmezhniyView IfNearestViewIndex:(NSInteger)viewIndex delta:(CGFloat)delta
 {
-    NSInteger smezhniyIndex = (delta > 0) ? (viewIndex + 1) : (viewIndex - 1);
-    NSInteger itemsCount = [self.datasource roundRobMenuNumberOfItems:self];
-    smezhniyIndex = [self normilizeIndex:smezhniyIndex ifCount:itemsCount];
-    
-//    NSLog(@"delta == %7.3f, viewIndex == %d, smezhniyIndex == %d", delta, viewIndex, smezhniyIndex);
-    
     CGFloat distanceFromMainView = ABS(delta);
     CGFloat distanceFromSmezhniyView = self.distanceBetweenCenters - distanceFromMainView;
     
@@ -192,10 +187,8 @@
     CGFloat porogInPoints = self.distanceBetweenCenters * porogInPercent / 100;
     CGFloat workDistance = self.distanceBetweenCenters - (porogInPoints * 2);
     
-    
     CGFloat alphaMainView = 0;
     CGFloat alphaSmezhniyView = 0;
-    UIImageView *bkGroundImageView;
     
     if (distanceFromMainView < porogInPoints) {
         alphaMainView = 1;
@@ -204,13 +197,9 @@
         alphaMainView = 0;
     }
     else {
-        alphaMainView = (distanceFromMainView - porogInPoints) / workDistance;
+        alphaMainView = 1 - ((distanceFromMainView - porogInPoints) / workDistance);
     }
     
-    bkGroundImageView = self.backgroundViewsArray[viewIndex];
-    bkGroundImageView.alpha = alphaMainView;
-    
-    /*
     // ---------------------
     if (distanceFromSmezhniyView < porogInPoints) {
         alphaSmezhniyView = 1;
@@ -219,11 +208,30 @@
         alphaSmezhniyView = 0;
     }
     else {
-        alphaSmezhniyView = (distanceFromSmezhniyView - porogInPoints) / workDistance;
+        alphaSmezhniyView = 1 - ((distanceFromSmezhniyView - porogInPoints) / workDistance);
     }
     
+    *percentNearestView = alphaMainView;
+    *percentSmezhniyView = alphaSmezhniyView;
+}
+
+- (void)setupBackgroundsAlphaIfNearestViewIndex:(NSInteger)viewIndex delta:(CGFloat)delta
+{
+    NSInteger smezhniyIndex = (delta > 0) ? (viewIndex + 1) : (viewIndex - 1);
+    NSInteger itemsCount = [self.datasource roundRobMenuNumberOfItems:self];
+    smezhniyIndex = [self normilizeIndex:smezhniyIndex ifCount:itemsCount];
+    
+    CGFloat alphaMainView = 0;
+    CGFloat alphaSmezhniyView = 0;
+    UIImageView *bkGroundImageView;
+    
+    [self getAlphaPercentForNearestView:&alphaMainView smezhniyView:&alphaSmezhniyView IfNearestViewIndex:viewIndex delta:delta];
+    
+    bkGroundImageView = self.backgroundViewsArray[viewIndex];
+    bkGroundImageView.alpha = alphaMainView;
+    
     bkGroundImageView = self.backgroundViewsArray[smezhniyIndex];
-    bkGroundImageView.alpha = alphaSmezhniyView;*/
+    bkGroundImageView.alpha = alphaSmezhniyView;
 }
 
 - (void)moveViewsFromViewsArrayToDelta:(CGFloat)yDelta
@@ -416,17 +424,6 @@
         self.centerItemIndex = viewObject.viewIndex;
         
         [self startSteppingWithDelta:realDelta duration:duration];
-        
-        /*
-        [UIView animateWithDuration:duration animations:^{
-            for (ViewObject *iObject in self.viewObjectsArray) {
-                UIView *currentView = iObject.view;
-                currentView.frame = CGRectOffset(currentView.frame, 0, realDelta);
-            }
-        } completion:^(BOOL finished) {
-            [self addNewViewsIfNeeded];
-            [self removeBadViewsIfNeeded];
-        }];*/
     }
 }
 
@@ -481,11 +478,9 @@
 {
     UISwipeGestureRecognizerDirection direction = recognizer.direction;
     if (UISwipeGestureRecognizerDirectionUp == direction) {
-//        [self moveViewsFromViewsArrayToDelta:-self.distanceBetweenCenters];
         [self startSteppingWithDelta:-self.distanceBetweenCenters duration:0.5];
     }
     if (UISwipeGestureRecognizerDirectionDown == direction) {
-//        [self moveViewsFromViewsArrayToDelta:self.distanceBetweenCenters];
         [self startSteppingWithDelta:self.distanceBetweenCenters duration:0.5];
     }
 }

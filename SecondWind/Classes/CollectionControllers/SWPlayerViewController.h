@@ -7,11 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-//#import "iCarousel.h"
 
 
 @interface SWPlayerViewController : UIViewController
-
-//@property (nonatomic, strong) IBOutlet iCarousel *carousel;
 
 @end
