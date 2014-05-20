@@ -75,6 +75,28 @@
     return view;
 }
 
+- (UIImage *)roundRobMenu:(SWRoundRobMenu *)roundRobMenu backroundImageForItemWithIndex:(NSInteger)itemIndex
+{
+    UIImage *retVal = nil;
+    switch (itemIndex) {
+        case 0:
+            retVal = [UIImage imageNamed:@"bg_player_auto"];
+            break;
+            
+        case 1:
+            retVal = [UIImage imageNamed:@"bg_player_fix"];
+            break;
+            
+        case 2:
+            retVal = [UIImage imageNamed:@"bg_player_no"];
+            break;
+            
+        default:
+            break;
+    }
+    
+    return retVal;
+}
 
 /*
 #pragma mark -
