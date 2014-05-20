@@ -12,6 +12,7 @@
 
 #include "SingasteinnEngine.h"
 #include "interface/IFittingController.h"
+#include "interface/IPlaybackController.h"
 
 using namespace singasteinn;
 
@@ -41,15 +42,10 @@ static SingasteinnEngine *engine = nil;
     if (self) {
         
         NSString *dir = [self cachesDir];
-        //    singasteinn::SingasteinnEngine eng("cache");
-        //    singasteinn::SongAnalysisService sa;
-        //    eng.getFittingController()->setFittingMode(singasteinn::IFittingController::FM_ConstTempoFit);
-        //    eng.getFittingController()->setConstBeatInterval(0.4);
-        
         engine = new SingasteinnEngine([dir cStringUsingEncoding:NSUnicodeStringEncoding]);
         engine->initializeLogging();
         
-//        [self processMediaLibrary];
+        [self processMediaLibrary];
     }
     return self;
 }
@@ -73,36 +69,38 @@ static SingasteinnEngine *engine = nil;
 }
 
 - (void)processMediaLibrary {
-    __block SongAnalysisService sa;
+    __block SongAnalysisService sa ;
+    __block BOOL b = NO;
     NSArray *asserts = [[SWMediaLibraryProvider sharedMediaManager] getAllMedia];
     
     dispatch_queue_t processQueue = dispatch_queue_create("Process Queue",NULL);
     
     for (MPMediaItem *sng in asserts) {
-        dispatch_async(processQueue, ^{
-
-            NSURL *assetURL = [sng valueForProperty:MPMediaItemPropertyAssetURL];
-            NSLog (@"%@", [assetURL absoluteString]);
-            NSString *urls = [assetURL absoluteString];
-            const char *url = [urls cStringUsingEncoding:NSASCIIStringEncoding];
-            Song::Ptr song(new Song(url));
+        if (!b) {
+            b = YES;
             
-            sa.processSongSync(song);
-            
-            dispatch_async(dispatch_get_main_queue(), ^{
-                // Update the UI
+            dispatch_async(processQueue, ^{
+                NSURL *assetURL = [sng valueForProperty:MPMediaItemPropertyAssetURL];
+                NSLog (@"%@", [assetURL absoluteString]);
+                NSString *urls = [assetURL absoluteString];
+                const char *url = [urls cStringUsingEncoding:NSASCIIStringEncoding];
+                Song::Ptr song(new Song(url));
+                
+                sa.processSongSync(song);
+                
+                dispatch_async(dispatch_get_main_queue(), ^{
+                        [self playSong:song];
+                });
             });
-            
-        }); 
+        }
     }
-//    IPlaybackController * mController = engine ->getPlaybackController();
-//        mController->switchToSong(song);
-//        mController->setPlaybackState(singasteinn::IPlaybackController::PS_Playing);
-//        eng.getFittingController()->setFittingMode(singasteinn::IFittingController::FM_ConstTempoFit);
-//    eng.getFittingController()->setConstBeatInterval(0.4);
 }
 
-
+- (void)playSong:(Song::Ptr)song {
+    IPlaybackController * mController = engine ->getPlaybackController();
+    mController->switchToSong(song);
+    mController->setPlaybackState(IPlaybackController::PS_Playing);
+}
 
 
 @end
