@@ -17,6 +17,8 @@
 
 
 #define MAX_BAD_VIEWS       2
+#define MIN_SCALE           0.6f
+#define MOVE_DURATION_SEC   0.3
 
 
 @interface ViewObject : NSObject
@@ -54,12 +56,12 @@
 @property (nonatomic, strong) NSMutableArray *viewObjectsArray;
 @property (nonatomic) NSInteger centerViewIndexInViewsArray;
 
-@property (nonatomic, strong) EndlessScroller *scroller;
-
 @property (nonatomic) CGFloat stepDuration;
 @property (nonatomic) CGFloat stepFullDelta;
 @property (nonatomic) CGFloat stepCurrentDeltaSumm;
 @property (nonatomic) CGFloat stepOneDelta;
+
+@property (nonatomic, strong) NSMutableArray *backgroundViewsArray;
 
 @end
 
@@ -89,6 +91,7 @@
     self.centerItemIndex = startViewIndex;
     _distanceBetweenCenters = distanceBetweenCenters;
     
+    [self setupBackgroundsArray];
     [self setupComponents];
     [self addNewViewsIfNeeded];
 }
@@ -158,9 +161,119 @@
     
 }
 
+- (void)setupBackgroundsArray
+{
+    NSInteger itemsCount = [self.datasource roundRobMenuNumberOfItems:self];
+    
+    self.backgroundViewsArray = [NSMutableArray new];
+    
+    for (NSInteger i = 0; i < itemsCount; i++) {
+        UIImage *bkImage = [self.datasource roundRobMenu:self backroundImageForItemWithIndex:i];
+        UIImageView *bkImageView = [[UIImageView alloc] initWithFrame:self.bounds];
+        bkImageView.image = bkImage;
+        [self.backgroundViewsArray addObject:bkImageView];
+        bkImageView.alpha = 0;
+//        bkImageView.transform = CGAffineTransformMakeScale(0.5, 0.5);
+        [self addSubview:bkImageView];
+    }
+    
+    [self setupBackgroundsAlphaIfNearestItemIndex:self.centerItemIndex delta:0];
+}
+
+- (void)getPercentForNearestView:(CGFloat *)percentNearestView smezhniyView:(CGFloat *)percentSmezhniyView delta:(CGFloat)delta
+{
+    CGFloat distanceFromMainView = ABS(delta);
+    CGFloat distanceFromSmezhniyView = self.distanceBetweenCenters - distanceFromMainView;
+    
+    CGFloat porogInPercent = 20;
+    CGFloat porogInPoints = self.distanceBetweenCenters * porogInPercent / 100;
+    CGFloat workDistance = self.distanceBetweenCenters - (porogInPoints * 2);
+    
+    CGFloat alphaMainView = 0;
+    CGFloat alphaSmezhniyView = 0;
+    
+    if (distanceFromMainView < porogInPoints) {
+        alphaMainView = 1;
+    }
+    else if (distanceFromMainView > (self.distanceBetweenCenters - porogInPoints)) {
+        alphaMainView = 0;
+    }
+    else {
+        alphaMainView = 1 - ((distanceFromMainView - porogInPoints) / workDistance);
+    }
+    
+    // ---------------------
+    if (distanceFromSmezhniyView < porogInPoints) {
+        alphaSmezhniyView = 1;
+    }
+    else if (distanceFromSmezhniyView > (self.distanceBetweenCenters - porogInPoints)) {
+        alphaSmezhniyView = 0;
+    }
+    else {
+        alphaSmezhniyView = 1 - ((distanceFromSmezhniyView - porogInPoints) / workDistance);
+    }
+    
+    *percentNearestView = alphaMainView;
+    *percentSmezhniyView = alphaSmezhniyView;
+}
+
+- (void)setupBackgroundsAlphaIfNearestItemIndex:(NSInteger)viewIndex delta:(CGFloat)delta
+{
+    NSInteger smezhniyIndex = (delta > 0) ? (viewIndex + 1) : (viewIndex - 1);
+    NSInteger itemsCount = [self.datasource roundRobMenuNumberOfItems:self];
+    smezhniyIndex = [self normilizeIndex:smezhniyIndex ifCount:itemsCount];
+    
+    CGFloat alphaMainView = 0;
+    CGFloat alphaSmezhniyView = 0;
+    UIImageView *bkGroundImageView;
+    
+    [self getPercentForNearestView:&alphaMainView smezhniyView:&alphaSmezhniyView delta:delta];
+    
+    bkGroundImageView = self.backgroundViewsArray[viewIndex];
+    bkGroundImageView.alpha = alphaMainView;
+    
+    bkGroundImageView = self.backgroundViewsArray[smezhniyIndex];
+    bkGroundImageView.alpha = alphaSmezhniyView;
+}
+
+- (void)setupScaleIfNearestViewObjectIndex:(NSInteger)viewObjectIndex delta:(CGFloat)delta
+{
+    NSInteger smezhniyIndex = (delta > 0) ? (viewObjectIndex + 1) : (viewObjectIndex - 1);
+    NSInteger itemsCount = [self.datasource roundRobMenuNumberOfItems:self];
+    smezhniyIndex = [self normilizeIndex:smezhniyIndex ifCount:itemsCount];
+    
+    CGFloat alphaMainView = 0;
+    CGFloat alphaSmezhniyView = 0;
+    UIView *currentView;
+    
+    [self getPercentForNearestView:&alphaMainView smezhniyView:&alphaSmezhniyView delta:delta];
+    
+    CGFloat currentScaleMainView = MIN_SCALE + ((1-MIN_SCALE) * alphaMainView);
+    CGFloat currentScaleSmezhniyView = MIN_SCALE + ((1-MIN_SCALE) * alphaSmezhniyView);
+    
+    currentView = ((ViewObject *)self.viewObjectsArray[viewObjectIndex]).view;
+    currentView.transform = CGAffineTransformMakeScale(currentScaleMainView, currentScaleMainView);;
+    
+    currentView = ((ViewObject *)self.viewObjectsArray[smezhniyIndex]).view;
+    currentView.transform = CGAffineTransformMakeScale(currentScaleSmezhniyView, currentScaleSmezhniyView);
+}
+
 - (void)moveViewsFromViewsArrayToDelta:(CGFloat)yDelta
 {
-    CGFloat formCenterYDisrance = self.currentCenterY - self.centerPos.y;
+//    CGFloat formCenterYDisrance = self.currentCenterY - self.centerPos.y;
+    
+    CGFloat realDelta = 0;
+    NSInteger realObjectIndex = 0;
+    NSInteger viewIndex = 0;
+    
+    ViewObject *viewObject = [self findNearestViewObjectAndGetDelta:&realDelta realObjectIndex:&realObjectIndex];
+    
+    viewIndex = viewObject.viewIndex;
+    
+//    NSLog(@"realDelta == %7.3f, realObjectIndex == %d, viewIndex == %d", realDelta, realObjectIndex, viewIndex);
+
+    [self setupBackgroundsAlphaIfNearestItemIndex:viewIndex delta:realDelta];
+//!!!!!    [self setupScaleIfNearestViewObjectIndex:realObjectIndex delta:realDelta];
     
     for (NSInteger viewIndex = 0; viewIndex < self.viewObjectsArray.count; viewIndex++) {
         ViewObject *viewObject = self.viewObjectsArray[viewIndex];
@@ -300,7 +413,7 @@
     }
 }
 
-- (void)moveViewsToNearest
+- (ViewObject *)findNearestViewObjectAndGetDelta:(CGFloat *)pDelta realObjectIndex:(NSInteger *)pRealObjectIndex
 {
     __block CGFloat minAbsDelta = self.distanceBetweenCenters;
     __block CGFloat realDelta = 0;
@@ -316,20 +429,26 @@
         }
     }];
     
+    *pDelta = realDelta;
+    *pRealObjectIndex = realViewIndex;
+    ViewObject *viewObject = self.viewObjectsArray[realViewIndex];
+    
+    return viewObject;
+}
+
+- (void)moveViewsToNearest
+{
+    CGFloat realDelta = 0;
+    NSInteger realViewIndex = 0;
+    ViewObject *viewObject = [self findNearestViewObjectAndGetDelta:&realDelta realObjectIndex:&realViewIndex];
+    
     if (realDelta) {
-        [UIView animateWithDuration:0.5 animations:^{
-            ViewObject *viewObject = self.viewObjectsArray[realViewIndex];
-            self.centerViewIndexInViewsArray = realViewIndex;
-            self.centerItemIndex = viewObject.viewIndex;
-            self.currentCenterY = self.centerPos.y;
-            for (viewObject in self.viewObjectsArray) {
-                UIView *currentView = viewObject.view;
-                currentView.frame = CGRectOffset(currentView.frame, 0, realDelta);
-            }
-        } completion:^(BOOL finished) {
-            [self addNewViewsIfNeeded];
-            [self removeBadViewsIfNeeded];
-        }];
+        CGFloat duration = ABS(MOVE_DURATION_SEC * (realDelta / self.distanceBetweenCenters));
+        
+        self.centerViewIndexInViewsArray = realViewIndex;
+        self.centerItemIndex = viewObject.viewIndex;
+        
+        [self startSteppingWithDelta:realDelta duration:duration];
     }
 }
 
@@ -384,12 +503,10 @@
 {
     UISwipeGestureRecognizerDirection direction = recognizer.direction;
     if (UISwipeGestureRecognizerDirectionUp == direction) {
-//        [self moveViewsFromViewsArrayToDelta:-self.distanceBetweenCenters];
-        [self startSteppingWithDelta:-self.distanceBetweenCenters duration:0.5];
+        [self startSteppingWithDelta:-self.distanceBetweenCenters duration:MOVE_DURATION_SEC];
     }
     if (UISwipeGestureRecognizerDirectionDown == direction) {
-//        [self moveViewsFromViewsArrayToDelta:self.distanceBetweenCenters];
-        [self startSteppingWithDelta:self.distanceBetweenCenters duration:0.5];
+        [self startSteppingWithDelta:self.distanceBetweenCenters duration:MOVE_DURATION_SEC];
     }
 }
 
@@ -412,6 +529,8 @@
 {
     [_timer invalidate];
     _timer = nil;
+    
+    self.currentCenterY = self.centerPos.y;
 }
 
 - (void)step
@@ -427,6 +546,8 @@
     }
     
     self.stepCurrentDeltaSumm += currentDelta;
+    
+    self.currentCenterY += currentDelta;
     
     if (flSopStepping) {
         [self stopAnimation];

@@ -16,6 +16,7 @@
 
 - (NSInteger)roundRobMenuNumberOfItems:(SWRoundRobMenu *)roundRobMenu;
 - (UIView *)roundRobMenu:(SWRoundRobMenu *)roundRobMenu viewForItemWithIndex:(NSInteger)itemIndex;
+- (UIImage *)roundRobMenu:(SWRoundRobMenu *)roundRobMenu backroundImageForItemWithIndex:(NSInteger)itemIndex;
 
 @end
 
