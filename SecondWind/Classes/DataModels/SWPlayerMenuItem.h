@@ -7,14 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "SWGlobalConsts.h"
 
-typedef NS_ENUM(NSInteger, PlayerMenuItemType)
-{
-    PlayerMenuItemTypeNone,
-    PlayerMenuItemTypeNoEffect,
-    PlayerMenuItemTypeAuto,
-    PlayerMenuItemTypeFixed,
-};
 
 @interface SWPlayerMenuItem : NSObject
 

@@ -25,6 +25,13 @@ typedef NS_ENUM(NSUInteger, TrackQuality)
     TrackQualityMax,
 };
 
+typedef NS_ENUM(NSInteger, PlayerMenuItemType)
+{
+    PlayerMenuItemTypeNone,
+    PlayerMenuItemTypeNoEffect,
+    PlayerMenuItemTypeAuto,
+    PlayerMenuItemTypeFixed,
+};
 
 #pragma mark - KVO
 

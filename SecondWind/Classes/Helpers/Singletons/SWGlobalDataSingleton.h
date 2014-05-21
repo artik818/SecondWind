@@ -7,10 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "SWGlobalConsts.h"
+
 
 @interface SWGlobalDataSingleton : NSObject
 
 @property (nonatomic) NSUInteger selectedTab;
+@property (nonatomic) PlayerMenuItemType playerMode;
 
 + (SWGlobalDataSingleton *)globalDataManager;
 
