@@ -17,6 +17,8 @@
 
 
 #define MAX_BAD_VIEWS       2
+#define MIN_SCALE           0.6f
+#define MOVE_DURATION_SEC   0.3
 
 
 @interface ViewObject : NSObject
@@ -246,11 +248,14 @@
     
     [self getPercentForNearestView:&alphaMainView smezhniyView:&alphaSmezhniyView delta:delta];
     
-//    bkGroundImageView = self.backgroundViewsArray[viewIndex];
-//    bkGroundImageView.alpha = alphaMainView;
-//    
-//    bkGroundImageView = self.backgroundViewsArray[smezhniyIndex];
-//    bkGroundImageView.alpha = alphaSmezhniyView;
+    CGFloat currentScaleMainView = MIN_SCALE + ((1-MIN_SCALE) * alphaMainView);
+    CGFloat currentScaleSmezhniyView = MIN_SCALE + ((1-MIN_SCALE) * alphaSmezhniyView);
+    
+    currentView = ((ViewObject *)self.viewObjectsArray[viewObjectIndex]).view;
+    currentView.transform = CGAffineTransformMakeScale(currentScaleMainView, currentScaleMainView);;
+    
+    currentView = ((ViewObject *)self.viewObjectsArray[smezhniyIndex]).view;
+    currentView.transform = CGAffineTransformMakeScale(currentScaleSmezhniyView, currentScaleSmezhniyView);
 }
 
 - (void)moveViewsFromViewsArrayToDelta:(CGFloat)yDelta
@@ -268,7 +273,7 @@
 //    NSLog(@"realDelta == %7.3f, realObjectIndex == %d, viewIndex == %d", realDelta, realObjectIndex, viewIndex);
 
     [self setupBackgroundsAlphaIfNearestItemIndex:viewIndex delta:realDelta];
-//!!!!!    [self setupScaleIfNearestViewObjectIndex:<#(NSInteger)#> delta:<#(CGFloat)#>]
+//!!!!!    [self setupScaleIfNearestViewObjectIndex:realObjectIndex delta:realDelta];
     
     for (NSInteger viewIndex = 0; viewIndex < self.viewObjectsArray.count; viewIndex++) {
         ViewObject *viewObject = self.viewObjectsArray[viewIndex];
@@ -438,7 +443,7 @@
     ViewObject *viewObject = [self findNearestViewObjectAndGetDelta:&realDelta realObjectIndex:&realViewIndex];
     
     if (realDelta) {
-        CGFloat duration = ABS(0.5 * (realDelta / self.distanceBetweenCenters));
+        CGFloat duration = ABS(MOVE_DURATION_SEC * (realDelta / self.distanceBetweenCenters));
         
         self.centerViewIndexInViewsArray = realViewIndex;
         self.centerItemIndex = viewObject.viewIndex;
@@ -498,10 +503,10 @@
 {
     UISwipeGestureRecognizerDirection direction = recognizer.direction;
     if (UISwipeGestureRecognizerDirectionUp == direction) {
-        [self startSteppingWithDelta:-self.distanceBetweenCenters duration:0.5];
+        [self startSteppingWithDelta:-self.distanceBetweenCenters duration:MOVE_DURATION_SEC];
     }
     if (UISwipeGestureRecognizerDirectionDown == direction) {
-        [self startSteppingWithDelta:self.distanceBetweenCenters duration:0.5];
+        [self startSteppingWithDelta:self.distanceBetweenCenters duration:MOVE_DURATION_SEC];
     }
 }
 
