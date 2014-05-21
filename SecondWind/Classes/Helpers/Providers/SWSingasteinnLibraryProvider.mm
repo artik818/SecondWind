@@ -45,8 +45,8 @@ static SingasteinnEngine *engine = nil;
         //    singasteinn::SongAnalysisService sa;
         //    eng.getFittingController()->setFittingMode(singasteinn::IFittingController::FM_ConstTempoFit);
         //    eng.getFittingController()->setConstBeatInterval(0.4);
-        
-        engine = new SingasteinnEngine([dir cStringUsingEncoding:NSUnicodeStringEncoding]);
+        const char *url = [dir cStringUsingEncoding:NSUTF8StringEncoding];
+        engine = new SingasteinnEngine(url);
         engine->initializeLogging();
         
 //        [self processMediaLibrary];
